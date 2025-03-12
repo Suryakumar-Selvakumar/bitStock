@@ -2,7 +2,7 @@ const { Client } = require("pg");
 require("dotenv").config();
 
 const SQL = `
-    CREATE TABLE products (
+    CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         name VARCHAR(100),
         category VARCHAR(30),
@@ -12,6 +12,14 @@ const SQL = `
         image BYTEA,
         details JSONB
     );
+
+    CREATE TABLE IF NOT EXISTS builds (
+      id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      name VARCHAR(100),
+      price DECIMAL,
+      image BYTEA,
+      parts JSONB
+    )
 `;
 
 async function main() {
