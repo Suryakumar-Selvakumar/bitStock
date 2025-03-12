@@ -19,7 +19,12 @@ const SQL = `
       price DECIMAL,
       image BYTEA,
       parts JSONB
-    )
+    );
+
+    CREATE TABLE IF NOT EXISTS categories (
+      id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      name VARCHAR(100)
+    );
 `;
 
 async function main() {

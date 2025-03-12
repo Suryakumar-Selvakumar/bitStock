@@ -77,6 +77,12 @@ h6 {
   src: url("inter.ttf");
 }
 
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   display: grid;
   width: 100%;
@@ -141,6 +147,7 @@ li {
   text-decoration: none;
   color: white;
   display: flex;
+  align-items: center;
   gap: 0.375rem;
 }
 
@@ -150,12 +157,17 @@ li {
 
 .svg-links path {
   fill: white;
+  transition: all 0.3s ease;
 }
 
 .page-links li:hover .svg-links,
 .page-links li:hover .svg-links path,
 .page-links li:hover .svg-links .st0 {
   fill: #eda920;
+}
+
+.page-links li a {
+  transition: all 0.3s ease;
 }
 
 .page-links li:hover a {
@@ -172,10 +184,12 @@ li {
 
 .svg-links {
   width: 22.5px;
+  transition: all 0.3s ease;
 }
 
 .st0 {
   fill: white;
+  transition: all 0.3s ease;
 }
 
 .search {
@@ -210,5 +224,132 @@ li {
 }
 
 .search-icon path {
+  transition: all 0.3s ease;
+}
+
+.search-icon:hover path {
+  fill: #eda920;
+}
+
+.search-icon path {
   fill: white;
+}
+
+/* HOME PAGE */
+main {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  font-family: myFontRegular;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.first-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-row h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  width: 70%;
+  place-content: center space-evenly;
+}
+
+.builds-container {
+  place-self: start end;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.builds-container h2 {
+  text-align: center;
+}
+
+.builds {
+  display: flex;
+  flex-direction: column;
+}
+
+.build-links {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.build-links a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.build-links a:hover {
+  color: #eda920;
+}
+
+.build-image {
+  width: 550px;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  place-self: start center;
+  gap: 1rem;
+  width: max-content;
+  background-color: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  justify-content: space-between;
+  height: 100%;
+}
+
+.categories-container h2 {
+  text-align: center;
+}
+
+.categories {
+  display: grid;
+  width: 800px;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  grid-auto-rows: 175px;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.category {
+  place-self: center;
+  display: grid;
+  width: 100%;
+  place-items: center;
+  grid-template-rows: 125px 1fr;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.category:hover {
+  color: #eda920;
+}
+
+.category-image {
+  width: 100px;
 }
