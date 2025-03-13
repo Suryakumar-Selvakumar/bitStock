@@ -20,9 +20,22 @@ const db = require("./db/queries");
 app.use(express.urlencoded({ extended: true }));
 
 // Routers
+const productsRouter = require("./routes/productsRouter");
 
+//Routes
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.use("/products", productsRouter);
+app.get(
+  "/search",
+  asyncHandler(async (req, res) => {
+    const { search } = req.query;
+
+    const searchResults = await db.searchProducts(search);
+
+    res.render("products", { products: searchResults });
+  })
+);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
