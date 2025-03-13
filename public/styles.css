@@ -353,3 +353,14 @@ main {
 .category-image {
   width: 100px;
 }
+
+.choose-category-container {
+  margin-top: 7.5rem;
+  font-family: myFontRegular;
+  padding: 2rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+}

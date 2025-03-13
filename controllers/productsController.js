@@ -6,12 +6,25 @@ const getProducts = async (req, res) => {
   res.render("products/products", { products: products });
 };
 
-const addProductsGet = async (req, res) => {
-  res.render("products/add-product");
+const addProductsGet = (req, res) => {
+  const { category } = req.params;
+
+  res.render("products/add-product", { category: category });
+};
+
+const chooseCategoryGet = (req, res) => {
+  res.render("products/choose-category");
 };
 
 const addProductsPost = async (req, res) => {
-  const {} = req.body;
+  const category = req.params;
+  const newProduct = req.body;
+
+  newProduct.category = category;
+
+  await db.addProduct(newProduct);
+
+  res.redirect("/products");
 };
 
 const getProduct = async (req, res) => {
@@ -20,4 +33,10 @@ const getProduct = async (req, res) => {
   res.render("products/product-page", { product: product });
 };
 
-module.exports = { getProducts, addProductsGet, addProductsPost };
+module.exports = {
+  getProducts,
+  addProductsGet,
+  addProductsPost,
+  getProduct,
+  chooseCategoryGet,
+};

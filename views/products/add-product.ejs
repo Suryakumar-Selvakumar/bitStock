@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <form action="/<%= category %>/new" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" required id="name" />
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" step=".01" id="price" />
+      </div>
+      <div>
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" />
+      </div>
+      <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" required id="quantity" />
+      </div>
+      <div>
+        <label for="image">Image</label>
+        <input type="image" id="image" />
+      </div>
+    </form>
+  </body>
+</html>
