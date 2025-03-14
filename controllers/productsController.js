@@ -1,5 +1,8 @@
 const db = require("../db/queries");
 
+// utils
+const getCategory = require("../utils/getCategory");
+
 const getProducts = async (req, res) => {
   const products = await db.getAllProducts();
 
@@ -9,7 +12,10 @@ const getProducts = async (req, res) => {
 const addProductsGet = (req, res) => {
   const { category } = req.params;
 
-  res.render("products/add-product", { category: category });
+  res.render("products/add-product", {
+    category: category,
+    getCategory: getCategory,
+  });
 };
 
 const chooseCategoryGet = (req, res) => {

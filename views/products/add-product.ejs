@@ -7,27 +7,56 @@
     <title>bitStock</title>
   </head>
   <body>
-    <form action="/<%= category %>/new" method="post">
-      <div>
+    <h1>Add a new <%= getCategory(category) %></h1>
+    <form
+      action="/<%= category %>/new"
+      method="post"
+      enctype="multipart/form-data"
+      class="product-form"
+    >
+      <div class="label-input-container">
         <label for="name">Name:</label>
-        <input type="text" required id="name" />
+        <input type="text" required id="name" name="name" />
       </div>
-      <div>
+      <div class="label-input-container">
         <label for="price">Price:</label>
-        <input type="number" step=".01" id="price" />
+        <input type="number" min="0" step=".01" id="price" name="price" />
       </div>
-      <div>
+      <div class="label-input-container">
         <label for="brand">Brand:</label>
-        <input type="text" id="brand" />
+        <input type="text" id="brand" name="brand" />
       </div>
-      <div>
+      <div class="label-input-container">
         <label for="quantity">Quantity:</label>
-        <input type="number" required id="quantity" />
+        <input type="number" min="0" required id="quantity" name="quantity" />
       </div>
-      <div>
-        <label for="image">Image</label>
-        <input type="image" id="image" />
+      <div class="label-input-container">
+        <label for="image">Image:</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          accept="image/png, image/jpeg"
+        />
       </div>
+      <% if(category === "cpu") { %> <%- include("product-forms/cpu-form") %> <%
+      } else if(category === "cpu-cooler") { %> <%-
+      include("product-forms/cpu-cooler-form") %> <% } else if(category ===
+      "motherboard") { %> <%- include("product-forms/motherboard-form") %> <% }
+      else if(category === "memory") { %> <%-
+      include("product-forms/memory-form") %> <% } else if(category ===
+      "storage") { %> <%- include("product-forms/storage-form") %> <% } else
+      if(category === "video-card") { %> <%-
+      include("product-forms/video-card-form") %> <% } else if(category ===
+      "power-supply") { %> <%- include("product-forms/power-supply-form") %> <%
+      } else if(category === "case") { %> <%- include("product-forms/case-form")
+      %> <% } else if(category === "monitor") { %> <%-
+      include("product-forms/monitor-form") %> <% } else if(category ===
+      "headphones") { %> <%- include("product-forms/headphones-form") %> <% }
+      else if(category === "keyboard") { %> <%-
+      include("product-forms/keyboard-form") %> <% } else if(category ===
+      "mouse") { %> <%- include("product-forms/mouse-form") %> <% } %>
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>
