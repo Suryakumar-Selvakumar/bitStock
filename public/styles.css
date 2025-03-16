@@ -203,13 +203,17 @@ li {
 }
 
 .search > input {
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.26);
   outline: none;
   border-radius: 5px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 0.2rem;
   font-size: 0.95rem;
+}
+
+.search > input:focus {
+  border: 1px solid #eda920;
 }
 
 .search-btn {
@@ -368,19 +372,74 @@ main {
 
 #product-form-header {
   text-align: center;
-  margin-top: 7.5rem;
+  margin-top: 10rem;
   font-family: myFontRegular;
 }
 
 .product-form {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   width: 50%;
   align-self: center;
   font-family: myFontRegular;
+  background-color: rgba(138, 43, 226, 0.1);
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
+  font-size: 1rem;
+}
+
+.product-form input {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  outline: none;
+  padding: 0.25rem;
+}
+
+.product-form input:focus {
+  border: 1px solid #eda920;
+  box-shadow: 3px 3px 10px #6f69694d;
+}
+
+.product-form input[type="radio"] {
+  filter: hue-rotate(188.5deg);
+  cursor: pointer;
+}
+
+.product-form input[type="file"] {
+  cursor: pointer;
+}
+
+.product-form input[type="checkbox"] {
+  accent-color: #eda920;
+  cursor: pointer;
+}
+
+.product-form input[type="radio"]:focus,
+.product-form input[type="checkbox"] {
+  box-shadow: none;
+  border: none;
+}
+
+#product-submit {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background-color: rgba(138, 43, 226, 0.45);
+  padding: 0.5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
+}
+
+#product-submit:hover {
+  background-color: rgba(138, 43, 226, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 3px;
+  border: 1px solid transparent;
 }
 
 .input-grouper {
@@ -416,9 +475,9 @@ main {
 }
 
 #image {
-  padding: 0.11rem 0.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 2.5px;
+  padding: 0.23rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
 }
 
 #name,
@@ -428,6 +487,8 @@ main {
 
 .product-fieldset {
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
 }
 
 .product-fieldset.horizontal {
