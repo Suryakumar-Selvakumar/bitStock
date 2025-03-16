@@ -1,27 +1,32 @@
-<div class="label-input-container">
-  <label for="speed">Speed:</label>
-  <input type="text" id="speed" name="speed" required />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="speed">Speed:</label>
+    <input type="text" id="speed" name="speed" required />
+  </div>
+  <div class="label-input-container">
+    <label for="modules">Modules:</label>
+    <input type="text" id="modules" name="modules" required />
+  </div>
+  <div class="label-input-container">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required />
+  </div>
 </div>
-<div class="label-input-container">
-  <label for="modules">Modules:</label>
-  <input type="text" id="modules" name="modules" required />
+<div class="input-grouper duo">
+  <div class="label-input-container">
+    <label for="first-word-latency">First Word Latency:</label>
+    <input
+      type="number"
+      step=".001"
+      min="0"
+      id="first-word-latency"
+      name="firstWordLatency"
+      required
+    />
+  </div>
+  <div class="label-input-container">
+    <label for="cas-latency">CAS Latency:</label>
+    <input type="number" min="0" id="cas-latency" name="casLatency" required />
+  </div>
 </div>
-<div class="label-input-container">
-  <label for="color">Color:</label>
-  <input type="text" id="color" name="color" required />
-</div>
-<div class="label-input-container">
-  <label for="first-word-latency">First Word Latency:</label>
-  <input
-    type="number"
-    step=".001"
-    min="0"
-    id="first-word-latency"
-    name="firstWordLatency"
-    required
-  />
-</div>
-<div class="label-input-container">
-  <label for="cas-latency">CAS Latency:</label>
-  <input type="number" min="0" id="cas-latency" name="casLatency" required />
 </div>

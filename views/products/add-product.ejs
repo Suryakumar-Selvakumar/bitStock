@@ -3,41 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../../styles.css" />
     <title>bitStock</title>
   </head>
   <body>
-    <h1>Add a new <%= getCategory(category) %></h1>
+    <%- include("../components/header") %>
+    <h1 id="product-form-header">Add a new <%= getCategory(category) %></h1>
     <form
       action="/<%= category %>/new"
       method="post"
       enctype="multipart/form-data"
       class="product-form"
     >
-      <div class="label-input-container">
-        <label for="name">Name:</label>
-        <input type="text" required id="name" name="name" />
-      </div>
-      <div class="label-input-container">
-        <label for="price">Price:</label>
-        <input type="number" min="0" step=".01" id="price" name="price" />
-      </div>
-      <div class="label-input-container">
-        <label for="brand">Brand:</label>
-        <input type="text" id="brand" name="brand" />
-      </div>
-      <div class="label-input-container">
-        <label for="quantity">Quantity:</label>
-        <input type="number" min="0" required id="quantity" name="quantity" />
-      </div>
-      <div class="label-input-container">
-        <label for="image">Image:</label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/png, image/jpeg"
-        />
+      <div class="input-grouper duo">
+        <div class="label-input-container">
+          <label for="name">Name:</label>
+          <input type="text" required id="name" name="name" />
+        </div>
+        <div class="label-input-container">
+          <label for="brand">Brand:</label>
+          <input type="text" id="brand" name="brand" />
+        </div>
       </div>
       <% if(category === "cpu") { %> <%- include("product-forms/cpu-form") %> <%
       } else if(category === "cpu-cooler") { %> <%-
@@ -56,6 +42,25 @@
       else if(category === "keyboard") { %> <%-
       include("product-forms/keyboard-form") %> <% } else if(category ===
       "mouse") { %> <%- include("product-forms/mouse-form") %> <% } %>
+      <div class="input-grouper">
+        <div class="label-input-container">
+          <label for="quantity">Quantity:</label>
+          <input type="number" min="0" required id="quantity" name="quantity" />
+        </div>
+        <div class="label-input-container">
+          <label for="price">Price:</label>
+          <input type="number" min="0" step=".01" id="price" name="price" />
+        </div>
+        <div class="label-input-container">
+          <label for="image">Image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg"
+          />
+        </div>
+      </div>
       <button type="submit">Submit</button>
     </form>
   </body>

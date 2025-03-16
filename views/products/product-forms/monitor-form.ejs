@@ -1,38 +1,48 @@
-<div class="label-input-container">
-  <label for="screen-size">Screen Size:</label>
-  <input
-    type="number"
-    step=".1"
-    min="0"
-    id="screen-size"
-    name="screen-size"
-    required
-  />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="screen-size">Screen Size:</label>
+    <input
+      type="number"
+      step=".1"
+      min="0"
+      id="screen-size"
+      name="screen-size"
+      required
+    />
+  </div>
+  <div class="label-input-container">
+    <label for="resolution">Resolution:</label>
+    <input type="text" id="resolution" name="resolution" required />
+  </div>
+  <div class="label-input-container">
+    <label for="refresh-rate">Refresh Rate:</label>
+    <input
+      type="number"
+      min="0"
+      id="refresh-rate"
+      name="refresh-rate"
+      required
+    />
+  </div>
 </div>
-<div class="label-input-container">
-  <label for="resolution">Resolution:</label>
-  <input type="text" id="resolution" name="resolution" required />
-</div>
-<div class="label-input-container">
-  <label for="refresh-rate">Refresh Rate:</label>
-  <input type="number" min="0" id="refresh-rate" name="refresh-rate" required />
-</div>
-<div class="label-input-container">
-  <label for="response-time">Response Time:</label>
-  <input
-    type="number"
-    step=".1"
-    min="0"
-    id="response-time"
-    name="response-time"
-    required
-  />
-</div>
-<div class="label-input-container">
-  <label for="panel-type">Panel Type:</label>
-  <input type="text" id="panel-type" name="panel-type" required />
-</div>
-<div class="label-input-container">
-  <label for="aspect-ratio">Aspect Ratio:</label>
-  <input type="text" id="aspect-ratio" name="aspectRatio" required />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="response-time">Response Time:</label>
+    <input
+      type="number"
+      step=".1"
+      min="0"
+      id="response-time"
+      name="response-time"
+      required
+    />
+  </div>
+  <div class="label-input-container">
+    <label for="panel-type">Panel Type:</label>
+    <input type="text" id="panel-type" name="panel-type" required />
+  </div>
+  <div class="label-input-container">
+    <label for="aspect-ratio">Aspect Ratio:</label>
+    <input type="text" id="aspect-ratio" name="aspectRatio" required />
+  </div>
 </div>

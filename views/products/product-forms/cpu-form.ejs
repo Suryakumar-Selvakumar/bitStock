@@ -1,29 +1,41 @@
-<div class="label-input-container">
-  <label for="core-count">Core Count:</label>
-  <input type="number" min="0" id="core-count" name="coreCount" required />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="core-count">Core Count:</label>
+    <input type="number" min="0" id="core-count" name="coreCount" required />
+  </div>
+  <div class="label-input-container">
+    <label for="core-clock">Core Clock:</label>
+    <input
+      type="number"
+      min="0"
+      step=".01"
+      id="core-clock"
+      name="coreClock"
+      required
+    />
+  </div>
+  <div class="label-input-container">
+    <label for="boost-clock">Boost Clock:</label>
+    <input type="number" min="0" step=".01" id="boost-count" name=boostClock"
+    required/>
+  </div>
 </div>
-<div class="label-input-container">
-  <label for="core-clock">Core Clock:</label>
-  <input type="number" min="0" step=".01" id="core-clock" name="coreClock" required />
-</div>
-<div class="label-input-container">
-  <label for="boost-clock">Boost Clock:</label>
-  <input type="number" min="0" step=".01" id="boost-count" name=boostClock" required/>
-</div>
-<div class="label-input-container">
-  <label for="micro-architecture">Micro Architecture:</label>
-  <input
-    type="text"
-    id="micro-architecture"
-    name="microArchitecture"
-    required
-  />
-</div>
-<div class="label-input-container">
-  <label for="tdp">TDP:</label>
-  <input type="number" min="0" id="tdp" name="tdp" required />
-</div>
-<div class="label-input-container">
-  <label for="integrated-gpu">Integrated GPU:</label>
-  <input type="text" id="integrated-gpu" name="integratedGPU" required />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="micro-architecture">Micro Architecture:</label>
+    <input
+      type="text"
+      id="micro-architecture"
+      name="microArchitecture"
+      required
+    />
+  </div>
+  <div class="label-input-container">
+    <label for="tdp">TDP:</label>
+    <input type="number" min="0" id="tdp" name="tdp" required />
+  </div>
+  <div class="label-input-container">
+    <label for="integrated-gpu">Integrated GPU:</label>
+    <input type="text" id="integrated-gpu" name="integratedGPU" required />
+  </div>
 </div>

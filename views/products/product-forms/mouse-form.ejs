@@ -1,39 +1,54 @@
-<fieldset class="product-fieldset">
-  <legend>Connection Type:</legend>
-  <div>
-    <input type="radio" id="wired" name="connectionType" value="wired" />
-    <label for="wired">Wired</label>
-  </div>
-  <div>
-    <input type="radio" id="wireless" name="connectionType" value="wireless" />
-    <label for="wireless">Wireless</label>
-  </div>
-  <div>
+<div class="input-grouper duo">
+  <div class="label-input-container duo">
+    <label for="maximum-dpi">Maximum DPI:</label>
     <input
-      type="radio"
-      id="bluetooth-wireless"
-      name="connectionType"
-      value="Bluetooth Wireless"
+      type="number"
+      step="100"
+      id="maximum-dpi"
+      name="maximumDPI"
+      required
     />
-    <label for="bluetooth-wireless">Bluetooth Wireless</label>
   </div>
-</fieldset>
-<div class="label-input-container">
-  <label for="maximum-dpi">Maximum DPI:</label>
-  <input type="number" step="100" id="maximum-dpi" name="maximumDPI" required />
+  <div class="label-input-container duo">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required />
+  </div>
 </div>
-<fieldset class="product-fieldset">
-  <legend>Hand Orientation:</legend>
-  <div>
-    <input type="radio" id="right" name="handOrientation" value="right" />
-    <label for="right">Right</label>
-  </div>
-  <div>
-    <input type="radio" id="both" name="handOrientation" value="both" />
-    <label for="both">Both</label>
-  </div>
-</fieldset>
-<div class="label-input-container">
-  <label for="color">Color:</label>
-  <input type="text" id="color" name="color" required />
+<div class="input-grouper duo">
+  <fieldset class="product-fieldset horizontal">
+    <legend>Hand Orientation:</legend>
+    <div>
+      <input type="radio" id="right" name="handOrientation" value="right" />
+      <label for="right">Right</label>
+    </div>
+    <div>
+      <input type="radio" id="both" name="handOrientation" value="both" />
+      <label for="both">Both</label>
+    </div>
+  </fieldset>
+  <fieldset class="product-fieldset horizontal">
+    <legend>Connection Type:</legend>
+    <div>
+      <input type="radio" id="wired" name="connectionType" value="wired" />
+      <label for="wired">Wired</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="wireless"
+        name="connectionType"
+        value="wireless"
+      />
+      <label for="wireless">Wireless</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="bluetooth-wireless"
+        name="connectionType"
+        value="Bluetooth Wireless"
+      />
+      <label for="bluetooth-wireless">Bluetooth Wireless</label>
+    </div>
+  </fieldset>
 </div>

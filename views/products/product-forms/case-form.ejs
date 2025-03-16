@@ -1,27 +1,31 @@
-<div class="label-input-container">
-  <label for="type">Type:</label>
-  <input type="text" id="type" name="type" required />
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" required />
+  </div>
+  <div class="label-input-container">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required />
+  </div>
+  <div class="label-input-container">
+    <label for="side-panel">Side Panel:</label>
+    <input type="text" id="side-panel" name="sidePanel" required />
+  </div>
 </div>
-<div class="label-input-container">
-  <label for="color">Color:</label>
-  <input type="text" id="color" name="color" required />
-</div>
-<div class="label-input-container">
-  <label for="side-panel">Side Panel:</label>
-  <input type="text" id="side-panel" name="sidePanel" required />
-</div>
-<div class="label-input-container">
-  <label for="external-volume">External Volume:</label>
-  <input
-    type="number"
-    step=".1"
-    min="0"
-    id="external-volume"
-    name="externalVolume"
-    required
-  />
-</div>
-<div class="label-input-container">
-  <label for="hd-bays">HD Bays:</label>
-  <input type="number" min="0" id="hd-bays" name="hdBays" required />
+<div class="input-grouper duo">
+  <div class="label-input-container duo">
+    <label for="external-volume">External Volume:</label>
+    <input
+      type="number"
+      step=".1"
+      min="0"
+      id="external-volume"
+      name="externalVolume"
+      required
+    />
+  </div>
+  <div class="label-input-container duo">
+    <label for="hd-bays">HD Bays:</label>
+    <input type="number" min="0" id="hd-bays" name="hdBays" required />
+  </div>
 </div>

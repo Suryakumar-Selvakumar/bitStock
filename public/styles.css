@@ -116,6 +116,7 @@ body {
   user-select: none;
   grid-area: logo;
   text-decoration: none;
+  width: max-content;
 }
 
 .logo span {
@@ -363,4 +364,100 @@ main {
   flex-direction: column;
   align-self: center;
   align-items: center;
+}
+
+#product-form-header {
+  text-align: center;
+  margin-top: 7.5rem;
+  font-family: myFontRegular;
+}
+
+.product-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+  align-self: center;
+  font-family: myFontRegular;
+}
+
+.input-grouper {
+  display: flex;
+  width: 100%;
+  padding-left: 2.75rem;
+  padding-right: 2.75rem;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.label-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label-input-container > input {
+  width: 100%;
+}
+
+.input-grouper.duo {
+  padding: 0 2.75rem;
+  gap: 3.9rem;
+}
+
+.input-grouper.duo > .label-input-container {
+  width: 100%;
+}
+
+.input-grouper.fieldset {
+  padding: 0 2.75rem;
+}
+
+#image {
+  padding: 0.11rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2.5px;
+}
+
+#name,
+#brand {
+  width: 100%;
+}
+
+.product-fieldset {
+  width: 100%;
+}
+
+.product-fieldset.horizontal {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.label-input-container.duo {
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+}
+
+#first-word-latency,
+#cas-latency {
+  width: 100%;
+}
+
+.label-input-container.checkbox {
+  flex-direction: row;
+  align-items: end;
+  gap: 1rem;
+
+  input {
+    height: min-content;
+    width: min-content;
+    position: relative;
+    top: -4.5px;
+  }
 }

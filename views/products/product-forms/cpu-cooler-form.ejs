@@ -1,34 +1,38 @@
-<div class="label-input-container">
-  <label for="fan-rpm">Fan RPM:</label>
-  <input type="number" min="0" id="fan-rpm" name="fanRPM" required />
-</div>
-<div class="label-input-container">
-  <label for="noise-level">Noise Level:</label>
-  <input
-    type="number"
-    step=".1"
-    min="0"
-    id="noise-level"
-    name="noiseLevel"
-    required
-  />
-</div>
-<div class="label-input-container">
-  <label for="color">Color:</label>
-  <input type="text" id="color" name="color" required />
-</div>
-<fieldset class="product-fieldset">
-  <legend>Radiator Size (mm):</legend>
-  <div>
-    <input type="radio" id="240" name="radiatorSize" value="240" />
-    <label for="240">240</label>
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="fan-rpm">Fan RPM:</label>
+    <input type="number" min="0" id="fan-rpm" name="fanRPM" required />
   </div>
-  <div>
-    <input type="radio" id="360" name="radiatorSize" value="360" />
-    <label for="360">360</label>
+  <div class="label-input-container">
+    <label for="noise-level">Noise Level:</label>
+    <input
+      type="number"
+      step=".1"
+      min="0"
+      id="noise-level"
+      name="noiseLevel"
+      required
+    />
   </div>
-  <div>
-    <input type="radio" id="420" name="radiatorSize" value="420" />
-    <label for="420">420</label>
+  <div class="label-input-container">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required />
   </div>
-</fieldset>
+</div>
+<div class="input-grouper fieldset">
+  <fieldset class="product-fieldset horizontal">
+    <legend>Radiator Size (mm):</legend>
+    <div>
+      <input type="radio" id="240" name="radiatorSize" value="240" />
+      <label for="240">240</label>
+    </div>
+    <div>
+      <input type="radio" id="360" name="radiatorSize" value="360" />
+      <label for="360">360</label>
+    </div>
+    <div>
+      <input type="radio" id="420" name="radiatorSize" value="420" />
+      <label for="420">420</label>
+    </div>
+  </fieldset>
+</div>
