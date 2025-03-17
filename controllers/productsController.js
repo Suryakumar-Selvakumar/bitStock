@@ -23,14 +23,18 @@ const chooseCategoryGet = (req, res) => {
 };
 
 const addProductsPost = async (req, res) => {
-  const category = req.params;
+  const { category } = req.params;
   const newProduct = req.body;
+  const imageBuffer = req.file.buffer;
 
   newProduct.category = category;
+  newProduct.image = imageBuffer;
 
-  await db.addProduct(newProduct);
+  console.log(newProduct);
 
-  res.redirect("/products");
+  // await db.addProduct(newProduct);
+
+  // res.redirect("/products");
 };
 
 const getProduct = async (req, res) => {
