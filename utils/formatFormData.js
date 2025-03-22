@@ -1,11 +1,11 @@
 const formatFormData = (newProduct) => {
   const category = newProduct.category;
-  const productDetails = {};
+  let productDetails = {};
 
   switch (category) {
     case "cpu": {
       productDetails = {
-        coreCount: Number(newProduct.coreCount),
+        coreCount: newProduct.coreCount,
         coreClock: newProduct.coreClock + " GHz",
         boostClock: newProduct.boostClock + " GHz",
         microArchitecture: newProduct.microArchitecture,
@@ -16,10 +16,15 @@ const formatFormData = (newProduct) => {
     }
     case "cpu-cooler": {
       productDetails = {
-        fanRPM: newProduct.fanRPM + " RPM",
-        noiseLevel: newProduct.noiseLevel + " dB",
+        fanRPMMin: newProduct.fanRPMMin + " RPM",
+        fanRPMMax: newProduct.fanRPMMax + " RPM",
+        noiseLevelMin: newProduct.noiseLevelMin + " dB",
+        noiseLevelMax: newProduct.noiseLevelMax + " dB",
         color: newProduct.color,
-        radiatorSize: newProduct.radiatorSize + " mm",
+        radiatorSize:
+          newProduct.radiatorSize === "None"
+            ? newProduct.radiatorSize
+            : newProduct.radiatorSize + " mm",
       };
       break;
     }
@@ -28,7 +33,7 @@ const formatFormData = (newProduct) => {
         socket: newProduct.socket,
         formFactor: newProduct.formFactor,
         memoryMax: newProduct.memoryMax + " GB",
-        memorySlots: Number(newProduct.memorySlots),
+        memorySlots: newProduct.memorySlots,
         color: newProduct.color,
       };
       break;
@@ -39,7 +44,7 @@ const formatFormData = (newProduct) => {
         modules: newProduct.modules,
         color: newProduct.color,
         firstWordLatency: newProduct.firstWordLatency + " ns",
-        casLatency: Number(newProduct.casLatency),
+        casLatency: newProduct.casLatency,
       };
       break;
     }
@@ -80,7 +85,7 @@ const formatFormData = (newProduct) => {
         color: newProduct.color,
         sidePanel: newProduct.sidePanel,
         externalVolume: newProduct.externalVolume + " L",
-        hdBays: Number(newProduct.hdBays),
+        hdBays: newProduct.hdBays,
       };
       break;
     }
@@ -132,11 +137,14 @@ const formatFormData = (newProduct) => {
 
   return {
     name: newProduct.name,
+    category: category,
+    price: parseFloat(newProduct.price),
     brand: newProduct.brand,
     quantity: Number(newProduct.quantity),
-    price: parseFloat(newProduct.price),
-    category: category,
     image: newProduct.image,
+    imageType: newProduct.imageType,
     details: productDetails,
   };
 };
+
+module.exports = formatFormData;

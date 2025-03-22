@@ -15,7 +15,19 @@ async function getProductsInCategory(category) {
 }
 
 async function addProduct(newProduct) {
-    
+  await pool.query(
+    "INSERT INTO products (name, category, price, brand, quantity, image, image_type, details) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+    [
+      newProduct.name,
+      newProduct.category,
+      newProduct.price,
+      newProduct.brand,
+      newProduct.quantity,
+      newProduct.image,
+      newProduct.imageType,
+      JSON.stringify(newProduct.details),
+    ]
+  );
 }
 
 async function getProduct(productId) {

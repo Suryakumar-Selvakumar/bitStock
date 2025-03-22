@@ -2,6 +2,7 @@ const db = require("../db/queries");
 
 // utils
 const getCategory = require("../utils/getCategory");
+const formatFormData = require("../utils/formatFormData");
 
 const getProducts = async (req, res) => {
   const products = await db.getAllProducts();
@@ -25,16 +26,16 @@ const chooseCategoryGet = (req, res) => {
 const addProductsPost = async (req, res) => {
   const { category } = req.params;
   const newProduct = req.body;
-  const imageBuffer = req.file.buffer;
 
   newProduct.category = category;
-  newProduct.image = imageBuffer;
+  newProduct.image = req.file.buffer;
+  newProduct.imageType = req.file.mimetype;
 
-  console.log(newProduct);
+  console.log(formatFormData(newProduct));
 
-  // await db.addProduct(newProduct);
+  await db.addProduct(formatFormData(newProduct));
 
-  // res.redirect("/products");
+  res.redirect("/products/new");
 };
 
 const getProduct = async (req, res) => {
