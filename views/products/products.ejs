@@ -9,21 +9,19 @@
   <body>
     <%- include("../components/header") %>
     <main class="products-page">
+      <div class="first-row in-products">
+        <h1>Products</h1>
+        <a href="/products/new">
+          <button class="product-submit add">Add a Product</button>
+        </a>
+      </div>
       <div class="products-container">
         <div class="sidebar">
           <form action="/products" method="get"></form>
         </div>
-        <div class="products-content">
-          <div class="first-row in-products">
-            <h1>Products</h1>
-            <a href="/products/new">
-              <button class="product-submit add">Add a Product</button>
-            </a>
-          </div>
-          <div class="products">
-            <% products.forEach(product => { %> <%- include("product", {product:
-            product}) %> <% }) %>
-          </div>
+        <div class="products">
+          <% products.forEach(product => { %> <%- include("product", {product:
+          product, brandImage: brandImage}) %> <% }) %>
         </div>
       </div>
     </main>

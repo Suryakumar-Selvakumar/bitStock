@@ -1,23 +1,28 @@
 const db = require("../db/queries");
+const sampleSize = require("lodash.samplesize");
 
 // utils
 const getCategory = require("../utils/getCategory");
 const formatFormData = require("../utils/formatFormData");
+const brandImage = require("../utils/brandImage");
 
 const getProducts = async (req, res) => {
   const products = await db.getAllProducts();
 
   products.forEach((product) => {
-    product.image = `data:${
-      product.image_type
-    };base64,${product.image?.toString("base64")}`;
+    product.image = product.image
+      ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+      : `placeholder-image.jpg`;
     delete product.image_type;
     delete product.details;
   });
 
   // console.log(products[0]);
 
-  res.render("products/products", { products: products });
+  res.render("products/products", {
+    products: products,
+    brandImage: brandImage,
+  });
 };
 
 const addProductsGet = (req, res) => {

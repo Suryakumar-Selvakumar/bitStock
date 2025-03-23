@@ -1,13 +1,28 @@
 <a href="/products/<%= product.id %>" class="product-link">
   <div class="product">
+    <% if(brandImage.brandImageExists(product.brand)) { %>
+    <img
+      class="product-brand"
+      src="<%= brandImage.getBrandImage(product.brand) %>"
+      alt="<%= product.brand %>"
+    />
+    <% } %>
+    <div class="product-category"><%= product.category %></div>
     <div class="product-image">
-      <img src="<%= product.image %>" alt="<%= product.name %>" />
+      <img
+        src="<%= product.image ?? placeholder-image.jpg %>"
+        alt="<%= product.name %>"
+      />
     </div>
     <div class="product-details">
       <p class="product-name"><%= product.name %></p>
-      <div class="price-quantity">
-        <p>Quantity: <%= product.quantity %></p>
-        <p>$<%= product.price %></p>
+      <div class="feature-row">
+        <div class="product-feature">
+          $<%= product.price %>
+        </div>
+        <div class="product-feature right">
+          x<%= product.quantity %>
+        </div>
       </div>
     </div>
   </div>
