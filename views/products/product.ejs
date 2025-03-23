@@ -1,0 +1,14 @@
+<a href="/products/<%= product.id %>" class="product-link">
+  <div class="product">
+    <div class="product-image">
+      <img src="<%= product.image %>" alt="<%= product.name %>" />
+    </div>
+    <div class="product-details">
+      <p class="product-name"><%= product.name %></p>
+      <div class="price-quantity">
+        <p>Quantity: <%= product.quantity %></p>
+        <p>$<%= product.price %></p>
+      </div>
+    </div>
+  </div>
+</a>

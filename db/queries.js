@@ -1,7 +1,7 @@
 const pool = require("./pool");
 
 async function getAllProducts() {
-  const { rows } = pool.query("SELECT * FROM products");
+  const { rows } = await pool.query("SELECT * FROM products");
 
   return rows;
 }

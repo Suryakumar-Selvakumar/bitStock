@@ -7,6 +7,16 @@ const formatFormData = require("../utils/formatFormData");
 const getProducts = async (req, res) => {
   const products = await db.getAllProducts();
 
+  products.forEach((product) => {
+    product.image = `data:${
+      product.image_type
+    };base64,${product.image?.toString("base64")}`;
+    delete product.image_type;
+    delete product.details;
+  });
+
+  // console.log(products[0]);
+
   res.render("products/products", { products: products });
 };
 
@@ -28,8 +38,8 @@ const addProductsPost = async (req, res) => {
   const newProduct = req.body;
 
   newProduct.category = category;
-  newProduct.image = req.file.buffer;
-  newProduct.imageType = req.file.mimetype;
+  newProduct.image = req.file?.buffer ?? null;
+  newProduct.imageType = req.file?.mimetype ?? null;
 
   console.log(formatFormData(newProduct));
 
