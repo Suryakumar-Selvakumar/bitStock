@@ -231,7 +231,7 @@ li {
 }
 
 .search-icon {
-  width: 25px;
+  min-width: 25px;
   cursor: pointer;
 }
 
@@ -438,26 +438,21 @@ main {
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid transparent;
-  background-color: rgba(138, 43, 226, 0.45);
+  background-color: rgba(138, 43, 226, 0.55);
   padding: 0.5rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
-}
-
-.product-submit.add {
-  background-color: rgba(138, 43, 226, 0.55);
-  width: max-content;
-  padding: 0.25rem 0.5rem;
   color: white;
 }
 
-.product-submit.add:hover {
-  background-color: rgba(138, 43, 226, 0.4);
+.product-submit.add {
+  width: max-content;
+  padding: 0.25rem 0.5rem;
 }
 
 .product-submit:hover {
-  background-color: rgba(138, 43, 226, 0.3);
+  background-color: rgba(138, 43, 226, 0.4);
   box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 3px;
   border: 1px solid transparent;
 }
@@ -567,16 +562,66 @@ main {
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 250px 1fr;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.144);
 }
 
 .sidebar {
-  padding: 1rem;
+  padding: 2rem;
   border-right: 1px solid rgba(0, 0, 0, 0.144);
   border-radius: 1rem 0 0 1rem;
   background-color: rgba(138, 43, 226, 0.1);
+}
+
+.filter-form {
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.filter-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
+}
+
+.filter-label {
+  font-weight: 600;
+}
+
+.filter-input label,
+.filter-input input {
+  cursor: pointer;
+}
+
+.filter-input label {
+  position: relative;
+  top: -2.5px;
+}
+
+.filter-form input[type="radio"] {
+  filter: hue-rotate(188.5deg);
+}
+
+.filter-form input[type="checkbox"] {
+  accent-color: #eda920;
+  cursor: pointer;
+}
+
+.apply-btn {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgb(181, 181, 181);
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background-color: white;
+  outline: 1px solid rgba(0, 0, 0, 0.7);
 }
 
 .products-content {
@@ -625,6 +670,7 @@ main {
   padding: 0.5rem;
   height: 20px;
   position: absolute;
+  top: 5px;
   z-index: 1;
   right: 0px;
   border-radius: 40px;
@@ -641,6 +687,18 @@ main {
   z-index: 1;
   left: 0px;
   object-fit: cover;
+}
+.product-brand[alt="Gigabyte"] {
+  width: 125px;
+}
+.product-brand[alt="Thermalright"] {
+  width: 175px;
+}
+.product-brand[alt="AsRock"] {
+  height: 20px;
+}
+.product-brand[alt="Corsair"] {
+  height: 30px;
 }
 
 .product-image {

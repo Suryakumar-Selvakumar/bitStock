@@ -1,7 +1,12 @@
 const pool = require("./pool");
 
+// utils
+const setSortCondition = require("../utils/setSortCondition");
+
 async function getAllProducts() {
-  const { rows } = await pool.query("SELECT SETSEED(1), * FROM products ORDER BY RANDOM()");
+  const { rows } = await pool.query(
+    "SELECT SETSEED(1), * FROM products ORDER BY RANDOM()"
+  );
 
   return rows;
 }
@@ -51,6 +56,27 @@ async function getCategories() {
   return rows;
 }
 
+async function filterProducts(sort, category) {
+  if (sort && !category) {
+    const sortQuery = "SELECT * FROM products " + setSortCondition(sort);
+    const { rows } = await pool.query(sortQuery);
+    return rows;
+  } else if (!sort && category) {
+    const { rows } = await pool.query(
+      "SELECT * FROM products WHERE category = ANY($1)",
+      [category]
+    );
+    return rows;
+  } else {
+    const sortQuery = setSortCondition(sort);
+    const { rows } = await pool.query(
+      "SELECT * FROM products WHERE category = ANY($1) " + sortQuery,
+      [category]
+    );
+    return rows;
+  }
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -58,4 +84,5 @@ module.exports = {
   getProduct,
   searchProducts,
   getCategories,
+  filterProducts,
 };

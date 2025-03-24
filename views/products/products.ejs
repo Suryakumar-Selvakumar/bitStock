@@ -17,7 +17,63 @@
       </div>
       <div class="products-container">
         <div class="sidebar">
-          <form action="/products" method="get"></form>
+          <form class="filter-form" action="/products" method="get">
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Name:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="nameAsc" value="nameAsc" <%=
+                sort === "nameAsc" ? 'checked' : '' %> />
+                <label for="nameAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="nameDesc" value="nameDesc"
+                <%= sort === "nameDesc" ? 'checked' : '' %> />
+                <label for="nameDesc">Descending</label>
+              </div>
+            </div>
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Price:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="priceAsc" value="priceAsc"
+                <%= sort === "priceAsc" ? 'checked' : '' %> />
+                <label for="priceAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="priceDesc" value="priceDesc"
+                <%= sort === "priceDesc" ? 'checked' : '' %> />
+                <label for="priceDesc">Descending</label>
+              </div>
+            </div>
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Quantity:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="quantityAsc"
+                value="quantityAsc" <%= sort === "quantityAsc" ? 'checked' : ''
+                %> />
+                <label for="quantityAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="quantityDesc"
+                value="quantityDesc" <%= sort === "quantityDesc" ? 'checked' :
+                '' %> />
+                <label for="quantityDesc">Descending</label>
+              </div>
+            </div>
+            <div class="filter-input-container">
+              <label for="filter" class="filter-label"
+                >Filter By Category:</label
+              >
+              <% categories.forEach(category => { %>
+              <div class="filter-input">
+                <input type="checkbox" name="category" id="<%= category.name %>"
+                value="<%= category.name %>" <%=
+                checkedCategories.includes(category.name) ? 'checked' : '' %> />
+                <label for="<%= category.name %>"><%= category.name %></label>
+              </div>
+              <% }) %>
+            </div>
+            <button class="apply-btn" type="submit">Apply Filters</button>
+          </form>
         </div>
         <div class="products">
           <% products.forEach(product => { %> <%- include("product", {product:
