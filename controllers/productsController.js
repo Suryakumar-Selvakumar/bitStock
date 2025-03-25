@@ -50,8 +50,6 @@ const getProducts = async (req, res) => {
       checkedCategories: [],
     });
   }
-
-  // console.log(products[0]);
 };
 
 const addProductsGet = (req, res) => {
@@ -75,11 +73,9 @@ const addProductsPost = async (req, res) => {
   newProduct.image = req.file?.buffer ?? null;
   newProduct.imageType = req.file?.mimetype ?? null;
 
-  console.log(formatFormData(newProduct));
-
   await db.addProduct(formatFormData(newProduct));
 
-  res.redirect("/products/new");
+  res.redirect("/products");
 };
 
 const getProduct = async (req, res) => {

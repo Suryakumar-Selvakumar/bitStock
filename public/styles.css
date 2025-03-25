@@ -599,7 +599,7 @@ main {
 
 .filter-input label {
   position: relative;
-  top: -2.5px;
+  top: -1px;
 }
 
 .filter-form input[type="radio"] {
@@ -636,7 +636,6 @@ main {
   grid-auto-rows: 400px;
   gap: 3rem;
   width: inherit;
-  place-content: center;
   place-items: center;
 }
 
@@ -694,11 +693,17 @@ main {
 .product-brand[alt="Thermalright"] {
   width: 175px;
 }
-.product-brand[alt="AsRock"] {
+.product-brand[alt="AsRock"],
+.product-brand[alt="HYTE"],
+.product-brand[alt="Razer"],
+.product-brand[alt="Sony"],
+.product-brand[alt="SteelSeries"] {
   height: 20px;
 }
-.product-brand[alt="Corsair"] {
+.product-brand[alt="Corsair"],
+.product-brand[alt="Thermaltake"] {
   height: 30px;
+  width: 100px;
 }
 
 .product-image {

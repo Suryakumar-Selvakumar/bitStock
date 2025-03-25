@@ -51,7 +51,7 @@ async function searchProducts(searchKey) {
 }
 
 async function getCategories() {
-  const { rows } = await pool.query("SELECT * FROM categories");
+  const { rows } = await pool.query("SELECT * FROM categories ORDER BY id");
 
   return rows;
 }
