@@ -544,7 +544,7 @@ main {
 
 /* PRODUCTS PAGE Styles */
 .products-page {
-  padding: 0 4rem;
+  padding: 0 8rem;
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -745,4 +745,14 @@ main {
 
 .product-feature.right {
   justify-content: end;
+}
+
+/* SEARCH PRODUCTS PAGE STYLES */
+.search-products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+  grid-auto-rows: 400px;
+  gap: 3rem;
+  width: inherit;
+  place-items: center;
 }

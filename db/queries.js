@@ -45,9 +45,11 @@ async function getProduct(productId) {
 
 async function searchProducts(searchKey) {
   const { rows } = await pool.query(
-    "SELECT * FROM products WHERE name LIKE '%' || $1 || '%'",
+    "SELECT * FROM products WHERE name ILIKE '%' || $1 || '%'",
     [searchKey]
   );
+
+  return rows;
 }
 
 async function getCategories() {

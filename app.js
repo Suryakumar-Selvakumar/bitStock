@@ -13,9 +13,6 @@ app.set("view engine", "ejs");
 // env
 const port = process.env.PORT || 3000;
 
-// db queries
-const db = require("./db/queries");
-
 // Setup middleware to use form data
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,15 +24,5 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 app.use("/products", productsRouter);
-app.get(
-  "/search",
-  asyncHandler(async (req, res) => {
-    const { search } = req.query;
-
-    const searchResults = await db.searchProducts(search);
-
-    res.render("products", { products: searchResults });
-  })
-);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

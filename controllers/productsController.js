@@ -84,10 +84,32 @@ const getProduct = async (req, res) => {
   res.render("products/product-page", { product: product });
 };
 
+const getSearchResults = async (req, res) => {
+  const { search } = req.query;
+
+  console.log(search);
+
+  const products = await db.searchProducts(search);
+  products.forEach((product) => {
+    product.image = product.image
+      ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+      : `placeholder-image.jpg`;
+    delete product.image_type;
+    delete product.details;
+  });
+
+  res.render("products/search-products", {
+    products: products,
+    brandImage: brandImage,
+    search: search,
+  });
+};
+
 module.exports = {
   getProducts,
   addProductsGet,
   addProductsPost,
   getProduct,
   chooseCategoryGet,
+  getSearchResults,
 };

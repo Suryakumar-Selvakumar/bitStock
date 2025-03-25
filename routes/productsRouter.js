@@ -10,12 +10,19 @@ const {
   addProductsPost,
   getProduct,
   chooseCategoryGet,
+  getSearchResults,
 } = require("../controllers/productsController");
 
 const productsRouter = new Router();
 
+// productsRouter.use((req, res, next) => {
+//   console.log(`ProductsRouter received: ${req.method} ${req.url}`);
+//   next();
+// });
+
 productsRouter.get("/", getProducts);
 productsRouter.get("/new", chooseCategoryGet);
+productsRouter.get("/search", getSearchResults);
 productsRouter.get("/:category/new", addProductsGet);
 productsRouter.post("/:category/new", upload.single("image"), addProductsPost);
 productsRouter.get("/:productId", getProduct);
