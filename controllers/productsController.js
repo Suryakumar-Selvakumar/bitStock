@@ -87,8 +87,6 @@ const getProduct = async (req, res) => {
 const getSearchResults = async (req, res) => {
   const { search } = req.query;
 
-  console.log(search);
-
   const products = await db.searchProducts(search);
   products.forEach((product) => {
     product.image = product.image
