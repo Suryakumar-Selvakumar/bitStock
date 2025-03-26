@@ -1,0 +1,39 @@
+<div class="product-detail">
+  <span>Color</span>
+  <div class="product-colors">
+    <% product.details.color.split("/").forEach((productColor) => { %>
+    <div
+      class="product-color"
+      style="
+        background-color: <%= productColor.toLowerCase() %>;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+      "
+    ></div>
+    <% }) %>
+  </div>
+</div>
+<div class="product-detail">
+  <span>Fan RPM</span>
+  <span
+    ><%= product.details.fanRPMMin.charAt(0) === "0" ? product.details.fanRPMMax
+    : product.details.fanRPMMin + " - " + product.details.fanRPMMax %></span
+  >
+</div>
+<div class="product-detail">
+  <span>Radiator Size</span>
+  <span
+    ><%= product.details.radiatorSize === "None" ? "–" :
+    product.details.radiatorSize %></span
+  >
+</div>
+<div class="product-detail">
+  <span>Noise Level</span>
+  <span
+    ><%= product.details.noiseLevelMin.charAt(0) === "0" ?
+    product.details.noiseLevelMax : product.details.noiseLevelMin + " - " +
+    product.details.noiseLevelMax %></span
+  >
+</div>

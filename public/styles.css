@@ -634,14 +634,14 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
   grid-auto-rows: 400px;
-  gap: 3rem 3.25rem;
+  gap: 3rem;
   width: inherit;
   place-items: center;
 }
 
 .product {
   height: max-content;
-  min-width: 400px;
+  width: 375px;
   display: grid;
   grid-template-rows: min-content 1fr;
   box-shadow: lightgray 0px 2.5px 15px;
@@ -687,21 +687,21 @@ main {
   left: 0px;
   object-fit: cover;
 }
-.product-brand[alt="Gigabyte"] {
+img[alt="Gigabyte"] {
   width: 125px;
 }
-.product-brand[alt="Thermalright"] {
+img[alt="Thermalright"] {
   width: 175px;
 }
-.product-brand[alt="AsRock"],
-.product-brand[alt="HYTE"],
-.product-brand[alt="Razer"],
-.product-brand[alt="Sony"],
-.product-brand[alt="SteelSeries"] {
+img[alt="AsRock"],
+img[alt="HYTE"],
+img[alt="Razer"],
+img[alt="Sony"],
+img[alt="SteelSeries"] {
   height: 20px;
 }
-.product-brand[alt="Corsair"],
-.product-brand[alt="Thermaltake"] {
+img[alt="Corsair"],
+img[alt="Thermaltake"] {
   height: 30px;
   width: 100px;
 }
@@ -751,8 +751,130 @@ main {
 .search-products-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
-  grid-auto-rows: 390px;
+  grid-auto-rows: 400px;
   gap: 3rem;
   width: inherit;
   place-items: center;
+}
+
+/* PRODUCT PAGE STYLES */
+.product-page {
+  width: 62%;
+}
+
+.first-row.in-product {
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
+
+.product-container {
+  flex: 1;
+  margin: 2rem 0;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  border-radius: 1rem;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  font-family: myFontRegular;
+  grid-template-areas:
+    "category-brand category-brand"
+    "image details"
+    "image btns";
+  width: 100%;
+}
+
+.category-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  grid-area: category-brand;
+}
+
+.category-brand div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: max-content;
+  padding: 0.75rem;
+  height: 25px;
+  border-radius: 40px;
+  background-color: #eda920;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.category-brand img {
+  height: 40px;
+  object-fit: cover;
+}
+
+.product-page-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  padding-top: 2rem;
+  grid-area: image;
+}
+
+.product-page-image img {
+  height: 300px;
+}
+
+.product-page-details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.product-detail span {
+  line-height: 1;
+}
+
+.product-detail > span:first-child {
+  color: #929292;
+}
+
+.specific-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  place-items: start;
+}
+
+.product-page-btns {
+  grid-area: btns;
+  justify-self: end;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.product-submit.delete {
+  width: max-content;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(226, 43, 70, 0.55);
+}
+
+.product-submit.delete:hover {
+  background-color: rgba(226, 43, 70, 0.4);
+}
+
+.product-colors {
+  display: flex;
+  gap: 0.25rem;
 }

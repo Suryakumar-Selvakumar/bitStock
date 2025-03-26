@@ -1,0 +1,33 @@
+<div class="product-detail">
+  <span>Color</span>
+  <div class="product-colors">
+    <% product.details.color.split("/").forEach((productColor) => { %>
+    <div
+      class="product-color"
+      style="
+        background-color: <%= productColor.toLowerCase() %>;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+      "
+    ></div>
+    <% }) %>
+  </div>
+</div>
+<div class="product-detail">
+  <span>Speed</span>
+  <span><%= product.details.speed %></span>
+</div>
+<div class="product-detail">
+  <span>Modules</span>
+  <span><%= product.details.modules %></span>
+</div>
+<div class="product-detail">
+  <span>First Word Latency</span>
+  <span><%= product.details.firstWordLatency %></span>
+</div>
+<div class="product-detail">
+  <span>CAS Latency</span>
+  <span><%= product.details.casLatency %></span>
+</div>

@@ -79,9 +79,22 @@ const addProductsPost = async (req, res) => {
 };
 
 const getProduct = async (req, res) => {
-  const product = await db.getProduct();
+  const { productId } = req.params;
 
-  res.render("products/product-page", { product: product });
+  const product = await db.getProduct(productId);
+
+  product.image = product.image
+    ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+    : `../placeholder-image.jpg`;
+  delete product.image_type;
+
+  console.log(product);
+
+  res.render("products/product-page", {
+    product: product,
+    category: product.category,
+    brandImage: brandImage,
+  });
 };
 
 const getSearchResults = async (req, res) => {

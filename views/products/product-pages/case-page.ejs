@@ -1,0 +1,33 @@
+<div class="product-detail">
+  <span>Color</span>
+  <div class="product-colors">
+    <% product.details.color.split("/").forEach((productColor) => { %>
+    <div
+      class="product-color"
+      style="
+        background-color: <%= productColor.toLowerCase() %>;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+      "
+    ></div>
+    <% }) %>
+  </div>
+</div>
+<div class="product-detail">
+  <span>Type</span>
+  <span><%= product.details.type %></span>
+</div>
+<div class="product-detail">
+  <span>Internal HD Bays</span>
+  <span><%= product.details.hdBays %></span>
+</div>
+<div class="product-detail">
+  <span>Side Panel</span>
+  <span><%= product.details.sidePanel %></span>
+</div>
+<div class="product-detail">
+  <span>External Volume</span>
+  <span><%= product.details.externalVolume %></span>
+</div>

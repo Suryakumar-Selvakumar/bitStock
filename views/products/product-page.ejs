@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="product-page">
+      <div class="first-row in-product">
+        <a href="/products">
+          <button class="product-submit add"><< Return to Products</button>
+        </a>
+      </div>
+      <div class="product-container">
+        <div class="category-brand">
+          <div><%= product.category %></div>
+          <% if(brandImage.brandImageExists(product.brand)) { %>
+          <img
+            src="<%= brandImage.getBrandImage(product.brand) %>"
+            alt="<%= product.brand %>"
+          />
+          <% } %>
+        </div>
+        <div class="product-page-image">
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+        </div>
+        <div class="product-page-details">
+          <h1><%= product.name %></h1>
+          <div class="specific-details">
+            <div class="product-detail">
+              <span>Price</span>
+              <span>$<%= product.price %></span>
+            </div>
+            <div class="product-detail">
+              <span>Quantity</span>
+              <span>x<%= product.quantity %></span>
+            </div>
+            <% if(category === "cpu") { %> <%- include("product-pages/cpu-page")
+            %> <% } else if(category === "cpu-cooler") { %> <%-
+            include("product-pages/cpu-cooler-page") %> <% } else if(category
+            === "motherboard") { %> <%-
+            include("product-pages/motherboard-page") %> <% } else if(category
+            === "memory") { %> <%- include("product-pages/memory-page") %> <% }
+            else if(category === "storage") { %> <%-
+            include("product-pages/storage-page") %> <% } else if(category ===
+            "video-card") { %> <%- include("product-pages/video-card-page") %>
+            <% } else if(category === "power-supply") { %> <%-
+            include("product-pages/power-supply-page") %> <% } else if(category
+            === "case") { %> <%- include("product-pages/case-page") %> <% } else
+            if(category === "monitor") { %> <%-
+            include("product-pages/monitor-page") %> <% } else if(category ===
+            "headphones") { %> <%- include("product-pages/headphones-page") %>
+            <% } else if(category === "keyboard") { %> <%-
+            include("product-pages/keyboard-page") %> <% } else if(category ===
+            "mouse") { %> <%- include("product-pages/mouse-page") %> <% } %>
+          </div>
+        </div>
+        <div class="product-page-btns">
+          <form action="/product/edit/<%= product.id %>">
+            <button class="product-submit add">Edit</button>
+          </form>
+          <a href="/products/delete/<%= product.id %>">
+            <button class="product-submit delete">Delete</button>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
