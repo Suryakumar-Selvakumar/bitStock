@@ -1,0 +1,46 @@
+<div class="product-detail">
+  <span>Color</span>
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+  required />
+</div>
+<div class="product-detail">
+  <span>Fan RPM (min, max)</span>
+  <div>
+    <input
+      type="text"
+      name="fanRPMMin"
+      value="<%= product.details.fanRPMMin %>"
+    required />
+    <input
+      type="text"
+      name="fanRPMMax"
+      value="<%= product.details.fanRPMMax %>"
+    required />
+  </div>
+</div>
+<div class="product-detail">
+  <span>Radiator Size</span>
+  <input
+    type="text"
+    name="radiatorSize"
+    value="<%= product.details.radiatorSize %>"
+  required />
+</div>
+<div class="product-detail">
+  <span>Noise Level (min, max)</span>
+  <div>
+    <input
+      type="text"
+      name="noiseLevelMin"
+      value="<%= product.details.noiseLevelMin %>"
+    required />
+    <input
+      type="text"
+      name="noiseLevelMax"
+      value="<%= product.details.noiseLevelMax %>"
+    required />
+  </div>
+</div>

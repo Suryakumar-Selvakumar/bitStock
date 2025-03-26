@@ -495,11 +495,6 @@ main {
   border-radius: 5px;
 }
 
-#name,
-#brand {
-  width: 100%;
-}
-
 .product-fieldset {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.26);
@@ -795,7 +790,7 @@ img[alt="Thermaltake"] {
   grid-area: category-brand;
 }
 
-.category-brand div {
+.category-brand div:first-child {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -871,7 +866,7 @@ img[alt="Thermaltake"] {
 }
 
 .product-submit.delete:hover {
-  background-color: rgba(226, 43, 70, 0.4);
+  background-color: rgba(226, 43, 70, 0.75);
 }
 
 .product-colors {

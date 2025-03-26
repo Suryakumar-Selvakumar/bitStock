@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
     <title>bitStock</title>
   </head>
   <body>
@@ -18,11 +18,11 @@
       <div class="input-grouper duo">
         <div class="label-input-container">
           <label for="name">Name:</label>
-          <input type="text" required id="name" name="name" />
+          <input type="text" id="name" name="name" required />
         </div>
         <div class="label-input-container">
           <label for="brand">Brand:</label>
-          <input type="text" id="brand" name="brand" />
+          <input type="text" id="brand" name="brand" required />
         </div>
       </div>
       <% if(category === "cpu") { %> <%- include("product-forms/cpu-form") %> <%
@@ -45,11 +45,18 @@
       <div class="input-grouper">
         <div class="label-input-container">
           <label for="quantity">Quantity:</label>
-          <input type="number" min="1" required id="quantity" name="quantity" />
+          <input type="number" min="1" id="quantity" name="quantity" required />
         </div>
         <div class="label-input-container">
           <label for="price">Price:</label>
-          <input type="number" min="0" step=".01" id="price" name="price" />
+          <input
+            type="number"
+            min="0"
+            step=".01"
+            id="price"
+            name="price"
+            required
+          />
         </div>
         <div class="label-input-container">
           <label for="image">Image:</label>
@@ -61,7 +68,7 @@
           />
         </div>
       </div>
-      <div class="input-grouper">  
+      <div class="input-grouper">
         <button type="submit" class="product-submit">Submit</button>
       </div>
     </form>

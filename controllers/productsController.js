@@ -88,8 +88,6 @@ const getProduct = async (req, res) => {
     : `../placeholder-image.jpg`;
   delete product.image_type;
 
-  console.log(product);
-
   res.render("products/product-page", {
     product: product,
     category: product.category,
@@ -116,6 +114,25 @@ const getSearchResults = async (req, res) => {
   });
 };
 
+const editProductGet = async (req, res) => {
+  const { productId } = req.params;
+
+  const product = await db.getProduct(productId);
+
+  product.image = product.image
+    ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+    : `../placeholder-image.jpg`;
+  delete product.image_type;
+
+  res.render("products/edit-product", {
+    product: product,
+    brandImage: brandImage,
+    category: product.category,
+  });
+};
+
+const editProductPost = async (req, res) => {};
+
 module.exports = {
   getProducts,
   addProductsGet,
@@ -123,4 +140,6 @@ module.exports = {
   getProduct,
   chooseCategoryGet,
   getSearchResults,
+  editProductGet,
+  editProductPost,
 };

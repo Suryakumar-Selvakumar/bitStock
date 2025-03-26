@@ -6,7 +6,7 @@ const asyncHandler = require("express-async-handler");
 // app config
 const app = express();
 const assetsPath = path.join(__dirname, "public");
-app.use(express.static(assetsPath)); // setup path for static files
+app.use("/static", express.static(assetsPath)); // setup path for static files
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 

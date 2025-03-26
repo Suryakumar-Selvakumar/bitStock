@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="product-page">
+      <div class="first-row in-product">
+        <a href="/products/<%= product.id %>">
+          <button class="product-submit add">
+            << Return to <%= product.name %>
+          </button>
+        </a>
+      </div>
+      <form
+        method="post"
+        action="/products/edit/<%= product.id %>"
+        enctype="multipart/form-data"
+        class="product-container"
+      >
+        <div class="category-brand">
+          <div><%= product.category %></div>
+          <% if(brandImage.brandImageExists(product.brand)) { %>
+          <div>
+            <img
+              src="<%= brandImage.getBrandImage(product.brand) %>"
+              alt="<%= product.brand %>"
+            />
+            <% } %>
+            <input
+              type="text"
+              id="brand"
+              name="brand"
+              value="<%= product.brand %>"
+              required
+            />
+          </div>
+        </div>
+        <div class="product-page-image">
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg, image/svg+xml"
+          />
+        </div>
+        <div class="product-page-details">
+          <h1>
+            <input
+              type="text"
+              required
+              id="name"
+              name="name"
+              value="<%= product.name %>"
+            />
+          </h1>
+          <div class="specific-details">
+            <div class="product-detail">
+              <span>Price</span>
+              <span
+                >$<input
+                  type="number"
+                  min="0"
+                  step=".01"
+                  id="price"
+                  name="price"
+                  value="<%= product.price %>"
+                  required
+                />
+              </span>
+            </div>
+            <div class="product-detail">
+              <span>Quantity</span>
+              <span>
+                x<input
+                  type="number"
+                  min="0"
+                  step=".01"
+                  id="price"
+                  name="price"
+                  value="<%= product.quantity %>"
+                />
+              </span>
+            </div>
+            <% if(category === "cpu") { %> <%-
+            include("product-edit-pages/cpu-edit-page") %> <% } else if(category
+            === "cpu-cooler") { %> <%-
+            include("product-edit-pages/cpu-cooler-edit-page") %> <% } else
+            if(category === "motherboard") { %> <%-
+            include("product-edit-pages/motherboard-edit-page") %> <% } else
+            if(category === "memory") { %> <%-
+            include("product-edit-pages/memory-edit-page") %> <% } else
+            if(category === "storage") { %> <%-
+            include("product-edit-pages/storage-edit-page") %> <% } else
+            if(category === "video-card") { %> <%-
+            include("product-edit-pages/video-card-edit-page") %> <% } else
+            if(category === "power-supply") { %> <%-
+            include("product-edit-pages/power-supply-edit-page") %> <% } else
+            if(category === "case") { %> <%-
+            include("product-edit-pages/case-edit-page") %> <% } else
+            if(category === "monitor") { %> <%-
+            include("product-edit-pages/monitor-edit-page") %> <% } else
+            if(category === "headphones") { %> <%-
+            include("product-edit-pages/headphones-edit-page") %> <% } else
+            if(category === "keyboard") { %> <%-
+            include("product-edit-pages/keyboard-edit-page") %> <% } else
+            if(category === "mouse") { %> <%-
+            include("product-edit-pages/mouse-edit-page") %> <% } %>
+          </div>
+        </div>
+        <div class="product-page-btns">
+          <button type="submit" class="product-submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
