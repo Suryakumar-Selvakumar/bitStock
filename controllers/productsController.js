@@ -20,7 +20,7 @@ const getProducts = async (req, res) => {
         ? `data:${product.image_type};base64,${product.image?.toString(
             "base64"
           )}`
-        : `placeholder-image.jpg`;
+        : `static/placeholder-image.jpg`;
       delete product.image_type;
       delete product.details;
     });
@@ -38,7 +38,7 @@ const getProducts = async (req, res) => {
         ? `data:${product.image_type};base64,${product.image?.toString(
             "base64"
           )}`
-        : `placeholder-image.jpg`;
+        : `static/placeholder-image.jpg`;
       delete product.image_type;
       delete product.details;
     });
@@ -85,7 +85,7 @@ const getProduct = async (req, res) => {
 
   product.image = product.image
     ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
-    : `../placeholder-image.jpg`;
+    : `../static/placeholder-image.jpg`;
   delete product.image_type;
 
   res.render("products/product-page", {
@@ -102,7 +102,7 @@ const getSearchResults = async (req, res) => {
   products.forEach((product) => {
     product.image = product.image
       ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
-      : `placeholder-image.jpg`;
+      : `static/placeholder-image.jpg`;
     delete product.image_type;
     delete product.details;
   });
@@ -121,23 +121,35 @@ const editProductGet = async (req, res) => {
 
   product.image = product.image
     ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
-    : `../placeholder-image.jpg`;
+    : `../../static/placeholder-image.jpg`;
   delete product.image_type;
-
-  console.log(product);
 
   res.render("products/edit-product", {
     product: product,
-    brandImage: brandImage,
     category: product.category,
   });
 };
 
 const editProductPost = async (req, res) => {
+  const { productId } = req.params;
   const updatedProduct = req.body;
+
+  console.log(updatedProduct.quantity);
 
   updatedProduct.image = req.file?.buffer ?? null;
   updatedProduct.imageType = req.file?.mimetype ?? null;
+
+  const oldProduct = await db.getProduct(productId);
+  updatedProduct.category = oldProduct.category;
+
+  const formattedUpdatedProduct = formatFormData(updatedProduct);
+  formattedUpdatedProduct.id = parseInt(productId);
+
+  console.log(formattedUpdatedProduct);
+
+  await db.updateProduct(formattedUpdatedProduct);
+
+  res.redirect(`/products/${productId}`);
 };
 
 module.exports = {

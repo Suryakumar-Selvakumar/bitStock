@@ -26,11 +26,7 @@ productsRouter.get("/", getProducts);
 productsRouter.get("/new", chooseCategoryGet);
 productsRouter.get("/search", getSearchResults);
 productsRouter.get("/edit/:productId", editProductGet);
-productsRouter.get(
-  "/delete/:productId",
-  upload.single("image"),
-  editProductPost
-);
+productsRouter.post("/edit/:productId", upload.single("image"), editProductPost);
 productsRouter.get("/:category/new", addProductsGet);
 productsRouter.post("/:category/new", upload.single("image"), addProductsPost);
 productsRouter.get("/:productId", getProduct);

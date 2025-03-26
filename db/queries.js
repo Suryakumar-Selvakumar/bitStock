@@ -35,6 +35,34 @@ async function addProduct(newProduct) {
   );
 }
 
+async function updateProduct(updatedProduct) {
+  updatedProduct.image !== null
+    ? await pool.query(
+        "UPDATE products SET name = $1, price = $2, brand = $3, quantity = $4, image = $5, image_type = $6, details = $7 WHERE id = $8",
+        [
+          updatedProduct.name,
+          updatedProduct.price,
+          updatedProduct.brand,
+          updatedProduct.quantity,
+          updatedProduct.image,
+          updatedProduct.imageType,
+          JSON.stringify(updatedProduct.details),
+          updatedProduct.id,
+        ]
+      )
+    : await pool.query(
+        "UPDATE products SET name = $1, price = $2, brand = $3, quantity = $4, details = $5 WHERE id = $6",
+        [
+          updatedProduct.name,
+          updatedProduct.price,
+          updatedProduct.brand,
+          updatedProduct.quantity,
+          JSON.stringify(updatedProduct.details),
+          updatedProduct.id,
+        ]
+      );
+}
+
 async function getProduct(productId) {
   const { rows } = await pool.query("SELECT * FROM products WHERE id=$1", [
     productId,
@@ -87,4 +115,5 @@ module.exports = {
   searchProducts,
   getCategories,
   filterProducts,
+  updateProduct,
 };
