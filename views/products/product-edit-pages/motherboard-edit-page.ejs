@@ -1,32 +1,96 @@
 <div class="product-detail">
   <span>Color</span>
-  <input type="text" name="color" value="<%= product.details.color %>" required />
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Socket / CPU</span>
-  <input type="text" name="socket" value="<%= product.details.socket %>" required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="AM5" name="socket" value="AM5" <%=
+      product.details.socket === "AM5" ? 'checked' : '' %> required />
+      <label for="AM5">AM5</label>
+    </div>
+    <div>
+      <input type="radio" id="AM4" name="socket" value="AM4" <%=
+      product.details.socket === "AM4" ? 'checked' : '' %> />
+      <label for="AM4">AM4</label>
+    </div>
+    <div>
+      <input type="radio" id="LGA1700" name="socket" <%= product.details.socket
+      === "LGA1700" ? 'checked' : '' %> value="LGA1700" />
+      <label for="LGA1700">LGA1700</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Form Factor</span>
-  <input
-    type="text"
-    name="formFactor"
-    value="<%= product.details.formFactor %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="ATX" name="formFactor" <%=
+      product.details.formFactor === 'ATX' ? 'checked' : '' %> value="ATX"
+      required />
+      <label for="ATX">ATX</label>
+    </div>
+    <div>
+      <input type="radio" id="Micro-ATX" name="formFactor" <%=
+      product.details.formFactor === 'Micro ATX' ? 'checked' : '' %>
+      value="Micro ATX" />
+      <label for="Micro-ATX">Micro ATX</label>
+    </div>
+    <div>
+      <input type="radio" id="Mini-ITX" name="formFactor" <%=
+      product.details.formFactor === 'Mini ITX' ? 'checked' : '' %>
+      value="Mini-ITX" />
+      <label for="Mini-ITX">Mini ITX</label>
+    </div>
+    <div>
+      <input type="radio" id="EATX" name="formFactor" <%=
+      product.details.formFactor === 'EATX' ? 'checked' : '' %> value="EATX" />
+      <label for="EATX">EATX</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Memory Max</span>
-  <input
-    type="text"
-    name="memoryMax"
-    value="<%= product.details.memoryMax %>"
-  required />
-</div>
-<div class="product-detail">
-  <span>Memory Slots</span>
-  <input
-    type="text"
-    name="memorySlots"
-    value="<%= product.details.memorySlots %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="64" name="memoryMax" <%= parseInt(product.details.memoryMax) === 64 ? 'checked' : '' %> value="64" required />
+      <label for="64">64</label>
+    </div>
+    <div>
+      <input type="radio" id="128" name="memoryMax" <%= parseInt(product.details.memoryMax) === 128 ? 'checked' : '' %> value="128" />
+      <label for="128">128</label>
+    </div>
+    <div>
+      <input type="radio" id="192" name="memoryMax" <%= parseInt(product.details.memoryMax) === 192 ? 'checked' : '' %> value="192" />
+      <label for="192">192</label>
+    </div>
+    <div>
+      <input type="radio" id="256" name="memoryMax" <%= parseInt(product.details.memoryMax) === 256 ? 'checked' : '' %> value="256" />
+      <label for="256">256</label>
+    </div>
+  </div>
+  </div>
+  <div class="product-detail">
+    <span>Memory Slots</span>
+    <div class="product-specific-input-radio">
+      <div>
+        <input type="radio" id="2" name="memorySlots" value="2" <%= product.details.memorySlots === "2" ? 'checked' : '' %> required />
+        <label for="2">2</label>
+      </div>
+      <div>
+        <input type="radio" id="4" name="memorySlots" <%= product.details.memorySlots === "4" ? 'checked' : '' %> value="4" />
+        <label for="4">4</label>
+      </div>
+      <div>
+        <input type="radio" id="8" name="memorySlots" <%= product.details.memorySlots === "8" ? 'checked' : '' %> value="8" />
+        <label for="8">8</label>
+      </div>
+    </div>
+  </div>
 </div>

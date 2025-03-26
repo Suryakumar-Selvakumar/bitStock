@@ -124,6 +124,8 @@ const editProductGet = async (req, res) => {
     : `../placeholder-image.jpg`;
   delete product.image_type;
 
+  console.log(product);
+
   res.render("products/edit-product", {
     product: product,
     brandImage: brandImage,
@@ -131,7 +133,12 @@ const editProductGet = async (req, res) => {
   });
 };
 
-const editProductPost = async (req, res) => {};
+const editProductPost = async (req, res) => {
+  const updatedProduct = req.body;
+
+  updatedProduct.image = req.file?.buffer ?? null;
+  updatedProduct.imageType = req.file?.mimetype ?? null;
+};
 
 module.exports = {
   getProducts,

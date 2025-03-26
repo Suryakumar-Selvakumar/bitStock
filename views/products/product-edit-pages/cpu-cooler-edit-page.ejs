@@ -4,43 +4,77 @@
     type="text"
     name="color"
     value="<%= product.details.color %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Fan RPM (min, max)</span>
-  <div>
+  <span class="product-specific-input">
     <input
-      type="text"
+      type="number"
+      min="0"
+      id="fan-rpm"
       name="fanRPMMin"
-      value="<%= product.details.fanRPMMin %>"
-    required />
+      value="<%= parseInt(product.details.fanRPMMin) %>"
+      required
+    />
     <input
-      type="text"
+      type="number"
+      min="0"
+      id="fan-rpm"
       name="fanRPMMax"
-      value="<%= product.details.fanRPMMax %>"
-    required />
-  </div>
+      value="<%= parseInt(product.details.fanRPMMax) %>"
+      required
+    />
+  </span>
 </div>
 <div class="product-detail">
   <span>Radiator Size</span>
-  <input
-    type="text"
-    name="radiatorSize"
-    value="<%= product.details.radiatorSize %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="240" name="radiatorSize" <%=
+      product.details.radiatorSize === "240" ? 'checked' : '' %> value="240"
+      required />
+      <label for="240">240</label>
+    </div>
+    <div>
+      <input type="radio" id="360" name="radiatorSize" <%=
+      product.details.radiatorSize === "360" ? 'checked' : '' %> value="360" />
+      <label for="360">360</label>
+    </div>
+    <div>
+      <input type="radio" id="420" name="radiatorSize" <%=
+      product.details.radiatorSize === "420" ? 'checked' : '' %> value="420" />
+      <label for="420">420</label>
+    </div>
+    <div>
+      <input type="radio" id="none" name="radiatorSize" <%=
+      product.details.radiatorSize === "None" ? 'checked' : '' %> value="None"
+      />
+      <label for="none">None</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
-  <span>Noise Level (min, max)</span>
-  <div>
+  <span>Noise Level dB (min, max)</span>
+  <span class="product-specific-input">
     <input
-      type="text"
+      type="number"
+      step=".1"
+      min="0"
+      id="noise-level-min"
       name="noiseLevelMin"
-      value="<%= product.details.noiseLevelMin %>"
-    required />
+      value="<%= parseFloat(product.details.noiseLevelMin) %>"
+      required
+    />
     <input
-      type="text"
+      type="number"
+      step=".1"
+      min="0"
+      id="noise-level-max"
       name="noiseLevelMax"
-      value="<%= product.details.noiseLevelMax %>"
-    required />
-  </div>
+      value="<%= parseFloat(product.details.noiseLevelMax) %>"
+      required
+    />
+  </span>
 </div>

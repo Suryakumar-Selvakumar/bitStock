@@ -1,28 +1,60 @@
 <div class="product-detail">
   <span>Color</span>
-  <input type="text" name="color" value="<%= product.details.color %>" required />
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Connection Type</span>
-  <input
-    type="text"
-    name="connectionType"
-    value="<%= product.details.connectionType %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="checkbox" id="wired" name="connectionType" value="Wired" <%=
+      product.details.connectionType.split(", ").includes("Wired") ? 'checked' :
+      ''%> required />
+      <label for="wired">Wired</label>
+    </div>
+    <div>
+      <input type="checkbox" id="wireless" name="connectionType" <%=
+      product.details.connectionType.split(", ").includes("Wireless") ?
+      'checked' : ''%> value="Wireless" />
+      <label for="wireless">Wireless</label>
+    </div>
+    <div>
+      <input type="checkbox" id="bluetooth-wireless" name="connectionType" <%=
+      product.details.connectionType.split(", ").includes("Bluetooth Wireless")
+      ? 'checked' : ''%> value="Bluetooth Wireless" />
+      <label for="bluetooth-wireless">Bluetooth Wireless</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Maximum DPI</span>
   <input
-    type="text"
+    type="number"
+    step="100"
+    id="maximum-dpi"
     name="maximumDPI"
-    value="<%= product.details.maximumDPI %>"
-  required />
+    value="<%= parseInt(product.details.maximumDPI) %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Hand Orientation</span>
-  <input
-    type="text"
-    name="handOrientation"
-    value="<%= product.details.handOrientation %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="right" name="handOrientation" <%=
+      product.details.handOrientation === "right" ? 'checked' : '' %>
+      value="right" required />
+      <label for="right">Right</label>
+    </div>
+    <div>
+      <input type="radio" id="both" name="handOrientation" <%=
+      product.details.handOrientation === "both" ? 'checked' : '' %>
+      value="both" />
+      <label for="both">Both</label>
+    </div>
+  </div>
 </div>

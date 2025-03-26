@@ -1,28 +1,50 @@
 <div class="product-detail">
   <span>Color</span>
-  <input type="text" name="color" value="<%= product.details.color %>" required />
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Speed</span>
-  <input type="text" name="speed" value="<%= product.details.speed %>" required />
+  <input
+    type="text"
+    name="speed"
+    value="<%= product.details.speed %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Modules</span>
-  <input type="text" name="modules" value="<%= product.details.modules %>" required />
+  <input
+    type="text"
+    name="modules"
+    value="<%= product.details.modules %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>First Word Latency</span>
   <input
-    type="text"
+    type="number"
+    step=".001"
+    min="0"
+    id="first-word-latency"
+    value="<%= parseFloat(product.details.firstWordLatency) %>"
     name="firstWordLatency"
-    value="<%= product.details.firstWordLatency %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>CAS Latency</span>
   <input
-    type="text"
+    type="number"
+    min="0"
+    id="cas-latency"
     name="casLatency"
-    value="<%= product.details.casLatency %>"
-  required />
+    value="<%= parseInt(product.details.casLatency) %>"
+    required
+  />
 </div>

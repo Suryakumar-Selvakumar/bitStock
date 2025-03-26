@@ -1,24 +1,72 @@
 <div class="product-detail">
   <span>Color</span>
-  <input type="text" name="color" value="<%= product.details.color %>" required />
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Type</span>
-  <input type="text" name="type" value="<%= product.details.type %>" required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="ATX" name="type" <%= product.details.type ===
+      "ATX" ? 'checked' : '' %> value="ATX" required />
+      <label for="ATX">ATX</label>
+    </div>
+    <div>
+      <input type="radio" id="SFX" name="type" <%= product.details.type ===
+      "SFX" ? 'checked' : '' %> value="SFX" />
+      <label for="SFX">SFX</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Efficiency Rating</span>
-  <input
-    type="text"
-    name="efficiencyRating"
-    value="<%= product.details.efficiencyRating %>"
-  required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input 
+      type="radio" 
+      id="Gold" 
+      name="efficiencyRating" 
+      <%= product.details.efficiencyRating.includes("Gold") ? 'checked' : '' %> 
+      value="Gold" 
+      required /> 
+      <label for=Gold">Gold</label>
+    </div>
+    <div>
+      <input type="radio" id="Bronze" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Bronze") ? 'checked' : '' %> value="Bronze" />
+      <label for="Bronze">Bronze</label>
+    </div>
+    <div>
+      <input type="radio" id="Platinum" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Platinum") ? 'checked' : '' %> value="Platinum" />
+      <label for="Platinum">Platinum</label>
+    </div>
+    <div>
+      <input type="radio" id="Titanium" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Titanium") ? 'checked' : '' %> value="Titanium" />
+      <label for="Titanium">Titanium</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Wattage</span>
-  <input type="text" name="wattage" value="<%= product.details.wattage %>" required />
+  <input type="number" min="0" id="wattage" name="wattage" value="<%= parseInt(product.details.wattage) %>" required />
 </div>
 <div class="product-detail">
   <span>Modular</span>
-  <input type="text" name="modular" value="<%= product.details.modular %>" required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="Full" name="modular" <%= product.details.modular === 'Full' ? 'checked' : '' %> value="Full" required />
+      <label for=Full">Full</label>
+    </div>
+    <div>
+      <input type="radio" id="No" name="modular" <%= product.details.modular === 'No' ? 'checked' : '' %> value="No" />
+      <label for="No">No</label>
+    </div>
+    <div>
+      <input type="radio" id="Semi" name="modular" <%= product.details.modular === 'Semi' ? 'checked' : '' %> value="Semi" />
+      <label for="Semi">Semi</label>
+    </div>
+</div>
 </div>

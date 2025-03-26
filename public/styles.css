@@ -779,7 +779,7 @@ img[alt="Thermaltake"] {
   grid-template-areas:
     "category-brand category-brand"
     "image details"
-    "image btns";
+    "btns btns";
   width: 100%;
 }
 
@@ -820,7 +820,7 @@ img[alt="Thermaltake"] {
 }
 
 .product-page-image img {
-  height: 300px;
+  min-height: 300px;
 }
 
 .product-page-details {
@@ -843,6 +843,59 @@ img[alt="Thermaltake"] {
 
 .product-detail > span:first-child {
   color: #929292;
+}
+
+/* PRODUCT EDIT PAGE STYLES */
+.category-brand.edit input {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  outline: none;
+  padding: 0.25rem;
+  height: 100%;
+  font-size: 1.25rem;
+}
+
+.category-brand.edit input:focus {
+  border: 1px solid #eda920;
+  box-shadow: 3px 3px 10px #6f69694d;
+}
+
+.product-page-details h1 input {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  outline: none;
+  padding: 0.25rem;
+  height: 100%;
+}
+
+.product-page-details h1 input:focus {
+  border: 1px solid #eda920;
+  box-shadow: 3px 3px 10px #6f69694d;
+}
+
+.product-detail input[type="radio"] {
+  filter: hue-rotate(188.5deg);
+}
+
+.product-detail input[type="text"],
+.product-detail input[type="number"] {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  outline: none;
+  padding: 0.25rem;
+  height: 100%;
+}
+
+.product-detail input[type="text"]:focus,
+.product-detail input[type="number"]:focus {
+  border: 1px solid #eda920;
+  box-shadow: 3px 3px 10px #6f69694d;
+}
+
+.product-detail input[type="checkbox"] {
+  filter: hue-rotate(188.5deg);
+  cursor: pointer;
+  max-width: min-content;
 }
 
 .specific-details {
@@ -872,4 +925,56 @@ img[alt="Thermaltake"] {
 .product-colors {
   display: flex;
   gap: 0.25rem;
+}
+
+.product-input {
+  display: flex;
+  align-items: center;
+}
+
+.product-specific-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product-specific-input-radio {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.product-specific-input-radio div {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.product-specific-input-radio div label {
+  min-width: max-content;
+}
+
+.product-page-image.edit {
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 1.64rem;
+  gap: 1rem;
+}
+
+.product-page-image.edit input {
+  width: 100%;
+}
+
+.specific-details.edit {
+  gap: 2rem;
+}
+
+.specific-details.edit input {
+  width: 100%;
+}
+
+.product-page-btns.edit {
+  align-self: flex-end;
 }

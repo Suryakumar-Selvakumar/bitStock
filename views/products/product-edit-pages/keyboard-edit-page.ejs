@@ -1,10 +1,36 @@
 <div class="product-detail">
   <span>Color</span>
-  <input type="text" name="color" value="<%= product.details.color %>" required />
+  <input
+    type="text"
+    name="color"
+    value="<%= product.details.color %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Style</span>
-  <input type="text" name="style" value="<%= product.details.style %>" required />
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="gaming" name="style" <%= product.details.style ===
+      "gaming" ? 'checked' : '' %> value="gaming" required />
+      <label for="gaming">Gaming</label>
+    </div>
+    <div>
+      <input type="radio" id="mini" name="style" <%= product.details.style ===
+      "mini" ? 'checked' : '' %> value="mini" />
+      <label for="mini">Mini</label>
+    </div>
+    <div>
+      <input type="radio" id="standard" name="style" <%= product.details.style
+      === "standard" ? 'checked' : '' %> value="standard" />
+      <label for="standard">Standard</label>
+    </div>
+    <div>
+      <input type="radio" id="slim" name="style" <%= product.details.style ===
+      "slim" ? 'checked' : '' %> value="slim" />
+      <label for="slim">Slim</label>
+    </div>
+  </div>
 </div>
 <div class="product-detail">
   <span>Switch Type</span>
@@ -12,25 +38,43 @@
     type="text"
     name="switchType"
     value="<%= product.details.switchType %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Backlit</span>
-  <input type="text" name="backlit" value="<%= product.details.backlit %>" required />
+  <input
+    type="text"
+    name="backlit"
+    value="<%= product.details.backlit %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Tenkeyless</span>
-  <input
-    type="text"
-    name="tenkeyless"
-    value="<%= product.details.tenkeyless %>"
-  required />
+  <input type="checkbox" id="tenkeyless" <%= product.details.tenkeyless ===
+  "Yes" ? 'checked' : 'No' %> name="tenkeyless" />
 </div>
 <div class="product-detail">
-  <span>Tenkeyless</span>
-  <input
-    type="text"
-    name="connectionType"
-    value="<%= product.details.connectionType %>"
-  required />
+  <span>Connection Type</span>
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="checkbox" id="wired" name="connectionType" value="Wired" <%=
+      product.details.connectionType.split(", ").includes("Wired") ? 'checked' :
+      ''%> required />
+      <label for="wired">Wired</label>
+    </div>
+    <div>
+      <input type="checkbox" id="wireless" name="connectionType" <%=
+      product.details.connectionType.split(", ").includes("Wireless") ?
+      'checked' : ''%> value="Wireless" />
+      <label for="wireless">Wireless</label>
+    </div>
+    <div>
+      <input type="checkbox" id="bluetooth-wireless" name="connectionType" <%=
+      product.details.connectionType.split(", ").includes("Bluetooth Wireless")
+      ? 'checked' : ''%> value="Bluetooth Wireless" />
+      <label for="bluetooth-wireless">Bluetooth Wireless</label>
+    </div>
+  </div>
 </div>

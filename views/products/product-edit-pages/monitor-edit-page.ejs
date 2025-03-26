@@ -1,10 +1,14 @@
 <div class="product-detail">
   <span>Screen Size</span>
   <input
-    type="text"
+    type="number"
+    step=".1"
+    min="0"
+    id="screen-size"
     name="screenSize"
-    value="<%= product.details.screenSize %>"
-  required />
+    value="<%= parseFloat(product.details.screenSize) %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Resolution</span>
@@ -12,23 +16,31 @@
     type="text"
     name="resolution"
     value="<%= product.details.resolution %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Refresh Rate</span>
   <input
-    type="text"
+    type="number"
+    min="0"
+    id="refresh-rate"
     name="refreshRate"
-    value="<%= product.details.refreshRate %>"
-  required />
+    value="<%= parseInt(product.details.refreshRate) %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Response Time</span>
   <input
-    type="text"
+    type="number"
+    step=".01"
+    min="0"
+    id="response-time"
     name="responseTime"
-    value="<%= product.details.responseTime %>"
-  required />
+    value="<%= parseFloat(product.details.responseTime) %>"
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Panel Type</span>
@@ -36,7 +48,8 @@
     type="text"
     name="panelType"
     value="<%= product.details.panelType %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Aspect Ratio</span>
@@ -44,5 +57,6 @@
     type="text"
     name="aspectRatio"
     value="<%= product.details.aspectRatio %>"
-  required />
+    required
+  />
 </div>

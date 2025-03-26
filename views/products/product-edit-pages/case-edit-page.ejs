@@ -4,23 +4,23 @@
     type="text"
     name="color"
     value="<%= product.details.color %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Type</span>
-  <input
-    type="text"
-    name="type"
-    value="<%= product.details.type %>"
-  required />
+  <input type="text" name="type" value="<%= product.details.type %>" required />
 </div>
 <div class="product-detail">
   <span>Internal HD Bays</span>
   <input
-    type="text"
+    type="number"
+    min="0"
+    id="hd-bays"
     name="hdBays"
     value="<%= product.details.hdBays %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>Side Panel</span>
@@ -28,13 +28,18 @@
     type="text"
     name="sidePanel"
     value="<%= product.details.sidePanel %>"
-  required />
+    required
+  />
 </div>
 <div class="product-detail">
   <span>External Volume</span>
   <input
-    type="text"
+    type="number"
+    step=".1"
+    min="0"
+    id="external-volume"
     name="externalVolume"
-    value="<%= product.details.externalVolume %>"
-  required />
+    value="<%= parseFloat(product.details.externalVolume) %>"
+    required
+  />
 </div>

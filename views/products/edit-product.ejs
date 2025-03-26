@@ -22,15 +22,8 @@
         enctype="multipart/form-data"
         class="product-container"
       >
-        <div class="category-brand">
+        <div class="category-brand edit">
           <div><%= product.category %></div>
-          <% if(brandImage.brandImageExists(product.brand)) { %>
-          <div>
-            <img
-              src="<%= brandImage.getBrandImage(product.brand) %>"
-              alt="<%= product.brand %>"
-            />
-            <% } %>
             <input
               type="text"
               id="brand"
@@ -40,7 +33,7 @@
             />
           </div>
         </div>
-        <div class="product-page-image">
+        <div class="product-page-image edit">
           <img src="<%= product.image %>" alt="<%= product.name %>" />
           <input
             type="file"
@@ -59,10 +52,10 @@
               value="<%= product.name %>"
             />
           </h1>
-          <div class="specific-details">
+          <div class="specific-details edit">
             <div class="product-detail">
               <span>Price</span>
-              <span
+              <span class="product-input"
                 >$<input
                   type="number"
                   min="0"
@@ -76,7 +69,7 @@
             </div>
             <div class="product-detail">
               <span>Quantity</span>
-              <span>
+              <span class="product-input">
                 x<input
                   type="number"
                   min="0"
@@ -113,7 +106,7 @@
             include("product-edit-pages/mouse-edit-page") %> <% } %>
           </div>
         </div>
-        <div class="product-page-btns">
+        <div class="product-page-btns edit">
           <button type="submit" class="product-submit">Submit</button>
         </div>
       </form>

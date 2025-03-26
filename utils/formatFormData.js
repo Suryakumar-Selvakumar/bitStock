@@ -72,7 +72,7 @@ const formatFormData = (newProduct) => {
     case "power-supply": {
       productDetails = {
         type: newProduct.type,
-        efficiencyRating: "80+" + newProduct.efficiencyRating,
+        efficiencyRating: "80+ " + newProduct.efficiencyRating,
         modular: newProduct.modular,
         wattage: newProduct.wattage + " W",
         color: newProduct.color,
