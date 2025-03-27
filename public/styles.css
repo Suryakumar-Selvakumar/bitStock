@@ -878,7 +878,8 @@ img[alt="Thermaltake"] {
 }
 
 .product-detail input[type="text"],
-.product-detail input[type="number"] {
+.product-detail input[type="number"],
+.product-detail input[type="password"] {
   border: 1px solid rgba(0, 0, 0, 0.26);
   border-radius: 5px;
   outline: none;
@@ -887,7 +888,8 @@ img[alt="Thermaltake"] {
 }
 
 .product-detail input[type="text"]:focus,
-.product-detail input[type="number"]:focus {
+.product-detail input[type="number"]:focus,
+.product-detail input[type="password"]:focus {
   border: 1px solid #eda920;
   box-shadow: 3px 3px 10px #6f69694d;
 }
@@ -977,4 +979,40 @@ img[alt="Thermaltake"] {
 
 .product-page-btns.edit {
   align-self: flex-end;
+}
+
+/* DELETE PAGE STYLES */
+.password-field {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.password-error {
+  color: red;
+  font-weight: 500;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.75rem;
+  width: max-content;
+}
+
+.password-input img {
+  height: 25px;
+  position: absolute;
+  right: 0.3rem;
+  cursor: pointer;
+}
+
+.product-page-btns.delete {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.product-detail.delete {
+  width: max-content;
 }

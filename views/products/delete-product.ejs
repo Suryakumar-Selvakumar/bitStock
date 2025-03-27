@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="product-page">
+      <div class="first-row in-product">
+        <a href="/products/<%= product.id %>">
+          <button class="product-submit add">
+            << Return to <%= product.name %>
+          </button>
+        </a>
+      </div>
+      <form
+        method="post"
+        action="/products/delete/<%= product.id %>"
+        class="product-container delete"
+      >
+      <div class="category-brand">
+        <div><%= product.category %></div>
+        <% if(brandImage.brandImageExists(product.brand)) { %>
+        <img
+          src="<%= brandImage.getBrandImage(product.brand) %>"
+          alt="<%= product.brand %>"
+        />
+        <% } %>
+      </div>
+        </div>
+        <div class="product-page-image">
+            <img src="<%= product.image %>" alt="<%= product.name %>" />
+          </div>
+          <div class="product-page-details">
+            <h1><%= product.name %></h1>
+              <div class="product-detail delete">
+                <label for="admin-password"><b>Admin Password:</b></label>
+                <div class="password-field">
+                <div class="password-input">
+                  <input type="password" id="admin-password" name="adminPassword" required />
+                  <img src="../../static/eye-closed.svg" alt="Eye icon" id="show-hide-password" />
+                </div>
+                <% if(retry) { %>
+                  <div class="password-error">
+                      Password incorrect
+                  </div>
+                <% } %>  
+                </div>
+            </div>
+          </div>
+        <div class="product-page-btns delete">
+          <p><i>Note: Admin Password is required for product deletion</i></p>
+          <button type="submit" class="product-submit add">Submit</button>
+        </div>
+      </form>
+    </main>
+    <script>
+      const passwordInput = document.getElementById("admin-password");
+      const togglePasswordButton = document.getElementById("show-hide-password");
+
+      togglePasswordButton.addEventListener("click", function() {
+        console.log(1);
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePasswordButton.src = "../../static/eye-open.svg";
+        } else {
+          passwordInput.type = "password";
+          togglePasswordButton.src = "../../static/eye-closed.svg";
+        }
+      })
+    </script>
+  </body>
+</html>

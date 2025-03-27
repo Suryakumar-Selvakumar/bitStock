@@ -1,3 +1,7 @@
+// Env
+require("dotenv").config();
+
+// db
 const db = require("../db/queries");
 
 // utils
@@ -134,8 +138,6 @@ const editProductPost = async (req, res) => {
   const { productId } = req.params;
   const updatedProduct = req.body;
 
-  console.log(updatedProduct.quantity);
-
   updatedProduct.image = req.file?.buffer ?? null;
   updatedProduct.imageType = req.file?.mimetype ?? null;
 
@@ -145,11 +147,51 @@ const editProductPost = async (req, res) => {
   const formattedUpdatedProduct = formatFormData(updatedProduct);
   formattedUpdatedProduct.id = parseInt(productId);
 
-  console.log(formattedUpdatedProduct);
-
   await db.updateProduct(formattedUpdatedProduct);
 
   res.redirect(`/products/${productId}`);
+};
+
+const deleteProductGet = async (req, res) => {
+  const { productId } = req.params;
+
+  const product = await db.getProduct(productId);
+
+  product.image = product.image
+    ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+    : `../../static/placeholder-image.jpg`;
+  delete product.image_type;
+
+  res.render("products/delete-product", {
+    product: product,
+    brandImage: brandImage,
+    category: product.category,
+    retry: false,
+  });
+};
+
+const deleteProductPost = async (req, res) => {
+  const { productId } = req.params;
+  const { adminPassword } = req.body;
+
+  if (adminPassword === process.env.ADMIN_PASSWORD) {
+    await db.deleteProduct(productId);
+    res.redirect(`/products`);
+  } else {
+    const product = await db.getProduct(productId);
+
+    product.image = product.image
+      ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+      : `../../static/placeholder-image.jpg`;
+    delete product.image_type;
+
+    res.render("products/delete-product", {
+      product: product,
+      brandImage: brandImage,
+      category: product.category,
+      retry: true,
+    });
+  }
 };
 
 module.exports = {
@@ -161,4 +203,6 @@ module.exports = {
   getSearchResults,
   editProductGet,
   editProductPost,
+  deleteProductGet,
+  deleteProductPost,
 };

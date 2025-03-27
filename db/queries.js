@@ -71,6 +71,10 @@ async function getProduct(productId) {
   return rows[0];
 }
 
+async function deleteProduct(productId) {
+  await pool.query("DELETE FROM products WHERE id = $1", [productId]);
+}
+
 async function searchProducts(searchKey) {
   const { rows } = await pool.query(
     "SELECT * FROM products WHERE name ILIKE '%' || $1 || '%'",
@@ -116,4 +120,5 @@ module.exports = {
   getCategories,
   filterProducts,
   updateProduct,
+  deleteProduct,
 };

@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="product-page-btns">
-          <form action="/products/edit/<%= product.id %>">
+          <form method="get" action="/products/edit/<%= product.id %>">
             <button class="product-submit add">Edit</button>
           </form>
           <a href="/products/delete/<%= product.id %>">
