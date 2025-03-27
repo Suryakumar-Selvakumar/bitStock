@@ -19,11 +19,6 @@ const {
 
 const productsRouter = new Router();
 
-// productsRouter.use((req, res, next) => {
-//   console.log(`ProductsRouter received: ${req.method} ${req.url}`);
-//   next();
-// });
-
 productsRouter.get("/", getProducts);
 productsRouter.get("/new", chooseCategoryGet);
 productsRouter.get("/search", getSearchResults);

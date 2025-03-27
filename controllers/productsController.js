@@ -1,4 +1,4 @@
-// Env
+// dotenv
 require("dotenv").config();
 
 // db
