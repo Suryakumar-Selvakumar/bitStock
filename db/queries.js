@@ -3,6 +3,7 @@ const pool = require("./pool");
 // utils
 const setSortCondition = require("../utils/setSortCondition");
 
+// Product Queries
 async function getAllProducts() {
   const { rows } = await pool.query(
     "SELECT SETSEED(1), * FROM products ORDER BY RANDOM()"
@@ -111,6 +112,21 @@ async function filterProducts(sort, category) {
   }
 }
 
+// Build Queries
+async function createBuilder() {
+  await pool.query("INSERT INTO builder DEFAULT VALUES");
+}
+
+async function deleteBuilder() {
+  await pool.query("DELETE FROM builder");
+}
+
+async function getBuilder() {
+  const { rows } = await pool.query("SELECT * FROM builder LIMIT 1");
+
+  return rows[0];
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -121,4 +137,7 @@ module.exports = {
   filterProducts,
   updateProduct,
   deleteProduct,
+  createBuilder,
+  deleteBuilder,
+  getBuilder,
 };

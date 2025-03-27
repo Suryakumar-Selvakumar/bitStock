@@ -8,78 +8,74 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="products-page">
+    <main class="builder-page">
       <div class="first-row in-products">
-        <h1>Products</h1>
-        <a href="/products/new">
-          <button class="product-submit add">Add a Product</button>
-        </a>
+        <h1>Builder</h1>
+        <h2>Total: $</h2>
       </div>
-      <div class="products-container">
-        <div class="sidebar">
-          <form class="filter-form" action="/products" method="get">
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Name:</label>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="nameAsc" value="nameAsc" <%=
-                sort === "nameAsc" ? 'checked' : '' %> />
-                <label for="nameAsc">Ascending</label>
-              </div>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="nameDesc" value="nameDesc"
-                <%= sort === "nameDesc" ? 'checked' : '' %> />
-                <label for="nameDesc">Descending</label>
-              </div>
-            </div>
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Price:</label>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="priceAsc" value="priceAsc"
-                <%= sort === "priceAsc" ? 'checked' : '' %> />
-                <label for="priceAsc">Ascending</label>
-              </div>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="priceDesc" value="priceDesc"
-                <%= sort === "priceDesc" ? 'checked' : '' %> />
-                <label for="priceDesc">Descending</label>
-              </div>
-            </div>
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Quantity:</label>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="quantityAsc"
-                value="quantityAsc" <%= sort === "quantityAsc" ? 'checked' : ''
-                %> />
-                <label for="quantityAsc">Ascending</label>
-              </div>
-              <div class="filter-input">
-                <input type="radio" name="sort" id="quantityDesc"
-                value="quantityDesc" <%= sort === "quantityDesc" ? 'checked' :
-                '' %> />
-                <label for="quantityDesc">Descending</label>
-              </div>
-            </div>
-            <div class="filter-input-container">
-              <label for="filter" class="filter-label"
-                >Filter By Category:</label
+      <form method="post" class="builder-container">
+        <div class="build-components-container">
+          <p>Components</p>
+          <div class="build-components">
+            <% categories.forEach(category => { %>
+            <div class="build-component-container">
+              <span><%= getCategory(category.name) %></span>
+              <a
+                href="/builds/builder/<%= category.name %>"
+                class="build-component"
               >
-              <% categories.forEach(category => { %>
-              <div class="filter-input">
-                <input type="checkbox" name="category" id="<%= category.name %>"
-                value="<%= category.name %>" <%=
-                checkedCategories.includes(category.name) ? 'checked' : '' %> />
-                <label for="<%= category.name %>"><%= category.name %></label>
-              </div>
-              <% }) %>
+                Select <%= getCategory(category.name) %>
+              </a>
+              <input
+                type="hidden"
+                name="<%= category.name %>"
+                id="component-input"
+              />
             </div>
-            <button class="apply-btn" type="submit">Apply Filters</button>
-          </form>
+            <% }) %>
+          </div>
         </div>
-        <div class="products">
-          <% products.forEach(product => { %> <%- include("product", {product:
-          product, brandImage: brandImage}) %> <% }) %>
+        <div class="build-details-container">
+          <p>Details</p>
+          <div class="build-details">
+            <div class="label-input-container">
+              <label for="builder-name">Builder Name:</label>
+              <input
+                type="text"
+                id="builder-name"
+                name="builderName"
+                value="<%= builder.builder_name !== null ? builder.builder_name : '' %>"
+                required
+              />
+            </div>
+            <div class="label-input-container">
+              <label for="build-name">Build Name:</label>
+              <input
+                type="text"
+                name="buildName"
+                id="build-name"
+                value="<%= builder.build_name !== null ? builder.build_name : '' %>"
+                required
+              />
+            </div>
+            <div class="label-input-container">
+              <label for="image">Build Image:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/png, image/jpeg, image/svg+xml"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="build-btns-container">
+          <a href="/builds/builder/cancel">
+            <div class="product-submit delete">Cancel</div>
+          </a>
+          <button type="submit" class="product-submit add">Save</button>
+        </div>
+      </form>
     </main>
   </body>
 </html>

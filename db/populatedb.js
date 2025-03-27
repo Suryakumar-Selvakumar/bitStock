@@ -25,6 +25,24 @@ const SQL = `
       id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       name VARCHAR(100)
     );
+
+    CREATE TABLE IF NOT EXISTS builder (
+      build_name VARCHAR(100),
+      builder_name VARCHAR(100),
+      build_image BYTEA,
+      cpu_id INTEGER,
+      cpu_cooler_id INTEGER,
+      motherboard_id INTEGER,
+      memory_id INTEGER,
+      storage_id INTEGER,
+      video_card_id INTEGER,
+      power_supply_id INTEGER,
+      case_id INTEGER,
+      monitor_id INTEGER,
+      headphones_id INTEGER,
+      keyboard_id INTEGER,
+      mouse_id INTEGER
+    )
 `;
 
 async function main() {
