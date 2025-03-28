@@ -59,11 +59,19 @@
           </div>
         </div>
         <div class="product-page-btns">
+          <% if(choose) { %>
+          <form method="post" action="/builds/builder/<%= product.category %>">
+            <input type="hidden" name="productId" value="<%= product.id %>" />
+            <button type="submit" class="product-submit add">Select</button>
+          </form>
+          <% } else { %>
           <form method="get" action="/products/edit/<%= product.id %>">
             <button class="product-submit add">Edit</button>
           </form>
           <a href="/products/delete/<%= product.id %>">
+            <button class="product-submit delete">Delete</button>
           </a>
+          <% } %>
         </div>
       </div>
     </main>

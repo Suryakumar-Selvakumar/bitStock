@@ -10,14 +10,11 @@
     <%- include("../components/header") %>
     <main class="products-page">
       <div class="first-row in-products">
-        <h1>Search results for "<%= search %>"</h1>
-        <a href="/products">
-          <button class="product-submit add"><< Return to Products</button>
-        </a>
+        <h1>Choose a <%= getCategory(buildPart) %></h1>
       </div>
-      <div class="search-products-container">
-        <% products.forEach(product => { %> <%- include("product", {product:
-        product, brandImage: brandImage, choose: false}) %> <% }) %>
+      <div class="search-products-container choose">
+        <% products.forEach(product => { %> <%- include("../products/product",
+        {product: product, brandImage: brandImage, choose: true}) %> <% }) %>
       </div>
     </main>
   </body>

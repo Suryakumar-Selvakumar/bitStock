@@ -10,9 +10,10 @@ const upload = multer({ storage: multer.memoryStorage() });
 const {
   getBuilds,
   builderGet,
-  builderPut,
   builderPost,
   builderCancel,
+  choosePartGet,
+  choosePartPost,
   editBuildGet,
   editBuildPost,
   deleteBuildGet,
@@ -28,9 +29,10 @@ const {
 // Routes
 buildsRouter.get("/", getBuilds);
 buildsRouter.get("/builder", builderGet);
-buildsRouter.put("/builder", builderPut);
 buildsRouter.post("/builder", upload.single("image"), builderPost);
 buildsRouter.get("/builder/cancel", builderCancel);
+buildsRouter.get("/builder/:buildPart", choosePartGet);
+buildsRouter.post("/builder/:buildPart", choosePartPost);
 buildsRouter.get("/edit/:buildId", editBuildGet);
 buildsRouter.post("/edit/:buildId", editBuildPost);
 buildsRouter.get("/delete/:buildId", deleteBuildGet);

@@ -731,6 +731,7 @@ img[alt="Thermaltake"] {
 .feature-row {
   display: flex;
   justify-content: space-between;
+  align-items: end;
 }
 
 .product-feature {
@@ -750,6 +751,9 @@ img[alt="Thermaltake"] {
   gap: 3rem;
   width: inherit;
   place-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  padding: 3rem;
+  border-radius: 1rem;
 }
 
 /* PRODUCT PAGE STYLES */
@@ -1109,3 +1113,5 @@ img[alt="Thermaltake"] {
 .build-btns-container a {
   text-decoration: none;
 }
+
+/* CHOOSE PARTS PAGE STYLE */
