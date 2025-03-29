@@ -10,9 +10,10 @@
     <%- include("../components/header") %>
     <main class="product-page">
       <div class="first-row in-product">
-        <a href="/products">
-          <button class="product-submit add"><< Return to Products</button>
-        </a>
+        <button class="product-submit add" onclick="goBack()">
+          <% if(builder && choose) { %> << Return to Builder <% } else { %> <<
+          Return to products <% } %>
+        </button>
       </div>
       <div class="product-container">
         <div class="category-brand">
@@ -59,7 +60,7 @@
           </div>
         </div>
         <div class="product-page-btns">
-          <% if(choose) { %>
+          <% if(builder && choose) { %> <% } else if(choose) { %>
           <form method="post" action="/builds/builder/<%= product.category %>">
             <input type="hidden" name="productId" value="<%= product.id %>" />
             <button type="submit" class="product-submit add">Select</button>
@@ -75,5 +76,10 @@
         </div>
       </div>
     </main>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>

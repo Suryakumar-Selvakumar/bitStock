@@ -20,6 +20,14 @@ async function getProductsInCategory(category) {
   return rows;
 }
 
+async function getProductsWithIds(productIds) {
+  const { rows } = await pool.query("SELECT * FROM products WHERE id = ANY($1)", [
+    productIds,
+  ]);
+
+  return rows;
+}
+
 async function addProduct(newProduct) {
   await pool.query(
     "INSERT INTO products (name, category, price, brand, quantity, image, image_type, details) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
@@ -113,23 +121,33 @@ async function filterProducts(sort, category) {
 }
 
 // Build Queries
-async function createBuilder() {
-  await pool.query("INSERT INTO builder DEFAULT VALUES");
+async function addBuild(newBuild) {
+  await pool.query(
+    "INSERT INTO products (builder_name, build_name, price, image, image_type, parts) VALUES ($1, $2, $3, $4, $5, $6)",
+    [
+      newBuild.builderName,
+      newBuild.buildName,
+      newBuild.price,
+      newBuild.image,
+      newBuild.imageType,
+      JSON.stringify(newBuild.parts),
+    ]
+  );
 }
 
-async function deleteBuilder() {
-  await pool.query("DELETE FROM builder");
-}
+async function getBuildPrice(partIds) {
+  const { rows } = await pool.query(
+    "SELECT SUM(price) FROM products WHERE id = ANY($1)",
+    [partIds]
+  );
 
-async function getBuilder() {
-  const { rows } = await pool.query("SELECT * FROM builder LIMIT 1");
-
-  return rows[0];
+  return rows[0].sum;
 }
 
 module.exports = {
   getAllProducts,
   getProductsInCategory,
+  getProductsWithIds,
   addProduct,
   getProduct,
   searchProducts,
@@ -137,7 +155,6 @@ module.exports = {
   filterProducts,
   updateProduct,
   deleteProduct,
-  createBuilder,
-  deleteBuilder,
-  getBuilder,
+  addBuild,
+  getBuildPrice,
 };

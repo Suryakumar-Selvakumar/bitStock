@@ -1098,6 +1098,14 @@ img[alt="Thermaltake"] {
   background-color: rgb(0, 0, 0, 0.01);
 }
 
+.build-component-selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  width: 100%;
+}
+
 .build-details {
   display: flex;
   gap: 3rem;
@@ -1113,5 +1121,3 @@ img[alt="Thermaltake"] {
 .build-btns-container a {
   text-decoration: none;
 }
-
-/* CHOOSE PARTS PAGE STYLE */

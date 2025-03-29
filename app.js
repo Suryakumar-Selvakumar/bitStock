@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("node:path");
 const asyncHandler = require("express-async-handler");
+const session = require("express-session");
+require("dotenv").config();
 
 // app config
 const app = express();
@@ -9,6 +11,13 @@ const assetsPath = path.join(__dirname, "public");
 app.use("/static", express.static(assetsPath)); // setup path for static files
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(
+  session({
+    secret: process.env.ADMIN_PASSWORD,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // env
 const port = process.env.PORT || 3000;

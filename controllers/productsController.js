@@ -84,9 +84,10 @@ const addProductsPost = async (req, res) => {
 
 const getProduct = async (req, res) => {
   const { productId } = req.params;
-  const { choose } = req.query;
+  const { choose, builder } = req.query;
 
   const booleanChoose = choose === "true";
+  const booleanBuilder = builder === "true";
 
   const product = await db.getProduct(productId);
 
@@ -100,6 +101,7 @@ const getProduct = async (req, res) => {
     category: product.category,
     brandImage: brandImage,
     choose: booleanChoose,
+    builder: booleanBuilder,
   });
 };
 

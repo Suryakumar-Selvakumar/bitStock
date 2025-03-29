@@ -11,26 +11,43 @@
     <main class="builder-page">
       <div class="first-row in-products">
         <h1>Builder</h1>
-        <h2>Total: $</h2>
+        <h2>Total: $<%= buildDetails.buildPrice %></h2>
       </div>
       <form method="post" class="builder-container">
         <div class="build-components-container">
-          <p>Components</p>
+          <p>
+            Components <%= error ? "Please select all components to save build"
+            : "" %>
+          </p>
           <div class="build-components">
             <% categories.forEach(category => { %>
             <div class="build-component-container">
               <span><%= getCategory(category.name) %></span>
+              <% if(category.item) { %>
+              <div class="build-component-selected">
+                <a
+                  href="/products/<%= category.item.id %>?choose=true&builder=true"
+                >
+                  <img
+                    src="<%= category.item.image %>"
+                    alt="<%= category.item.name %>"
+                  />
+                </a>
+                <a
+                  href="/products/<%= category.item.id %>?choose=true&builder=true"
+                >
+                  <p><%= category.item.name %></p>
+                </a>
+                <p><%= category.item.price %></p>
+              </div>
+              <% } else { %>
               <a
                 href="/builds/builder/<%= category.name %>"
                 class="build-component"
               >
                 Select <%= getCategory(category.name) %>
               </a>
-              <input
-                type="hidden"
-                name="<%= category.name %>"
-                id="component-input"
-              />
+              <% } %>
             </div>
             <% }) %>
           </div>
@@ -44,7 +61,7 @@
                 type="text"
                 id="builder-name"
                 name="builderName"
-                value="<%= builder.builder_name !== null ? builder.builder_name : '' %>"
+                value="<%= buildDetails.builderName !== null ? buildDetails.builderName : '' %>"
                 required
               />
             </div>
@@ -54,7 +71,7 @@
                 type="text"
                 name="buildName"
                 id="build-name"
-                value="<%= builder.build_name !== null ? builder.build_name : '' %>"
+                value="<%= buildDetails.buildName !== null ? buildDetails.buildName : '' %>"
                 required
               />
             </div>
