@@ -1053,8 +1053,7 @@ img[alt="Thermaltake"] {
   cursor: pointer;
 }
 
-.build-details-container p,
-.build-components-container p {
+.area-title {
   font-size: 2rem;
 }
 
@@ -1089,7 +1088,7 @@ img[alt="Thermaltake"] {
   border: 2px dashed rgba(0, 0, 0, 0.26);
   cursor: pointer;
   color: #eda920;
-  padding: 1rem;
+  height: 75px;
   text-decoration: none;
 }
 
@@ -1099,11 +1098,64 @@ img[alt="Thermaltake"] {
 }
 
 .build-component-selected {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
   border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.26);
   width: 100%;
+  padding: 0.5rem 2rem;
+  place-items: center start;
+  height: 75px;
+  font-size: 1.15rem;
+  grid-template-columns: max-content 4fr 1fr 1fr 1fr;
+}
+
+.build-component-selected a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.build-component-selected a:hover {
+  color: #eda920;
+}
+
+.part-image {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.part-name {
+  place-self: center start;
+  padding-left: 2rem;
+  grid-area: 1 / 2 / 2 / 3;
+  font-weight: 500;
+}
+
+.part-quantity {
+  place-self: center;
+  grid-area: 1 / 3 / 2 / 4;
+  color: #ca500f;
+  font-weight: 500;
+}
+
+.part-price {
+  place-self: center;
+  grid-area: 1 / 4 / 2 / 5;
+  color: #00b16a;
+  font-weight: 500;
+}
+
+.part-buttons {
+  font-size: 1rem;
+  place-self: center end;
+  grid-area: 1 / 5 / 2 / 6;
+  display: flex;
+  justify-content: end;
+  width: inherit;
+  gap: 0.5rem;
+}
+
+.build-component-selected img {
+  height: 50px;
 }
 
 .build-details {

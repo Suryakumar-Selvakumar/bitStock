@@ -13,9 +13,13 @@
         <h1>Builder</h1>
         <h2>Total: $<%= buildDetails.buildPrice %></h2>
       </div>
-      <form method="post" class="builder-container">
+      <form
+        method="post"
+        class="builder-container"
+        enctype="multipart/form-data"
+      >
         <div class="build-components-container">
-          <p>
+          <p class="area-title">
             Components <%= error ? "Please select all components to save build"
             : "" %>
           </p>
@@ -27,6 +31,7 @@
               <div class="build-component-selected">
                 <a
                   href="/products/<%= category.item.id %>?choose=true&builder=true"
+                  class="part-image"
                 >
                   <img
                     src="<%= category.item.image %>"
@@ -35,10 +40,22 @@
                 </a>
                 <a
                   href="/products/<%= category.item.id %>?choose=true&builder=true"
+                  class="part-name"
                 >
                   <p><%= category.item.name %></p>
                 </a>
-                <p><%= category.item.price %></p>
+                <p class="part-quantity">
+                  <%= category.item.quantity %> IN STOCK
+                </p>
+                <p class="part-price">$<%= category.item.price %></p>
+                <div class="part-buttons">
+                  <a href="/builds/builder/<%= category.name %>">
+                    <span class="product-submit add">Change</span>
+                  </a>
+                  <a href="/builds/builder/delete/<%= category.name %>">
+                    <span class="product-submit delete">Remove</span>
+                  </a>
+                </div>
               </div>
               <% } else { %>
               <a
@@ -53,7 +70,7 @@
           </div>
         </div>
         <div class="build-details-container">
-          <p>Details</p>
+          <p class="area-title">Details</p>
           <div class="build-details">
             <div class="label-input-container">
               <label for="builder-name">Builder Name:</label>

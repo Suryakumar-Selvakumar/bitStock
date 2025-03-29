@@ -123,7 +123,7 @@ async function filterProducts(sort, category) {
 // Build Queries
 async function addBuild(newBuild) {
   await pool.query(
-    "INSERT INTO products (builder_name, build_name, price, image, image_type, parts) VALUES ($1, $2, $3, $4, $5, $6)",
+    "INSERT INTO builds (builder_name, build_name, price, image, image_type, parts) VALUES ($1, $2, $3, $4, $5, $6)",
     [
       newBuild.builderName,
       newBuild.buildName,

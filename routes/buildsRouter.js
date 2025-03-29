@@ -12,6 +12,7 @@ const {
   builderGet,
   builderPost,
   builderCancel,
+  deletePartGet,
   choosePartGet,
   choosePartPost,
   editBuildGet,
@@ -31,6 +32,7 @@ buildsRouter.get("/", getBuilds);
 buildsRouter.get("/builder", builderGet);
 buildsRouter.post("/builder", upload.single("image"), builderPost);
 buildsRouter.get("/builder/cancel", builderCancel);
+buildsRouter.get("/builder/delete/:buildPart", deletePartGet);
 buildsRouter.get("/builder/:buildPart", choosePartGet);
 buildsRouter.post("/builder/:buildPart", choosePartPost);
 buildsRouter.get("/edit/:buildId", editBuildGet);
