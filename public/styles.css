@@ -309,7 +309,7 @@ main {
   color: #eda920;
 }
 
-.build-image {
+.builds img {
   width: 550px;
 }
 
@@ -377,10 +377,12 @@ main {
   align-items: center;
 }
 
-/* Add Product Form Styles */
-
-#product-form-header {
-  text-align: center;
+/* ADD PRODUCT FORM STYLES */
+.product-form-header {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 10rem;
   font-family: myFontRegular;
 }
@@ -395,7 +397,7 @@ main {
   align-self: center;
   font-family: myFontRegular;
   background-color: rgba(138, 43, 226, 0.1);
-  padding: 3rem 1rem;
+  padding: 2rem 0rem;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
   font-size: 1rem;
@@ -434,8 +436,8 @@ main {
 }
 
 .product-submit {
-  width: 100%;
   cursor: pointer;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid transparent;
   background-color: rgba(138, 43, 226, 0.55);
@@ -560,6 +562,10 @@ main {
   grid-template-columns: 250px 1fr;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.144);
+}
+
+.products-container.build {
+  grid-template-columns: 257.5px 1fr;
 }
 
 .sidebar {
@@ -1055,6 +1061,15 @@ img[alt="Thermaltake"] {
 
 .area-title {
   font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  text-align: start;
+}
+
+.form-error {
+  font-size: 1rem;
+  color: red;
 }
 
 .build-details-container,
@@ -1172,4 +1187,40 @@ img[alt="Thermaltake"] {
 
 .build-btns-container a {
   text-decoration: none;
+}
+
+/* BUILDS PAGE STYLES */
+.build-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 240px;
+  padding-top: 1.5rem;
+}
+
+.build-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.product-feature.build {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.product-feature.build svg {
+  height: 20px;
+  position: relative;
+  top: -1px;
+}
+
+.build-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.15rem;
+  height: 30px;
 }

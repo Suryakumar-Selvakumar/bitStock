@@ -2,6 +2,7 @@ const pool = require("./pool");
 
 // utils
 const setSortCondition = require("../utils/setSortCondition");
+const setSortConditionBuilds = require("../utils/setSortConditionBuilds");
 
 // Product Queries
 async function getAllProducts() {
@@ -21,9 +22,10 @@ async function getProductsInCategory(category) {
 }
 
 async function getProductsWithIds(productIds) {
-  const { rows } = await pool.query("SELECT * FROM products WHERE id = ANY($1)", [
-    productIds,
-  ]);
+  const { rows } = await pool.query(
+    "SELECT * FROM products WHERE id = ANY($1)",
+    [productIds]
+  );
 
   return rows;
 }
@@ -41,6 +43,13 @@ async function addProduct(newProduct) {
       newProduct.imageType,
       JSON.stringify(newProduct.details),
     ]
+  );
+}
+
+async function reduceProductsQuantity(productIds) {
+  await pool.query(
+    "UPDATE products SET quantity = quantity - 1 WHERE id = ANY($1::int[])",
+    [productIds]
   );
 }
 
@@ -144,6 +153,18 @@ async function getBuildPrice(partIds) {
   return rows[0].sum;
 }
 
+async function filterbuilds(sort) {
+  const sortQuery = "SELECT * FROM builds " + setSortConditionBuilds(sort);
+  const { rows } = await pool.query(sortQuery);
+  return rows;
+}
+
+async function getAllBuilds() {
+  const { rows } = await pool.query("SELECT * FROM builds");
+
+  return rows;
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -155,6 +176,9 @@ module.exports = {
   filterProducts,
   updateProduct,
   deleteProduct,
+  reduceProductsQuantity,
   addBuild,
   getBuildPrice,
+  filterbuilds,
+  getAllBuilds,
 };

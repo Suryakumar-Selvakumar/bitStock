@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="products-page">
+      <div class="first-row in-products">
+        <h1>Builds</h1>
+        <a href="/builds/builder">
+          <button class="product-submit add">Create a Build</button>
+        </a>
+      </div>
+      <div class="products-container build">
+        <div class="sidebar">
+          <form class="filter-form" action="/builds" method="get">
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Build Name:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="buildNameAsc"
+                value="buildNameAsc" <%= sort === "buildNameAsc" ? 'checked' :
+                '' %> />
+                <label for="buildNameAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="buildNameDesc"
+                value="buildNameDesc" <%= sort === "buildNameDesc" ? 'checked' :
+                '' %> />
+                <label for="buildNameDesc">Descending</label>
+              </div>
+            </div>
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Builder Name:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="builderNameAsc"
+                value="builderNameAsc" <%= sort === "builderNameAsc" ? 'checked'
+                : '' %> />
+                <label for="builderNameAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="builderNameDesc"
+                value="builderNameDesc" <%= sort === "builderNameDesc" ?
+                'checked' : '' %> />
+                <label for="builderNameDesc">Descending</label>
+              </div>
+            </div>
+            <div class="filter-input-container">
+              <label class="filter-label">Sort By Price:</label>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="priceAsc" value="priceAsc"
+                <%= sort === "priceAsc" ? 'checked' : '' %> />
+                <label for="priceAsc">Ascending</label>
+              </div>
+              <div class="filter-input">
+                <input type="radio" name="sort" id="priceDesc" value="priceDesc"
+                <%= sort === "priceDesc" ? 'checked' : '' %> />
+                <label for="priceDesc">Descending</label>
+              </div>
+            </div>
+            <button class="apply-btn" type="submit">Apply Filters</button>
+          </form>
+        </div>
+        <div class="products">
+          <% builds.forEach(build => { %> <%- include("build", {build: build})
+          %> <% }) %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

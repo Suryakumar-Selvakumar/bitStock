@@ -8,7 +8,12 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <h1 id="product-form-header">Add a new <%= getCategory(category) %></h1>
+    <div class="product-form-header">
+      <h1>Add a <%= getCategory(category) %></h1>
+      <a href="/products">
+        <button class="product-submit add"><< Return to products</button>
+      </a>
+    </div>
     <form
       action="/products/<%= category %>/new"
       method="post"

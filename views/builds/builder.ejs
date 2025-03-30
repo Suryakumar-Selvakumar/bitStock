@@ -20,8 +20,11 @@
       >
         <div class="build-components-container">
           <p class="area-title">
-            Components <%= error ? "Please select all components to save build"
-            : "" %>
+            Components <% if(error) { %>
+            <span class="form-error">
+              Please select all components to save build*
+            </span>
+            <% } %>
           </p>
           <div class="build-components">
             <% categories.forEach(category => { %>

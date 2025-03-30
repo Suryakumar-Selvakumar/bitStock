@@ -11,7 +11,57 @@ const getBuilderProp = require("../utils/getBuilderProp");
 const getPartDetails = require("../utils/getPartDetails");
 
 // controllers
-const getBuilds = async (req, res) => {};
+const getBuilds = async (req, res) => {
+  const { sort } = req.query;
+
+  if (sort !== undefined) {
+    const builds = await db.filterbuilds(sort);
+
+    const formattedBuilds = await Promise.all(
+      builds.map(async (build) => {
+        build.image = build.image
+          ? `data:${build.image_type};base64,${build.image?.toString("base64")}`
+          : `static/placeholder-image.jpg`;
+        delete build.image_type;
+        delete build.image_type;
+        const cpu = await db.getProduct(build.parts.cpuId);
+        build.cpu = cpu.name;
+        const gpu = await db.getProduct(build.parts.videoCardId);
+        build.gpu = gpu.details.chipset;
+        delete build.parts;
+        return build;
+      })
+    );
+
+    res.render("builds/builds", {
+      builds: formattedBuilds,
+      sort: sort,
+    });
+  } else {
+    const builds = await db.getAllBuilds();
+
+    const formattedBuilds = await Promise.all(
+      builds.map(async (build) => {
+        build.image = build.image
+          ? `data:${build.image_type};base64,${build.image?.toString("base64")}`
+          : `static/placeholder-image.jpg`;
+        delete build.image_type;
+        delete build.image_type;
+        const cpu = await db.getProduct(build.parts.cpuId);
+        build.cpu = cpu.name;
+        const gpu = await db.getProduct(build.parts.videoCardId);
+        build.gpu = gpu.details.chipset;
+        delete build.parts;
+        return build;
+      })
+    );
+
+    res.render("builds/builds", {
+      builds: formattedBuilds,
+      sort: sort,
+    });
+  }
+};
 
 const builderGet = async (req, res) => {
   if (!req.session.builder) {
@@ -166,6 +216,7 @@ const builderPost = async (req, res) => {
     };
 
     await db.addBuild(build);
+    await db.reduceProductsQuantity(buildPartIdsValid);
     req.session.builder = null;
     res.redirect("/builds");
   }
