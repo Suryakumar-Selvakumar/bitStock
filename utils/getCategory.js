@@ -1,20 +1,20 @@
-const getCategory = (category) => {
+const getCategory = (category, isRequired) => {
   if (category === "cpu") {
-    return "CPU";
+    return isRequired ? "CPU*" : "CPU";
   } else if (category === "cpu-cooler") {
-    return "CPU Cooler";
+    return isRequired ? "CPU Cooler*" : "CPU Cooler";
   } else if (category === "motherboard") {
-    return "Motherboard";
+    return isRequired ? "Motherboard*" : "Motherboard";
   } else if (category === "memory") {
-    return "Memory";
+    return isRequired ? "Memory*" : "Memory";
   } else if (category === "storage") {
-    return "Storage";
+    return isRequired ? "Storage*" : "Storage";
   } else if (category === "video-card") {
-    return "Video Card";
+    return isRequired ? "Video Card*" : "Video Card";
   } else if (category === "power-supply") {
-    return "Power Supply";
+    return isRequired ? "Power Supply*" : "Power Supply";
   } else if (category === "case") {
-    return "Case";
+    return isRequired ? "Case*" : "Case";
   } else if (category === "monitor") {
     return "Monitor";
   } else if (category === "headphones") {

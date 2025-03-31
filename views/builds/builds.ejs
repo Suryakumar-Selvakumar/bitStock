@@ -15,7 +15,7 @@
           <button class="product-submit add">Create a Build</button>
         </a>
       </div>
-      <div class="products-container build">
+      <div class="items-container">
         <div class="sidebar">
           <form class="filter-form" action="/builds" method="get">
             <div class="filter-input-container">
@@ -34,18 +34,18 @@
               </div>
             </div>
             <div class="filter-input-container">
-              <label class="filter-label">Sort By Builder Name:</label>
+              <label class="filter-label">Sort By Build For:</label>
               <div class="filter-input">
-                <input type="radio" name="sort" id="builderNameAsc"
-                value="builderNameAsc" <%= sort === "builderNameAsc" ? 'checked'
-                : '' %> />
-                <label for="builderNameAsc">Ascending</label>
+                <input type="radio" name="sort" id="buildForAsc"
+                value="buildForAsc" <%= sort === "buildForAsc" ? 'checked' : ''
+                %> />
+                <label for="buildForAsc">Ascending</label>
               </div>
               <div class="filter-input">
-                <input type="radio" name="sort" id="builderNameDesc"
-                value="builderNameDesc" <%= sort === "builderNameDesc" ?
-                'checked' : '' %> />
-                <label for="builderNameDesc">Descending</label>
+                <input type="radio" name="sort" id="buildForDesc"
+                value="buildForDesc" <%= sort === "buildForDesc" ? 'checked' :
+                '' %> />
+                <label for="buildForDesc">Descending</label>
               </div>
             </div>
             <div class="filter-input-container">

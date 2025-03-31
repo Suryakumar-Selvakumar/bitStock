@@ -15,10 +15,14 @@
           <button class="product-submit add"><< Return to Products</button>
         </a>
       </div>
-      <div class="search-products-container">
+      <% if(products.length) { %>
+      <div class="search-items-container">
         <% products.forEach(product => { %> <%- include("product", {product:
-        product, brandImage: brandImage, choose: false}) %> <% }) %>
+        product, brandImage: brandImage, pageState: false}) %> <% }) %>
       </div>
+      <% } else { %>
+      <h2 style="align-self: start">No results found.</h2>
+      <% } %>
     </main>
   </body>
 </html>

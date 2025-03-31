@@ -4,7 +4,18 @@
     <input type="number" min="0" id="core-count" name="coreCount" required />
   </div>
   <div class="label-input-container">
-    <label for="core-clock">Core Clock:</label>
+    <label for="micro-architecture">Micro Architecture:</label>
+    <input
+      type="text"
+      id="micro-architecture"
+      name="microArchitecture"
+      required
+    />
+  </div>
+</div>
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="core-clock">Core Clock (GHz):</label>
     <input
       type="number"
       min="0"
@@ -15,7 +26,7 @@
     />
   </div>
   <div class="label-input-container">
-    <label for="boost-clock">Boost Clock:</label>
+    <label for="boost-clock">Boost Clock (GHz):</label>
     <input
       type="number"
       min="0"
@@ -28,16 +39,7 @@
 </div>
 <div class="input-grouper">
   <div class="label-input-container">
-    <label for="micro-architecture">Micro Architecture:</label>
-    <input
-      type="text"
-      id="micro-architecture"
-      name="microArchitecture"
-      required
-    />
-  </div>
-  <div class="label-input-container">
-    <label for="tdp">TDP:</label>
+    <label for="tdp">TDP (W):</label>
     <input type="number" min="0" id="tdp" name="tdp" required />
   </div>
   <div class="label-input-container">

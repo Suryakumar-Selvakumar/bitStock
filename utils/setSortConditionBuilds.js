@@ -8,10 +8,10 @@ const setSortConditionBuilds = (sort) => {
       return "ORDER BY price";
     case "priceDesc":
       return "ORDER BY price DESC";
-    case "builderNameAsc":
-      return "ORDER BY builder_name";
-    case "builderNameDesc":
-      return "ORDER BY builder_name DESC";
+    case "buildForAsc":
+      return "ORDER BY build_for";
+    case "buildForDesc":
+      return "ORDER BY build_for DESC";
   }
 };
 

@@ -1,6 +1,6 @@
 <div class="input-grouper">
   <div class="label-input-container">
-    <label for="screen-size">Screen Size:</label>
+    <label for="screen-size">Screen Size (in):</label>
     <input
       type="number"
       step=".1"
@@ -14,8 +14,10 @@
     <label for="resolution">Resolution:</label>
     <input type="text" id="resolution" name="resolution" required />
   </div>
+</div>
+<div class="input-grouper">
   <div class="label-input-container">
-    <label for="refresh-rate">Refresh Rate:</label>
+    <label for="refresh-rate">Refresh Rate (Hz):</label>
     <input
       type="number"
       min="0"
@@ -24,10 +26,8 @@
       required
     />
   </div>
-</div>
-<div class="input-grouper">
   <div class="label-input-container">
-    <label for="response-time">Response Time:</label>
+    <label for="response-time">Response Time (ms):</label>
     <input
       type="number"
       step=".01"
@@ -37,6 +37,8 @@
       required
     />
   </div>
+</div>
+<div class="input-grouper">
   <div class="label-input-container">
     <label for="panel-type">Panel Type:</label>
     <input type="text" id="panel-type" name="panelType" required />

@@ -15,7 +15,7 @@
           <button class="product-submit add">Add a Product</button>
         </a>
       </div>
-      <div class="products-container">
+      <div class="items-container">
         <div class="sidebar">
           <form class="filter-form" action="/products" method="get">
             <div class="filter-input-container">
@@ -77,7 +77,7 @@
         </div>
         <div class="products">
           <% products.forEach(product => { %> <%- include("product", {product:
-          product, brandImage: brandImage, choose: false}) %> <% }) %>
+          product, brandImage: brandImage, pageState: false}) %> <% }) %>
         </div>
       </div>
     </main>

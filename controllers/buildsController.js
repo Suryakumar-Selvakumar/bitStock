@@ -122,7 +122,7 @@ const builderGet = async (req, res) => {
 const choosePartGet = async (req, res) => {
   const { buildPart } = req.params;
 
-  const products = await db.filterProducts(null, [buildPart]);
+  const products = await db.filterProductsBuild([buildPart]);
   products.forEach((product) => {
     product.image = product.image
       ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
@@ -151,13 +151,15 @@ const choosePartPost = async (req, res) => {
 const deletePartGet = async (req, res) => {
   const { buildPart } = req.params;
 
+  await db.resetProductQuantity(req.session.builder[getBuilderProp(buildPart)]);
+
   req.session.builder[getBuilderProp(buildPart)] = null;
 
   res.redirect("/builds/builder");
 };
 
 const builderPost = async (req, res) => {
-  const { buildName, builderName } = req.body;
+  const { buildName, buildFor } = req.body;
   const buildParts = req.session.builder;
 
   const categories = await db.getCategories();
@@ -168,7 +170,9 @@ const builderPost = async (req, res) => {
   );
   const buildPrice = await db.getBuildPrice(buildPartIdsValid);
 
-  if (buildPartIds.includes(null)) {
+  const buildPartIdsRequired = buildPartIds.slice(1, 9);
+
+  if (buildPartIdsRequired.includes(null)) {
     const currentParts = await db.getProductsWithIds(buildPartIdsValid);
 
     categories.forEach((category) => {
@@ -191,7 +195,7 @@ const builderPost = async (req, res) => {
     });
 
     req.session.builder.buildDetails = {
-      builderName: builderName,
+      buildFor: buildFor,
       buildName: buildName,
       buildPrice: buildPrice,
     };
@@ -205,14 +209,19 @@ const builderPost = async (req, res) => {
     });
   } else {
     delete buildParts.buildDetails;
+    const filteredBuildParts = Object.fromEntries(
+      Object.entries(buildParts).filter(
+        ([_, value]) => typeof value === "string"
+      )
+    );
 
     const build = {
-      builderName: builderName,
+      buildFor: buildFor,
       buildName: buildName,
       price: buildPrice,
       image: req.file?.buffer ?? null,
       imageType: req.file?.mimetype ?? null,
-      parts: buildParts,
+      parts: filteredBuildParts,
     };
 
     await db.addBuild(build);
@@ -227,6 +236,35 @@ const builderCancel = async (req, res) => {
   res.redirect("/");
 };
 
+const getBuild = async (req, res) => {
+  const { buildId } = req.params;
+
+  const build = await db.getBuild(buildId);
+
+  build.image = build.image
+    ? `data:${build.image_type};base64,${build.image?.toString("base64")}`
+    : `../static/placeholder-image.jpg`;
+  delete build.image_type;
+
+  const buildPartIds = Object.values(build.parts);
+
+  const buildParts = await db.getProductsWithIds(buildPartIds);
+  buildParts.forEach((product) => {
+    product.image = product.image
+      ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
+      : `static/placeholder-image.jpg`;
+    delete product.image_type;
+    delete product.details;
+  });
+
+  build.parts = buildParts;
+
+  res.render("builds/build-page", {
+    build: build,
+    brandImage: brandImage,
+  });
+};
+
 const editBuildGet = async (req, res) => {};
 
 const editBuildPost = async (req, res) => {};
@@ -234,8 +272,6 @@ const editBuildPost = async (req, res) => {};
 const deleteBuildGet = async (req, res) => {};
 
 const deleteBuildPost = async (req, res) => {};
-
-const getBuild = async (req, res) => {};
 
 module.exports = {
   getBuilds,

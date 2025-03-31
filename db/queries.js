@@ -129,12 +129,27 @@ async function filterProducts(sort, category) {
   }
 }
 
+async function filterProductsBuild(category) {
+  const { rows } = await pool.query(
+    "SELECT * FROM products WHERE category = ANY($1) AND quantity >= 1",
+    [category]
+  );
+  return rows;
+}
+
+async function resetProductQuantity(productId) {
+  await pool.query(
+    "UPDATE products SET quantity = 1 WHERE id = $1 AND quantity = 0",
+    [productId]
+  );
+}
+
 // Build Queries
 async function addBuild(newBuild) {
   await pool.query(
-    "INSERT INTO builds (builder_name, build_name, price, image, image_type, parts) VALUES ($1, $2, $3, $4, $5, $6)",
+    "INSERT INTO builds (build_for, build_name, price, image, image_type, parts) VALUES ($1, $2, $3, $4, $5, $6)",
     [
-      newBuild.builderName,
+      newBuild.buildFor,
       newBuild.buildName,
       newBuild.price,
       newBuild.image,
@@ -165,6 +180,14 @@ async function getAllBuilds() {
   return rows;
 }
 
+async function getBuild(buildId) {
+  const { rows } = await pool.query("SELECT * FROM builds WHERE id = $1", [
+    buildId,
+  ]);
+
+  return rows[0];
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -174,11 +197,14 @@ module.exports = {
   searchProducts,
   getCategories,
   filterProducts,
+  filterProductsBuild,
   updateProduct,
   deleteProduct,
   reduceProductsQuantity,
+  resetProductQuantity,
   addBuild,
   getBuildPrice,
   filterbuilds,
   getAllBuilds,
+  getBuild,
 };

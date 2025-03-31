@@ -1,37 +1,46 @@
-<% if(choose) { %>
-<a href="/products/<%= product.id %>?choose=true" class="product-link">
-  <% } else { %>
-  <a href="/products/<%= product.id %>" class="product-link">
-    <% } %>
-    <div class="product">
-      <% if(brandImage.brandImageExists(product.brand)) { %>
-      <img
-        class="product-brand"
-        src="<%= brandImage.getBrandImage(product.brand) %>"
-        alt="<%= product.brand %>"
-      />
+<% if(pageState === "build") { %>
+<a
+  href="/products/<%= product.id %>?build=<%= buildName %>"
+  class="product-link"
+>
+  <% } else if(pageState === "choose") { %>
+  <a href="/products/<%= product.id %>?choose=true" class="product-link">
+    <% } else { %>
+    <a href="/products/<%= product.id %>" class="product-link">
       <% } %>
-      <div class="product-category"><%= product.category %></div>
-      <div class="product-image">
+      <div class="product">
+        <% if(brandImage.brandImageExists(product.brand)) { %>
         <img
-          src="<%= product.image ?? placeholder-image.jpg %>"
-          alt="<%= product.name %>"
+          class="product-brand"
+          src="<%= brandImage.getBrandImage(product.brand) %>"
+          alt="<%= product.brand %>"
         />
-      </div>
-      <div class="product-details">
-        <p class="product-name"><%= product.name %></p>
-        <div class="feature-row">
-          <div class="product-feature">$<%= product.price %></div>
-          <% if(choose) { %>
-          <form method="post" action="/builds/builder/<%= product.category %>">
-            <input type="hidden" name="productId" value="<%= product.id %>" />
-            <button type="submit" class="product-submit add">Select</button>
-          </form>
-          <% } else { %>
-          <div class="product-feature right">x<%= product.quantity %></div>
-          <% } %>
+        <% } %>
+        <div class="product-category"><%= product.category %></div>
+        <div class="product-image">
+          <img
+            src="<%= product.image ?? placeholder-image.jpg %>"
+            alt="<%= product.name %>"
+          />
+        </div>
+        <div class="product-details">
+          <p class="product-name"><%= product.name %></p>
+          <div class="feature-row">
+            <div class="product-feature">$<%= product.price %></div>
+            <% if(pageState === "choose") { %>
+            <form
+              method="post"
+              action="/builds/builder/<%= product.category %>"
+            >
+              <input type="hidden" name="productId" value="<%= product.id %>" />
+              <button type="submit" class="product-submit add">Select</button>
+            </form>
+            <% } else { %>
+            <div class="product-feature right">x<%= product.quantity %></div>
+            <% } %>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   </a>
 </a>

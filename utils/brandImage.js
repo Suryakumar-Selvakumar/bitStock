@@ -116,6 +116,18 @@ const getBrandImage = (brand) => {
 
     case "glorious":
       return "https://uspto.report/TM/97698117/mark.png";
+
+    case "silverstone":
+      return "https://logos-world.net/wp-content/uploads/2023/01/SilverStone-Logo.png";
+
+    case "cryorig":
+      return "https://forum.hardwareinside.de/media/cryorig-logo.85246/full?d=1543253747";
+
+    case "evga":
+      return "https://upload.wikimedia.org/wikipedia/commons/e/e9/EVGA_Logo.svg";
+
+    case "pixio":
+      return "https://cdn.shopify.com/s/files/1/1208/4426/files/Pixio_Logo_Red_Logo.png?v=1609437152";
   }
 };
 
@@ -123,9 +135,13 @@ const brandImageExists = (brand) => {
   const brandImages = [
     "amd",
     "asrock",
+    "pixio",
     "logitech",
+    "evga",
+    "cryorig",
     "asus",
     "cooler master",
+    "silverstone",
     "corsair",
     "intel",
     "msi",

@@ -16,7 +16,7 @@ const SQL = `
 
     CREATE TABLE IF NOT EXISTS builds (
       id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-      builder_name VARCHAR(100),
+      built_for VARCHAR(100),
       build_name VARCHAR(100),
       price DECIMAL,
       image BYTEA,

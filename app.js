@@ -16,6 +16,9 @@ app.use(
     secret: process.env.ADMIN_PASSWORD,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 12,
+    },
   })
 );
 

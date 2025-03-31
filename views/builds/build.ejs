@@ -1,7 +1,7 @@
 <a href="/builds/<%= build.id %>" class="product-link">
   <div class="product">
     <div class="build-image">
-      <img src="<%= build.image %>" alt="<%= build.buildName %>" />
+      <img src="<%= build.image %>" alt="<%= build.build_name %>" />
     </div>
     <div class="product-details">
       <p class="build-name"><%= build.build_name %></p>
@@ -28,7 +28,7 @@
                 fill="#000000"
               ></path>
             </g></svg
-          ><%= build.builder_name %>
+          ><%= build.build_for %>
         </div>
         <div class="product-feature right">$<%= build.price %></div>
       </div>

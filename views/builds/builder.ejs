@@ -22,14 +22,17 @@
           <p class="area-title">
             Components <% if(error) { %>
             <span class="form-error">
-              Please select all components to save build*
+              Please select all required components to save build*
             </span>
             <% } %>
           </p>
           <div class="build-components">
             <% categories.forEach(category => { %>
             <div class="build-component-container">
-              <span><%= getCategory(category.name) %></span>
+              <span
+                ><%= error ? getCategory(category.name, true) :
+                getCategory(category.name) %></span
+              >
               <% if(category.item) { %>
               <div class="build-component-selected">
                 <a
@@ -76,12 +79,12 @@
           <p class="area-title">Details</p>
           <div class="build-details">
             <div class="label-input-container">
-              <label for="builder-name">Builder Name:</label>
+              <label for="builder-name">Build For:</label>
               <input
                 type="text"
                 id="builder-name"
-                name="builderName"
-                value="<%= buildDetails.builderName !== null ? buildDetails.builderName : '' %>"
+                name="buildFor"
+                value="<%= buildDetails.buildFor !== null ? buildDetails.buildFor : '' %>"
                 required
               />
             </div>

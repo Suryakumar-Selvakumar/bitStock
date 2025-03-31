@@ -397,7 +397,7 @@ main {
   align-self: center;
   font-family: myFontRegular;
   background-color: rgba(138, 43, 226, 0.1);
-  padding: 2rem 0rem;
+  padding: 3rem 1rem;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 3px;
   font-size: 1rem;
@@ -478,19 +478,6 @@ main {
   width: 100%;
 }
 
-.input-grouper.duo {
-  padding: 0 2.75rem;
-  gap: 3.9rem;
-}
-
-.input-grouper.duo > .label-input-container {
-  width: 100%;
-}
-
-.input-grouper.fieldset {
-  padding: 0 2.75rem;
-}
-
 #image {
   padding: 0.23rem 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.26);
@@ -501,24 +488,11 @@ main {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.26);
   border-radius: 5px;
-}
-
-.product-fieldset.horizontal {
   display: flex;
+  padding: 0rem 0 0.35rem 1rem;
   gap: 2rem;
   width: 100%;
-}
-
-.product-fieldset.long {
-  gap: 1.93rem;
-}
-
-.label-input-container.duo {
-  width: 100%;
-
-  input {
-    width: 100%;
-  }
+  align-items: center;
 }
 
 #first-word-latency,
@@ -528,14 +502,12 @@ main {
 
 .label-input-container.checkbox {
   flex-direction: row;
-  align-items: end;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
 
   input {
     height: min-content;
     width: min-content;
-    position: relative;
-    top: -4.5px;
   }
 }
 
@@ -555,17 +527,13 @@ main {
   width: 100%;
 }
 
-.products-container {
+.items-container {
   width: 100%;
   height: max-content;
   display: grid;
   grid-template-columns: 250px 1fr;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.144);
-}
-
-.products-container.build {
-  grid-template-columns: 257.5px 1fr;
 }
 
 .sidebar {
@@ -743,14 +711,17 @@ img[alt="Thermaltake"] {
 .product-feature {
   display: flex;
   justify-content: center;
+  height: 25px;
+  overflow: hidden;
 }
 
 .product-feature.right {
   justify-content: end;
+  text-align: end;
 }
 
 /* SEARCH PRODUCTS PAGE STYLES */
-.search-products-container {
+.search-items-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
   grid-auto-rows: 400px;
@@ -1223,4 +1194,34 @@ img[alt="Thermaltake"] {
   font-weight: 600;
   font-size: 1.15rem;
   height: 30px;
+}
+
+/* BUILD PAGE STYLES */
+.items-container.build {
+  grid-template-columns: 325px 1fr;
+}
+
+.sidebar.build {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: white;
+}
+
+.build-page-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.build-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.product-submit.build {
+  height: min-content;
+  min-width: 75px;
 }

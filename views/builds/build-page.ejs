@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="products-page">
+      <div class="first-row in-products">
+        <h1><%= build.build_name %></h1>
+        <button class="product-submit add" onclick="goBack()">
+          << Return to builds
+        </button>
+      </div>
+      <div class="items-container build">
+        <div class="sidebar build">
+          <img src="<%= build.image %>" alt="<%= build.build_name %>" />
+          <div class="build-page-details">
+            <div class="product-detail">
+              <span>Build for</span>
+              <span><%= build.build_for %></span>
+            </div>
+            <div class="product-detail">
+              <span>Price</span>
+              <span>$<%= build.price %></span>
+            </div>
+          </div>
+          <div class="build-btns">
+            <form method="get" action="/builds/edit/<%= build.id %>">
+              <button class="product-submit add build">Edit</button>
+            </form>
+            <a href="/builds/delete/<%= build.id %>">
+              <button class="product-submit delete build">Delete</button>
+            </a>
+          </div>
+        </div>
+        <div class="products">
+          <% build.parts.forEach(product => { %> <%-
+          include("../products/product", {product: product, brandImage:
+          brandImage, pageState: "build", buildName: build.build_name}) %> <% })
+          %>
+        </div>
+      </div>
+    </main>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>

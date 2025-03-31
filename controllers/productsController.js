@@ -84,12 +84,21 @@ const addProductsPost = async (req, res) => {
 
 const getProduct = async (req, res) => {
   const { productId } = req.params;
-  const { choose, builder } = req.query;
-
-  const booleanChoose = choose === "true";
-  const booleanBuilder = builder === "true";
+  const { choose, builder, build } = req.query;
+  let pageState = "";
 
   const product = await db.getProduct(productId);
+
+  if (choose === "true" && builder === "true") {
+    pageState = "choose-builder";
+  } else if (choose === "true") {
+    pageState = "choose";
+  } else if (build) {
+    pageState = "build";
+    product.buildName = build;
+  } else {
+    pageState = false;
+  }
 
   product.image = product.image
     ? `data:${product.image_type};base64,${product.image?.toString("base64")}`
@@ -100,8 +109,7 @@ const getProduct = async (req, res) => {
     product: product,
     category: product.category,
     brandImage: brandImage,
-    choose: booleanChoose,
-    builder: booleanBuilder,
+    pageState: pageState,
   });
 };
 

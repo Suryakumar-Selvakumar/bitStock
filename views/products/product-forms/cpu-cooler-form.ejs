@@ -7,14 +7,10 @@
     <label for="fan-rpm">Fan RPM (max):</label>
     <input type="number" min="0" id="fan-rpm" name="fanRPMMax" required />
   </div>
-  <div class="label-input-container">
-    <label for="color">Color:</label>
-    <input type="text" id="color" name="color" required />
-  </div>
 </div>
-<div class="input-grouper fieldset">
+<div class="input-grouper">
   <div class="label-input-container">
-    <label for="noise-level-min">Min Noise Level (db):</label>
+    <label for="noise-level-min">Min Noise Level (dB):</label>
     <input
       type="number"
       step=".1"
@@ -25,7 +21,7 @@
     />
   </div>
   <div class="label-input-container">
-    <label for="noise-level-max">Max Noise Level (db):</label>
+    <label for="noise-level-max">Max Noise Level (dB):</label>
     <input
       type="number"
       step=".1"
@@ -35,7 +31,9 @@
       required
     />
   </div>
-  <fieldset class="product-fieldset horizontal">
+</div>
+<div class="input-grouper">
+  <fieldset class="product-fieldset">
     <legend>Radiator Size (mm):</legend>
     <div>
       <input type="radio" id="240" name="radiatorSize" value="240" required />
@@ -54,4 +52,8 @@
       <label for="none">None</label>
     </div>
   </fieldset>
+  <div class="label-input-container">
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required />
+  </div>
 </div>

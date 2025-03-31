@@ -20,7 +20,7 @@
       enctype="multipart/form-data"
       class="product-form"
     >
-      <div class="input-grouper duo">
+      <div class="input-grouper">
         <div class="label-input-container">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required />
@@ -28,6 +28,23 @@
         <div class="label-input-container">
           <label for="brand">Brand:</label>
           <input type="text" id="brand" name="brand" required />
+        </div>
+      </div>
+      <div class="input-grouper">
+        <div class="label-input-container">
+          <label for="quantity">Quantity:</label>
+          <input type="number" min="0" id="quantity" name="quantity" required />
+        </div>
+        <div class="label-input-container">
+          <label for="price">Price ($):</label>
+          <input
+            type="number"
+            min="0"
+            step=".01"
+            id="price"
+            name="price"
+            required
+          />
         </div>
       </div>
       <% if(category === "cpu") { %> <%- include("product-forms/cpu-form") %> <%
@@ -48,21 +65,6 @@
       include("product-forms/keyboard-form") %> <% } else if(category ===
       "mouse") { %> <%- include("product-forms/mouse-form") %> <% } %>
       <div class="input-grouper">
-        <div class="label-input-container">
-          <label for="quantity">Quantity:</label>
-          <input type="number" min="1" id="quantity" name="quantity" required />
-        </div>
-        <div class="label-input-container">
-          <label for="price">Price:</label>
-          <input
-            type="number"
-            min="0"
-            step=".01"
-            id="price"
-            name="price"
-            required
-          />
-        </div>
         <div class="label-input-container">
           <label for="image">Image:</label>
           <input

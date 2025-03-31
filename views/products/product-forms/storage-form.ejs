@@ -4,16 +4,16 @@
     <input type="number" min="0" id="capacity" name="capacity" required />
   </div>
   <div class="label-input-container">
-    <label for="type">Type:</label>
-    <input type="text" id="type" name="type" required />
-  </div>
-  <div class="label-input-container">
-    <label for="cache">Cache:</label>
+    <label for="cache">Cache (MB):</label>
     <input type="number" min="0" id="cache" name="cache" />
   </div>
 </div>
-<div class="input-grouper duo">
-  <fieldset class="product-fieldset horizontal">
+<div class="input-grouper">
+  <div class="label-input-container">
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" required />
+  </div>
+  <fieldset class="product-fieldset">
     <legend>Form Factor:</legend>
     <div>
       <input type="radio" id="M.2-2280" name="formFactor" value="M.2-2280" required />
@@ -32,6 +32,8 @@
       <label for="PCIe" >PCIe</label>
     </div>
   </fieldset>
+</div>
+<div class="input-grouper">
   <div class="label-input-container duo">
     <label for="interface">Interface:</label>
     <input type="text" id="interface" name="interface" required />

@@ -10,10 +10,12 @@
     <%- include("../components/header") %>
     <main class="product-page">
       <div class="first-row in-product">
-        <% if(choose) { %>
+        <% if(pageState) { %>
         <button class="product-submit add" onclick="goBack()">
-          <% if(builder && choose) { %> << Return to Builder <% } else { %> <<
-          Return to products <% } %>
+          <% } %> <% if(pageState === "build") { %> << Return to <%=
+          product.buildName %> <% } else if(pageState === "choose-builder") { %>
+          << Return to Builder <% } else if(pageState === "choose") { %> <<
+          Return to products
         </button>
         <% } else { %>
         <a href="/products">
@@ -66,7 +68,8 @@
           </div>
         </div>
         <div class="product-page-btns">
-          <% if(builder && choose) { %> <% } else if(choose) { %>
+          <% if(pageState === "choose-builder" || pageState === "build") { %> <%
+          } else if(pageState === "choose") { %>
           <form method="post" action="/builds/builder/<%= product.category %>">
             <input type="hidden" name="productId" value="<%= product.id %>" />
             <button type="submit" class="product-submit add">Select</button>

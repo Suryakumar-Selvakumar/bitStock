@@ -11,11 +11,20 @@
     <main class="products-page">
       <div class="first-row in-products">
         <h1>Choose a <%= getCategory(buildPart) %></h1>
+        <button class="product-submit add" onclick="goBack()">
+          << Return to Builder
+        </button>
       </div>
-      <div class="search-products-container choose">
+      <div class="search-items-container choose">
         <% products.forEach(product => { %> <%- include("../products/product",
-        {product: product, brandImage: brandImage, choose: true}) %> <% }) %>
+        {product: product, brandImage: brandImage, pageState: "choose"}) %> <%
+        }) %>
       </div>
     </main>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
   </body>
 </html>
