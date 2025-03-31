@@ -269,9 +269,45 @@ const editBuildGet = async (req, res) => {};
 
 const editBuildPost = async (req, res) => {};
 
-const deleteBuildGet = async (req, res) => {};
+const deleteBuildGet = async (req, res) => {
+  const { buildId } = req.params;
 
-const deleteBuildPost = async (req, res) => {};
+  const build = await db.getBuild(buildId);
+
+  build.image = build.image
+    ? `data:${build.image_type};base64,${build.image?.toString("base64")}`
+    : `../../static/placeholder-image.jpg`;
+  delete build.image_type;
+  delete build.parts;
+
+  res.render("builds/delete-build", {
+    build: build,
+    retry: false,
+  });
+};
+
+const deleteBuildPost = async (req, res) => {
+  const { buildId } = req.params;
+  const { adminPassword } = req.body;
+
+  if (adminPassword === process.env.ADMIN_PASSWORD) {
+    await db.deleteBuild(buildId);
+    res.redirect(`/builds`);
+  } else {
+    const build = await db.getBuild(buildId);
+
+    build.image = build.image
+      ? `data:${build.image_type};base64,${build.image?.toString("base64")}`
+      : `../../static/placeholder-image.jpg`;
+    delete build.image_type;
+    delete build.parts;
+
+    res.render("builds/delete-build", {
+      build: build,
+      retry: true,
+    });
+  }
+};
 
 module.exports = {
   getBuilds,

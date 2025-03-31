@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>bitStock</title>
+  </head>
+  <body>
+    <%- include("../components/header") %>
+    <main class="build-page">
+      <div class="first-row in-products">
+        <h1><%= build.build_name %></h1>
+        <button class="product-submit add" onclick="goBack()">
+          << Return to <%= build.build_name %>
+        </button>
+      </div>
+      <div class="items-container build">
+        <div class="sidebar build">
+          <img src="<%= build.image %>" alt="<%= build.build_name %>" />
+          <div class="build-page-details">
+            <div class="product-detail">
+              <span>Build for</span>
+              <span><%= build.build_for %></span>
+            </div>
+            <div class="product-detail">
+              <span>Price</span>
+              <span>$<%= build.price %></span>
+            </div>
+          </div>
+        </div>
+        <form
+          method="post"
+          action="/builds/delete/<%= build.id %>"
+          class="delete-container"
+        >
+          <div class="build-page-details delete">
+            <div class="product-detail delete build">
+              <label for="admin-password"><b>Admin Password:</b></label>
+              <div class="password-field">
+                <div class="password-input">
+                  <input
+                    type="password"
+                    id="admin-password"
+                    name="adminPassword"
+                    required
+                  />
+                  <img
+                    src="../../static/eye-closed.svg"
+                    alt="Eye icon"
+                    id="show-hide-password"
+                  />
+                </div>
+                <% if(retry) { %>
+                <div class="password-error">Password incorrect</div>
+                <% } %>
+              </div>
+            </div>
+            <div class="product-page-btns delete">
+              <p>
+                <i>Note: Admin Password is required for build deletion</i>
+              </p>
+              <button type="submit" class="product-submit add">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+      const passwordInput = document.getElementById("admin-password");
+      const togglePasswordButton =
+        document.getElementById("show-hide-password");
+
+      togglePasswordButton.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePasswordButton.src = "../../static/eye-open.svg";
+        } else {
+          passwordInput.type = "password";
+          togglePasswordButton.src = "../../static/eye-closed.svg";
+        }
+      });
+    </script>
+  </body>
+</html>

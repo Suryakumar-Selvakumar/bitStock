@@ -23,7 +23,7 @@ const {
 } = require("../controllers/buildsController");
 
 // buildsRouter.use((req, res, next) => {
-//   console.log(`ProductsRouter received: ${req.method} ${req.url}`);
+//   console.log(`buildsRouter received: ${req.method} ${req.url}`);
 //   next();
 // });
 

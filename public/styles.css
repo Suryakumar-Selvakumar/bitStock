@@ -708,6 +708,10 @@ img[alt="Thermaltake"] {
   align-items: end;
 }
 
+.feature-row.right {
+  justify-content: end;
+}
+
 .product-feature {
   display: flex;
   justify-content: center;
@@ -1224,4 +1228,23 @@ img[alt="Thermaltake"] {
 .product-submit.build {
   height: min-content;
   min-width: 75px;
+}
+
+/* BUILD DELETE PAGE STYLES */
+.build-page {
+  padding: 0 8rem;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  width: 60%;
+}
+
+.build-page-details.delete {
+  padding: 2rem;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+}
+
+.product-detail.delete.build {
+  /* margin-top: 2rem; */
 }

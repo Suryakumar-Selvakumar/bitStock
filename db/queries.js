@@ -188,6 +188,10 @@ async function getBuild(buildId) {
   return rows[0];
 }
 
+async function deleteBuild(buildId) {
+  await pool.query("DELETE FROM builds WHERE id = $1", [buildId]);
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -207,4 +211,5 @@ module.exports = {
   filterbuilds,
   getAllBuilds,
   getBuild,
+  deleteBuild,
 };

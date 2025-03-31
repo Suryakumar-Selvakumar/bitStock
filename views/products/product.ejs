@@ -25,8 +25,8 @@
         </div>
         <div class="product-details">
           <p class="product-name"><%= product.name %></p>
-          <div class="feature-row">
-            <div class="product-feature">$<%= product.price %></div>
+          <div class="<%= pageState === "build" ? "feature-row right" : "feature-row" %>">
+            <div class="<%= pageState === "build" ? "product-feature right" : "product-feature" %>">$<%= product.price %></div>
             <% if(pageState === "choose") { %>
             <form
               method="post"
@@ -35,7 +35,7 @@
               <input type="hidden" name="productId" value="<%= product.id %>" />
               <button type="submit" class="product-submit add">Select</button>
             </form>
-            <% } else { %>
+            <% } else if(pageState === "build") { %> <% } else { %>
             <div class="product-feature right">x<%= product.quantity %></div>
             <% } %>
           </div>
