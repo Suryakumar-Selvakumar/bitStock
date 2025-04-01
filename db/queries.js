@@ -145,6 +145,18 @@ async function resetProductQuantity(productId) {
   );
 }
 
+async function getProductsNum() {
+  const { rows } = await pool.query("SELECT COUNT(*) FROM products");
+
+  return rows[0].count;
+}
+
+async function getProductsQuantity() {
+  const { rows } = await pool.query("SELECT SUM(quantity) FROM products");
+
+  return rows[0].sum;
+}
+
 // Build Queries
 async function addBuild(newBuild) {
   await pool.query(
@@ -221,6 +233,18 @@ async function deleteBuild(buildId) {
   await pool.query("DELETE FROM builds WHERE id = $1", [buildId]);
 }
 
+async function getBuildsRevenue() {
+  const { rows } = await pool.query("SELECT SUM(price) FROM builds");
+
+  return rows[0].sum;
+}
+
+async function getBuildsNum() {
+  const { rows } = await pool.query("SELECT COUNT(*) FROM builds");
+
+  return rows[0].count;
+}
+
 module.exports = {
   getAllProducts,
   getProductsInCategory,
@@ -235,6 +259,8 @@ module.exports = {
   deleteProduct,
   reduceProductsQuantity,
   resetProductQuantity,
+  getProductsNum,
+  getProductsQuantity,
   addBuild,
   getBuildPrice,
   filterbuilds,
@@ -242,4 +268,6 @@ module.exports = {
   getBuild,
   deleteBuild,
   updateBuild,
+  getBuildsRevenue,
+  getBuildsNum,
 };

@@ -8,18 +8,42 @@
   </head>
   <body>
     <%- include("components/header") %>
-    <main>
+    <main class="index-page">
       <div class="dashboard-container">
-        <h2>Dashboard</h1>
+        <h1>Dashboard</h1>
         <div class="dashboard">
-          <div></div>
-          <div></div>
-          <div></div>
+          <div class="dashboard-stat">
+            <img class="dashboard-icon" src="static/pc-1.png" alt="a pc icon">
+            <div class="dashboard-details">
+              <span><%= dashboard.buildsCount %></span>
+              <span>Builds Completed</span>
+            </div>
+          </div>
+          <div class="dashboard-stat">
+            <img class="dashboard-icon" src="static/dollar.png" alt="a dollar icon">
+            <div class="dashboard-details">
+              <span>$<%= dashboard.revenue %></span>
+              <span>Total Revenue</span>
+            </div>
+          </div>
+          <div class="dashboard-stat">
+            <img class="dashboard-icon" src="static/supply.png" alt="a supply icon">
+            <div class="dashboard-details">
+              <span><%= dashboard.productsCount %></span>
+              <span>Unique Products</span>
+            </div>
+          </div>
+          <div class="dashboard-stat">
+            <img class="dashboard-icon" src="static/p-3.png" alt="a supply icon">
+            <div class="dashboard-details">
+              <span><%= dashboard.productsQuantity %></span>
+              <span>No. of Products</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="content">
         <div class="builds-container">
-          <h2>Builds</h2>
+          <span>Builds</span>
           <div class="builds">
             <img src="static/build.png" alt="An image of a PC build">
             <div class="build-links">
@@ -29,7 +53,7 @@
           </div>
         </div>
         <div class="categories-container">
-          <h2>Products</h2>
+          <span>Products</span>
           <div class="categories">
             <a href="/products?category=cpu" class="category">
               <img src="static/cpu-1.png" alt="An image of a cpu" class="category-image">
@@ -81,7 +105,6 @@
             </a>
           </div>
         </div>
-      </div>
     </main>
   </body>
 </html>

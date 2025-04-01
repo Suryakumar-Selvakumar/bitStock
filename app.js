@@ -5,6 +5,9 @@ const asyncHandler = require("express-async-handler");
 const session = require("express-session");
 require("dotenv").config();
 
+// db
+const db = require("./db/queries");
+
 // app config
 const app = express();
 const assetsPath = path.join(__dirname, "public");
@@ -33,8 +36,20 @@ const productsRouter = require("./routes/productsRouter");
 const buildsRouter = require("./routes/buildsRouter");
 
 //Routes
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async (req, res) => {
+  const productsCount = await db.getProductsNum();
+  const revenue = await db.getBuildsRevenue();
+  const buildsCount = await db.getBuildsNum();
+  const productsQuantity = await db.getProductsQuantity();
+
+  res.render("index", {
+    dashboard: {
+      productsCount: productsCount,
+      revenue: revenue,
+      buildsCount: buildsCount,
+      productsQuantity: productsQuantity,
+    },
+  });
 });
 app.use("/products", productsRouter);
 app.use("/builds", buildsRouter);

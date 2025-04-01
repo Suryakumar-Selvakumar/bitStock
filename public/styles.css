@@ -78,7 +78,8 @@ h6 {
 }
 
 body {
-  height: 100%;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -258,6 +259,63 @@ main {
   padding: 0 2rem 2rem 2rem;
 }
 
+.index-page {
+  display: grid;
+  grid-template-areas:
+    "dashboard dashboard"
+    "builds categories";
+  height: 100vh;
+  gap: 2rem;
+  margin-top: 0;
+  place-content: center;
+  width: 1500px;
+}
+
+.dashboard-container {
+  grid-area: dashboard;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dashboard-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: inherit;
+}
+
+.dashboard-stat {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  padding: 2rem;
+  box-shadow: lightgray 0px 2.5px 15px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.dashboard-stat span:first-child {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.dashboard-stat span:last-child {
+  color: #929292;
+}
+
+.dashboard-details {
+  display: flex;
+  flex-direction: column;
+}
+
 .first-row {
   display: flex;
   flex-direction: column;
@@ -268,32 +326,35 @@ main {
   text-align: center;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: max-content min-content;
-  width: 70%;
-  place-content: center space-evenly;
-}
-
 .builds-container {
-  place-self: start end;
+  grid-area: builds;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  border-radius: 10px;
+  height: 100%;
+  gap: 1.75rem;
+  padding: 2rem;
+  box-shadow: lightgray 0px 2.5px 15px;
 }
 
-.builds-container h2 {
-  text-align: center;
+.builds-container span,
+.categories-container span {
+  font-weight: 500;
+  font-size: 1.15rem;
+  position: relative;
+  top: -1rem;
+  left: -1rem;
 }
 
 .builds {
   display: flex;
   flex-direction: column;
+  gap: 1.75rem;
 }
 
 .build-links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   gap: 2rem;
 }
 
@@ -310,29 +371,18 @@ main {
 }
 
 .builds img {
-  width: 550px;
+  width: 100%;
 }
 
 .categories-container {
   display: flex;
   flex-direction: column;
-  place-self: start center;
-  gap: 1rem;
+  grid-area: categories;
+  box-shadow: lightgray 0px 2.5px 15px;
   width: max-content;
-  background-color: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0)
-  );
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  justify-content: space-between;
+  border-radius: 10px;
   height: 100%;
-}
-
-.categories-container h2 {
-  text-align: center;
+  padding: 2rem;
 }
 
 .categories {
