@@ -14,9 +14,10 @@ async function getAllProducts() {
 }
 
 async function getProductsInCategory(category) {
-  const { rows } = pool.query("SELECT * FROM products WHERE category=$1", [
-    category,
-  ]);
+  const { rows } = await pool.query(
+    "SELECT * FROM products WHERE category=$1",
+    [category]
+  );
 
   return rows;
 }
@@ -43,13 +44,6 @@ async function addProduct(newProduct) {
       newProduct.imageType,
       JSON.stringify(newProduct.details),
     ]
-  );
-}
-
-async function reduceProductsQuantity(productIds) {
-  await pool.query(
-    "UPDATE products SET quantity = quantity - 1 WHERE id = ANY($1::int[])",
-    [productIds]
   );
 }
 
@@ -137,9 +131,16 @@ async function filterProductsBuild(category) {
   return rows;
 }
 
+async function reduceProductsQuantity(productIds) {
+  await pool.query(
+    "UPDATE products SET quantity = quantity - 1 WHERE id = ANY($1::int[])",
+    [productIds]
+  );
+}
+
 async function resetProductQuantity(productId) {
   await pool.query(
-    "UPDATE products SET quantity = 1 WHERE id = $1 AND quantity = 0",
+    "UPDATE products SET quantity = quantity + 1 WHERE id = $1",
     [productId]
   );
 }
@@ -157,6 +158,34 @@ async function addBuild(newBuild) {
       JSON.stringify(newBuild.parts),
     ]
   );
+}
+
+async function updateBuild(updatedBuild) {
+  if (updatedBuild.image !== null) {
+    await pool.query(
+      "UPDATE builds SET build_for = $1, build_name = $2, price = $3, image = $4, image_type = $5, parts = $6 WHERE id = $7",
+      [
+        updatedBuild.buildFor,
+        updatedBuild.buildName,
+        updatedBuild.price,
+        updatedBuild.image,
+        updatedBuild.imageType,
+        JSON.stringify(updatedBuild.parts),
+        updatedBuild.buildId,
+      ]
+    );
+  } else {
+    await pool.query(
+      "UPDATE builds SET build_for = $1, build_name = $2, price = $3, parts = $4 WHERE id = $5",
+      [
+        updatedBuild.buildFor,
+        updatedBuild.buildName,
+        updatedBuild.price,
+        JSON.stringify(updatedBuild.parts),
+        updatedBuild.buildId,
+      ]
+    );
+  }
 }
 
 async function getBuildPrice(partIds) {
@@ -212,4 +241,5 @@ module.exports = {
   getAllBuilds,
   getBuild,
   deleteBuild,
+  updateBuild,
 };

@@ -11,9 +11,9 @@
     <main class="products-page">
       <div class="first-row in-products">
         <h1><%= build.build_name %></h1>
-        <button class="product-submit add" onclick="goBack()">
-          << Return to builds
-        </button>
+        <a href="/builds">
+          <button class="product-submit add"><< Return to builds</button>
+        </a>
       </div>
       <div class="items-container build">
         <div class="sidebar build">
@@ -45,10 +45,5 @@
         </div>
       </div>
     </main>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
   </body>
 </html>

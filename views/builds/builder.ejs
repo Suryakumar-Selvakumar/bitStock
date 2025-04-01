@@ -99,7 +99,16 @@
               />
             </div>
             <div class="label-input-container">
-              <label for="image">Build Image:</label>
+              <label for="image" id="image-label"
+                >Build Image: <% if(buildDetails.image) { %>
+                <img
+                  src="<%= buildDetails.image %>"
+                  alt="<% buildDetails.buildName %>"
+                  class="build-image-edit"
+                />
+                <% } %></label
+              >
+
               <input
                 type="file"
                 id="image"

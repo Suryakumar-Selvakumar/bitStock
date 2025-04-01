@@ -1245,6 +1245,15 @@ img[alt="Thermaltake"] {
   gap: 2rem;
 }
 
-.product-detail.delete.build {
-  /* margin-top: 2rem; */
+/* BUILDER EDIT SPECIFIC STYLES */
+.build-image-edit {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -80px;
+  left: 200px;
+}
+
+#image-label {
+  position: relative;
 }
