@@ -485,12 +485,11 @@ main {
     gap: 2rem;
     margin-top: 7.5rem;
     margin-bottom: 0rem;
-    width: calc(100% - 2rem);
+    width: 100%;
   }
 
   .dashboard-container {
     gap: 1rem;
-    padding: 0 1rem;
   }
 
   .dashboard-icon {
@@ -522,7 +521,6 @@ main {
   .builds-container {
     gap: 1.75rem;
     padding: 2rem;
-    margin: 0 1rem;
     box-shadow: lightgray 0px 2.5px 10px;
   }
 
@@ -539,7 +537,6 @@ main {
     box-shadow: lightgray 0px 2.5px 10px;
     width: inherit;
     height: 100%;
-    margin: 0 1rem;
     gap: 1rem;
   }
 
@@ -561,6 +558,20 @@ main {
 
   .category-image {
     width: 75px;
+  }
+}
+
+/* CHOOSE CATEGORY CONTAINER MOBILE STYLES */
+@media (max-width: 600px) {
+  .choose-category-container {
+    margin-top: 5.5rem;
+    padding: 2rem;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .choose-category-container h1 {
+    text-align: center;
   }
 }
 
