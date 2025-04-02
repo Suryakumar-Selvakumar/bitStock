@@ -709,6 +709,70 @@ main {
   }
 }
 
+@media (max-width: 600px) {
+  /* ADD PRODUCT FORM STYLES */
+  .product-form-header {
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+    margin-top: 7.5rem;
+    gap: 1rem;
+  }
+
+  .product-form-header h1 {
+    word-break: break-word;
+  }
+
+  .product-form {
+    margin: 0 1rem 1rem 1rem;
+    gap: 2rem;
+    width: calc(100% - 2rem);
+    padding: 3rem 1rem;
+    border-radius: 20px;
+  }
+
+  .product-form input:focus {
+    box-shadow: 3px 3px 7.5px #6f69694d;
+  }
+
+  .product-submit {
+    padding: 0.5rem;
+  }
+
+  .input-grouper {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 2rem;
+  }
+
+  .product-fieldset {
+    padding: 0rem 0 0.35rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: start;
+    font-size: 1rem;
+  }
+
+  #first-word-latency,
+  #cas-latency {
+    width: 100%;
+  }
+
+  .label-input-container.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    input {
+      height: min-content;
+      width: min-content;
+    }
+  }
+}
+
 /* PRODUCTS PAGE Styles */
 .products-page {
   padding: 0 8rem;
