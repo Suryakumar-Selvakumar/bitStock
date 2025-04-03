@@ -1644,14 +1644,15 @@ main {
 /* BUILD PAGE MOBILE STYLES */
 @media (max-width: 600px) {
   .items-container.build {
-    display: grid;
     grid-template-columns: 1fr;
+    width: 100% !important;
   }
 
   .sidebar.build {
     gap: 2rem;
     padding: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+    border-right: none;
     border-radius: 1rem 1rem 0 0;
   }
 
@@ -1663,11 +1664,9 @@ main {
 }
 
 /* BUILD DELETE PAGE STYLES */
-.build-page {
-  padding: 0 8rem;
-  gap: 2rem;
-  margin-bottom: 4rem;
-  width: 60%;
+.items-container.delete {
+  grid-template-columns: 325px 1fr;
+  width: 100% !important;
 }
 
 .build-page-details.delete {
@@ -1675,6 +1674,51 @@ main {
   flex-direction: column;
   height: 100%;
   gap: 2rem;
+}
+
+.build-page-details.delete p {
+  align-self: center;
+}
+
+/* BUILD DELETE PAGE MOBILE STYLES */
+@media (max-width: 600px) {
+  .items-container.delete {
+    grid-template-columns: 100% !important;
+    width: 100% !important;
+  }
+
+  .build-page-details.delete {
+    padding: 1rem;
+    width: inherit;
+    gap: 3rem;
+  }
+
+  .password-field {
+    gap: 0.75rem;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .password-input {
+    max-width: calc(100% - 1rem);
+    align-self: flex-start;
+  }
+
+  .password-input img {
+    right: 1.35rem;
+  }
+
+  .password-input input {
+    max-width: inherit;
+  }
+
+  .password-error {
+    align-self: flex-start;
+  }
+
+  .product-page-btns.delete {
+    gap: 2rem;
+  }
 }
 
 /* BUILDER EDIT SPECIFIC STYLES */

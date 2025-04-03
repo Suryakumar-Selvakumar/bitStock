@@ -3,22 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="../../static/bootstrap.css" />
+    <link rel="stylesheet" href="../../static/styles.css" />
     <title>bitStock</title>
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="build-page">
-      <div class="first-row in-products">
+    <main class="products-page build">
+      <div class="first-row-products">
         <h1><%= build.build_name %></h1>
         <button class="product-submit add" onclick="goBack()">
           << Return to <%= build.build_name %>
         </button>
       </div>
-      <div class="items-container build">
+      <div class="items-container delete">
         <div class="sidebar build">
           <img src="<%= build.image %>" alt="<%= build.build_name %>" />
-          <div class="build-page-details">
+          <div class="build-page-details mobile">
             <div class="product-detail">
               <span>Build for</span>
               <span><%= build.build_for %></span>
@@ -85,5 +86,20 @@
         }
       });
     </script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
