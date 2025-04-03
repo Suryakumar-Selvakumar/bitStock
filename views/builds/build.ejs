@@ -1,15 +1,15 @@
 <a href="/builds/<%= build.id %>" class="product-link">
-  <div class="product">
+  <div class="product build">
     <div class="build-image">
       <img src="<%= build.image %>" alt="<%= build.build_name %>" />
     </div>
-    <div class="product-details">
+    <div class="product-details build">
       <p class="build-name"><%= build.build_name %></p>
       <div class="feature-row">
-        <div class="product-feature"><%= build.cpu %></div>
-        <div class="product-feature right"><%= build.gpu %></div>
+        <div class="product-feature build"><%= build.cpu %></div>
+        <div class="product-feature right build"><%= build.gpu %></div>
       </div>
-      <div class="feature-row">
+      <div class="feature-row build">
         <div class="product-feature build">
           <svg viewBox="0 0 16 16" fill="none">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -30,7 +30,7 @@
             </g></svg
           ><%= build.build_for %>
         </div>
-        <div class="product-feature right">$<%= build.price %></div>
+        <div class="product-feature right build">$<%= build.price %></div>
       </div>
     </div>
   </div>

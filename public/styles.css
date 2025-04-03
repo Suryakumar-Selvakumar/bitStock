@@ -710,7 +710,7 @@ main {
   .product-form-header {
     width: 100%;
     padding: 0 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-top: 7.5rem;
     gap: 1rem;
   }
@@ -988,7 +988,7 @@ main {
   .products {
     padding: 0.87rem;
     grid-template-columns: 1fr;
-    grid-auto-rows: 290px;
+    grid-auto-rows: 280px;
     gap: 1rem;
   }
 
@@ -1043,7 +1043,7 @@ main {
 
   .product-details {
     gap: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
 
   .product-name {
@@ -1054,7 +1054,7 @@ main {
     justify-content: center;
     font-weight: 500;
     font-size: 1rem;
-    height: 70px;
+    height: 75px;
     text-align: center;
     word-break: break-word;
   }
@@ -1552,6 +1552,63 @@ main {
   font-weight: 600;
   font-size: 1.15rem;
   height: 30px;
+}
+
+/* BUILDS PAGE MOBILE STYLES */
+@media (max-width: 600px) {
+  .products.builds {
+    grid-auto-rows: 430px;
+  }
+
+  .product.build {
+    height: 430px;
+  }
+
+  .build-image {
+    width: 100%;
+    height: 150px;
+    padding: 1rem 0 0 0;
+  }
+
+  .build-image img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .product-details.build {
+    justify-content: space-between;
+  }
+
+  .product-details.build .feature-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+  }
+
+  .product-feature.build {
+    text-align: center;
+    height: max-content;
+    justify-content: center;
+    height: max-content;
+    overflow: visible;
+  }
+
+  .product-feature.right.build {
+    text-align: center;
+  }
+
+  .build-name {
+    width: 100% !important;
+    font-weight: 500;
+    font-size: 1rem;
+    height: max-content;
+    text-align: center;
+    word-break: break-word;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* BUILD PAGE STYLES */
