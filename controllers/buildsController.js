@@ -348,8 +348,6 @@ const editBuildGet = async (req, res) => {
   res.redirect("/builds/builder");
 };
 
-const editBuildPost = async (req, res) => {};
-
 const deleteBuildGet = async (req, res) => {
   const { buildId } = req.params;
 
@@ -399,7 +397,6 @@ module.exports = {
   choosePartGet,
   choosePartPost,
   editBuildGet,
-  editBuildPost,
   deleteBuildGet,
   deleteBuildPost,
   getBuild,

@@ -99,7 +99,7 @@
                 required
               />
             </div>
-            <div class="label-input-container">
+            <div class="<%= buildDetails.image ? "label-input-container image" : "label-input-container" %>">
               <label for="image" id="image-label"
                 >Build Image: <% if(buildDetails.image) { %>
                 <img
@@ -109,7 +109,6 @@
                 />
                 <% } %></label
               >
-
               <input
                 type="file"
                 id="image"

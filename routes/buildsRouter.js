@@ -16,7 +16,6 @@ const {
   choosePartGet,
   choosePartPost,
   editBuildGet,
-  editBuildPost,
   deleteBuildGet,
   deleteBuildPost,
   getBuild,
@@ -36,7 +35,6 @@ buildsRouter.get("/builder/delete/:buildPart", deletePartGet);
 buildsRouter.get("/builder/:buildPart", choosePartGet);
 buildsRouter.post("/builder/:buildPart", choosePartPost);
 buildsRouter.get("/edit/:buildId", editBuildGet);
-buildsRouter.post("/edit/:buildId", editBuildPost);
 buildsRouter.get("/delete/:buildId", deleteBuildGet);
 buildsRouter.post("/delete/:buildId", deleteBuildPost);
 buildsRouter.get("/:buildId", getBuild);
