@@ -733,6 +733,8 @@ main {
 
   .product-submit {
     padding: 0.5rem;
+    height: max-content;
+    align-self: flex-end;
   }
 
   .input-grouper {
@@ -1195,7 +1197,7 @@ main {
   .product-container {
     margin: 0rem;
     padding: 1rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     gap: 2rem;
     grid-template-areas:
       "category-brand"
@@ -1418,7 +1420,7 @@ main {
     gap: 0.5rem;
   }
 
-  .product-detail {
+  .product-page-details .product-detail {
     width: 100%;
   }
 
@@ -1466,14 +1468,6 @@ main {
     position: absolute;
     bottom: -1rem;
   }
-
-  .specific-details.edit {
-    gap: 2rem;
-  }
-
-  .product-page-btns.edit {
-    align-self: flex-end;
-  }
 }
 
 /* DELETE PRODUCT PAGE STYLES */
@@ -1510,6 +1504,10 @@ main {
 
 .product-detail.delete {
   width: max-content;
+}
+
+/* DELETE PRODUCT PAGE MOBILE STYLES */
+@media (max-width: 600px) {
 }
 
 /* BUILDER PAGE STYLES */
