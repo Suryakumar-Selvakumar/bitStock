@@ -15,6 +15,10 @@ const encodeImageBase64 = require("../utils/encodeImageBase64");
 const getBuilds = async (req, res) => {
   const { sort } = req.query;
 
+  if (req.session.builder && req.session.builder.edit) {
+    req.session.builder = null;
+  }
+
   if (sort !== undefined) {
     const builds = await db.filterbuilds(sort);
 

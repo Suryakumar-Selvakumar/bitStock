@@ -42,6 +42,10 @@ app.get("/", async (req, res) => {
   const buildsCount = await db.getBuildsNum();
   const productsQuantity = await db.getProductsQuantity();
 
+  if (req.session.builder && req.session.builder.edit) {
+    req.session.builder = null;
+  }
+
   res.render("index", {
     dashboard: {
       productsCount: productsCount,

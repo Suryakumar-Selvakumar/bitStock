@@ -13,6 +13,10 @@ const getProducts = async (req, res) => {
   const categories = await db.getCategories();
   const { sort, category } = req.query;
 
+  if (req.session.builder && req.session.builder.edit) {
+    req.session.builder = null;
+  }
+
   if (sort !== undefined || category !== undefined) {
     const formattedCategory =
       category !== undefined && !Array.isArray(category)
@@ -115,6 +119,10 @@ const getProduct = async (req, res) => {
 
 const getSearchResults = async (req, res) => {
   const { search } = req.query;
+
+  if (req.session.builder && req.session.builder.edit) {
+    req.session.builder = null;
+  }
 
   const products = await db.searchProducts(search);
   products.forEach((product) => {
