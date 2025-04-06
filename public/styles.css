@@ -302,8 +302,15 @@ li {
   }
 }
 
+@media (min-width: 768px) and (max-width: 991px) and (any-pointer: fine) {
+  .page-links {
+    gap: 0rem;
+    align-items: start;
+  }
+}
+
 /* HEADER PC STYLES */
-@media (min-width: 768px) and (max-width: 1440px) and (any-pointer: fine) {
+@media (min-width: 992px) and (max-width: 1440px) and (any-pointer: fine) {
   .page-links {
     gap: 2rem;
     align-items: center;
@@ -2476,13 +2483,14 @@ main {
   justify-content: center;
   align-items: center;
   height: 240px;
-  padding-top: 1.5rem;
+  border-radius: 10px;
 }
 
 .build-image img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
 }
 
 .product-feature.build {
@@ -2490,6 +2498,10 @@ main {
   justify-content: start;
   align-items: start;
   gap: 0.25rem;
+}
+
+.product-details.build .feature-row:last-of-type > div:first-of-type {
+  align-items: center;
 }
 
 .product-feature.build svg {
