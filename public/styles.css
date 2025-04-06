@@ -267,6 +267,13 @@ li {
 
 /* HEADER MOBILE STYLES */
 @media (max-width: 767px) {
+  .logo-svg:last-of-type {
+    min-width: 25.5px !important;
+    position: relative;
+    left: -0.895rem;
+    top: 0.63rem;
+  }
+
   .page-links {
     align-items: start;
     font-size: 1.15rem;
@@ -1309,7 +1316,7 @@ main {
 
   .filter-input label {
     position: relative;
-    top: -1.5px;
+    top: -1.75px;
   }
 
   .first-row-products {
@@ -1321,7 +1328,7 @@ main {
   }
 
   .sidebar {
-    padding: 0.75rem;
+    padding: 0.725rem;
   }
 
   .filter-form {
