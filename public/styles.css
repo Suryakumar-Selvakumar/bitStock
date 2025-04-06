@@ -268,10 +268,10 @@ li {
 /* HEADER MOBILE STYLES */
 @media (max-width: 767px) {
   .logo-svg:last-of-type {
-    min-width: 25.5px !important;
+    min-width: 25.6px !important;
     position: relative;
     left: -0.895rem;
-    top: 0.63rem;
+    top: 0.6306rem;
   }
 
   .page-links {
