@@ -1317,7 +1317,7 @@ main {
   }
 
   .items-container {
-    grid-template-columns: 146px 1fr;
+    grid-template-columns: 146.25px 1fr;
   }
 
   .sidebar {
