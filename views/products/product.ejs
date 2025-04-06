@@ -33,7 +33,7 @@
               action="/builds/builder/<%= product.category %>"
             >
               <input type="hidden" name="productId" value="<%= product.id %>" />
-              <button type="submit" class="product-submit add">Select</button>
+              <button type="submit" class="product-submit add select">Select</button>
             </form>
             <% } else if(pageState === "build") { %> <% } else { %>
             <div class="product-feature right">x<%= product.quantity %></div>

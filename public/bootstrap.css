@@ -4114,6 +4114,7 @@ tbody.collapse.show {
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
+  margin-left: 1rem;
 }
 
 .nav-link:hover,
@@ -4232,7 +4233,6 @@ tbody.collapse.show {
   display: inline-block;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
-  margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;

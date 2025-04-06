@@ -12,7 +12,7 @@
     <main class="product-page">
       <div class="first-row-product">
         <a href="/products/<%= product.id %>">
-          <button class="product-submit add">
+          <button class="product-submit add product-delete">
             << Return to <%= product.name %>
           </button>
         </a>
@@ -39,7 +39,7 @@
             <h1><%= product.name %></h1>
               <div class="product-detail delete">
                 <label for="admin-password"><b>Admin Password:</b></label>
-                <div class="password-field">
+                <div class="password-field product-delete-page">
                 <div class="password-input">
                   <input type="password" id="admin-password" name="adminPassword" required />
                   <img src="../../static/eye-closed.svg" alt="Eye icon" id="show-hide-password" />
