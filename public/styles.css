@@ -1245,7 +1245,7 @@ main {
   margin: 1em;
   z-index: 1;
   left: 0px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .product-image {

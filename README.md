@@ -1,4 +1,4 @@
-<h1 align='center'>BitStock</h1>
+<h1 align='center'>bitStock</h1>
 
 <div align="center">
    <img width=auto height=auto src="./public/output-mobile-3.jpg" alt="output collage">
