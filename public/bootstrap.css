@@ -4230,8 +4230,6 @@ tbody.collapse.show {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
@@ -4283,7 +4281,7 @@ tbody.collapse.show {
 }
 
 .navbar-toggler {
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.35rem;
   font-size: 1.25rem;
   line-height: 1;
   background-color: transparent;
