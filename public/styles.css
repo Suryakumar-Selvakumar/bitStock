@@ -303,8 +303,8 @@ li {
     min-width: 16.45px !important;
     min-height: 16.65px;
     position: relative;
-    left: -0.58rem;
-    top: 7.575px;
+    left: -0.57rem;
+    top: 7.57px;
   }
 
   .logo {
@@ -319,7 +319,7 @@ li {
   }
 
   .logo span:last-of-type {
-    left: -0.785rem;
+    left: -0.75rem;
   }
 
   .page-links {
