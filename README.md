@@ -22,7 +22,7 @@ https://bitstock.onrender.com/
 
 ## Technologies
 
-[![My Skills](https://skillicons.dev/icons?i=nodejs,express,postgres,html,css,bootstrap)](https://skillicons.dev)
+![My Skills](https://go-skill-icons.vercel.app/api/icons?i=js,nodejs,express,postgres,bootstrap,html,css&theme=dark)
 
 ## Screenshots
 
