@@ -31,162 +31,267 @@
   <body>
     <%- include("components/header") %>
     <main class="index-page">
-      <div class="dashboard-container">
-        <h1>Dashboard</h1>
-        <div class="dashboard">
-          <div class="dashboard-stat">
-            <img class="dashboard-icon" src="static/pc-1.png" alt="a pc icon" />
+      <section
+        role="region"
+        aria-labelledby="dashboard-heading"
+        class="dashboard-container"
+      >
+        <h1 id="dashboard-heading">Dashboard</h1>
+        <ul class="dashboard">
+          <li class="dashboard-stat">
+            <img
+              class="dashboard-icon"
+              src="static/pc-1.png"
+              alt=""
+              aria-hidden="true"
+              role="img"
+            />
             <div class="dashboard-details">
               <span><%= dashboard.buildsCount %></span>
               <span>Builds Completed</span>
             </div>
-          </div>
-          <div class="dashboard-stat">
+          </li>
+          <li class="dashboard-stat">
             <img
               class="dashboard-icon"
               src="static/dollar.png"
-              alt="a dollar icon"
+              alt=""
+              aria-hidden="true"
+              role="img"
             />
             <div class="dashboard-details">
               <span>$<%= Math.round(dashboard.revenue) %></span>
               <span>Total Revenue</span>
             </div>
-          </div>
-          <div class="dashboard-stat">
+          </li>
+          <li class="dashboard-stat">
             <img
               class="dashboard-icon"
               src="static/supply.png"
-              alt="a supply icon"
+              alt=""
+              aria-hidden="true"
+              role="img"
             />
             <div class="dashboard-details">
               <span><%= dashboard.productsCount %></span>
               <span>Unique Products</span>
             </div>
-          </div>
-          <div class="dashboard-stat">
+          </li>
+          <li class="dashboard-stat">
             <img
               class="dashboard-icon"
               src="static/p-3.png"
-              alt="a supply icon"
+              alt=""
+              aria-hidden="true"
+              role="img"
             />
             <div class="dashboard-details">
               <span><%= dashboard.productsQuantity %></span>
               <span>No. of Products</span>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="builds-container">
-        <span>Builds</span>
+          </li>
+        </ul>
+      </section>
+      <section
+        role="region"
+        aria-label="Builds actions"
+        class="builds-container"
+      >
+        <h2>Builds</h2>
         <div class="builds">
-          <img src="static/build.png" alt="An image of a PC build" />
+          <img
+            aria-hidden="true"
+            role="img"
+            src="static/build.png"
+            alt="An image of a PC build"
+          />
           <div class="build-links">
-            <a href="/builds">Completed Builds</a>
-            <a href="/builds/builder">Create New build</a>
+            <a aria-label="Go to completed builds page" href="/builds"
+              >Completed Builds</a
+            >
+            <a aria-label="Go to builder page" href="/builds/builder"
+              >Create New build</a
+            >
           </div>
         </div>
-      </div>
-      <div class="categories-container">
-        <span>Products</span>
+      </section>
+      <section
+        role="region"
+        aria-label="Products actions"
+        class="categories-container"
+      >
+        <h2>Products</h2>
         <div class="categories">
-          <a href="/products?category=cpu" class="category">
+          <a
+            aria-label="View CPUs"
+            href="/products?category=cpu"
+            class="category"
+          >
             <img
+              aria-hidden="true"
+              role="img"
               src="static/cpu-1.png"
               alt="An image of a cpu"
               class="category-image"
             />
             <p>CPUs</p>
           </a>
-          <a href="/products?category=cpu-cooler" class="category">
+          <a
+            aria-label="View CPU coolers"
+            href="/products?category=cpu-cooler"
+            class="category"
+          >
             <img
               src="static/cpu-cooler-3.png"
               alt="An image of a cpu cooler"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>CPU Coolers</p>
           </a>
-          <a href="/products?category=motherboard" class="category">
+          <a
+            aria-label="View motherboards"
+            href="/products?category=motherboard"
+            class="category"
+          >
             <img
               src="static/mb-3.png"
               alt="An image of a motherboard"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Motherboards</p>
           </a>
-          <a href="/products?category=memory" class="category">
+          <a
+            aria-label="View memory"
+            href="/products?category=memory"
+            class="category"
+          >
             <img
               src="static/memory-1.png"
               alt="An image of a ram"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Memory</p>
           </a>
-          <a href="/products?category=storage" class="category">
+          <a
+            aria-label="View storage"
+            href="/products?category=storage"
+            class="category"
+          >
             <img
               src="static/storage-2.png"
               alt="An image of a ssd"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Storage</p>
           </a>
-          <a href="/products?category=video-card" class="category">
+          <a
+            aria-label="View video cards"
+            href="/products?category=video-card"
+            class="category"
+          >
             <img
               src="static/video-card-3.png"
               alt="An image of a GPU"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Video Card</p>
           </a>
-          <a href="/products?category=power-supply" class="category">
+          <a
+            aria-label="View power supplies"
+            href="/products?category=power-supply"
+            class="category"
+          >
             <img
               src="static/psu-2.png"
               alt="An image of a power supply"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Power Supplies</p>
           </a>
-          <a href="/products?category=case" class="category">
+          <a
+            aria-label="View cases"
+            href="/products?category=case"
+            class="category"
+          >
             <img
               src="static/case-1.png"
               alt="An image of cases"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Cases</p>
           </a>
-          <a href="/products?category=monitor" class="category">
+          <a
+            aria-label="View monitors"
+            href="/products?category=monitor"
+            class="category"
+          >
             <img
               src="static/monitor-1.png"
               alt="An image of a monitor"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Monitors</p>
           </a>
-          <a href="/products?category=headphones" class="category">
+          <a
+            aria-label="View headphones"
+            href="/products?category=headphones"
+            class="category"
+          >
             <img
               src="static/headphones-1.png"
               alt="An image of a headphone"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Headphones</p>
           </a>
-          <a href="/products?category=keyboard" class="category">
+          <a
+            aria-label="View keyboards"
+            href="/products?category=keyboard"
+            class="category"
+          >
             <img
               src="static/kb-2.png"
               alt="An image of a keyboard"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Keyboards</p>
           </a>
-          <a href="/products?category=mouse" class="category">
+          <a
+            aria-label="View mice"
+            href="/products?category=mouse"
+            class="category"
+          >
             <img
               src="static/mouse-1.png"
               alt="An image of a mouse"
               class="category-image"
+              aria-hidden="true"
+              role="img"
             />
             <p>Mice</p>
           </a>
         </div>
-      </div>
+      </section>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

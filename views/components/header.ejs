@@ -1,6 +1,6 @@
-<nav class="navbar position-fixed navbar-expand-lg navbar-light header">
-  <a class="navbar-brand logo" href="/">
-    <svg viewBox="0 0 48 48" class="logo-svg" fill="#ffffff">
+<header role="navigation"><nav aria-label="Main site navigation" class="navbar position-fixed navbar-expand-lg navbar-light header">
+  <a class="navbar-brand logo" href="/" aria-label="Go to homepage">
+    <svg viewBox="0 0 48 48" class="logo-svg" fill="#ffffff" role="img" aria-hidden="true">
       <g id="SVGRepo_bgCarrier" stroke-width="0" />
       <g
         id="SVGRepo_tracerCarrier"
@@ -34,7 +34,7 @@
     <ul class="navbar-nav mr-auto page-links">
       <li class="nav-item active">
         <a class="nav-link header-link" href="/">
-          <svg fill="#ffffff" class="svg-links-1" viewBox="0 0 24 24">
+          <svg aria-hidden="true" focusable="false" fill="#ffffff" class="svg-links-1" viewBox="0 0 24 24">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
@@ -46,12 +46,11 @@
             </g>
           </svg>
           <span>Home</span>
-          <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link header-link" href="/builds/builder"
-          ><svg viewBox="0 0 16 16" class="svg-links-2">
+          ><svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" class="svg-links-2">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g
               id="SVGRepo_tracerCarrier"
@@ -76,6 +75,8 @@
       <li class="nav-item">
         <a class="nav-link header-link" href="/products"
           ><svg
+            aria-hidden="true" 
+            focusable="false"
             viewBox="0 0 512 512"
             xml:space="preserve"
             class="svg-links"
@@ -171,7 +172,7 @@
         </a>
       </li>
       <li class="nav-item"><a href="/builds" class="nav-link header-link">
-        <svg class="svg-links-1" height="27.5" fill="none">
+        <svg aria-hidden="true" focusable="false" class="svg-links-1" height="27.5" fill="none">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M21 3h-7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-7-2a3 3 0 0 0-3 3v16a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3h-7Z"></path>
           <path d="M20 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM20 15.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9a4 4 0 0 1 4-4h4a1 1 0 0 1 0 2H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a1 1 0 1 1 0 2H4a4 4 0 0 1-4-4V9ZM9 22a1 1 0 0 1-1 1H4a1 1 0 1 1 0-2h4a1 1 0 0 1 1 1Z"></path>
@@ -182,8 +183,8 @@
       </li>
     </ul>
     <form method="get" action="/products/search" class="search">
-      <input type="text" name="search" placeholder="Search products..." />
-      <button type="submit" class="search-btn">
+      <input aria-label="Search products" type="text" name="search" placeholder="Search products..." />
+      <button aria-label="Submit search input" type="submit" class="search-btn">
         <svg
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -207,3 +208,4 @@
     </form>
   </div>
 </nav>
+</header>

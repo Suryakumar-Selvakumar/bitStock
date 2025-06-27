@@ -86,6 +86,10 @@ body {
 }
 
 /* HEADER STYLES */
+header {
+  width: 100%;
+}
+
 .header {
   width: 100%;
   background-color: #8a2be2;
@@ -110,6 +114,13 @@ body {
   grid-area: logo;
   text-decoration: none;
   width: max-content;
+}
+
+.logo:focus {
+  box-shadow: inset 0 0 0 1.5px black, 0 0 0 1.5px white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
 }
 
 .logo-text {
@@ -215,6 +226,10 @@ li {
   font-family: myFontRegular;
 }
 
+.visually-hidden {
+  visibility: hidden;
+}
+
 .search > input {
   border: 1px solid rgba(0, 0, 0, 0.26);
   outline: none;
@@ -232,10 +247,11 @@ li {
 }
 
 .search-btn {
-  padding: 0;
+  padding: 0.075rem 0;
   background-color: blueviolet;
   border: none;
   outline: none;
+  border-radius: 5px;
 }
 
 .search-icon {
@@ -404,6 +420,7 @@ main {
   display: flex;
   align-items: center;
   gap: 2rem;
+  padding-left: 0;
   width: inherit;
 }
 
@@ -443,8 +460,8 @@ main {
   box-shadow: lightgray 0px 2.5px 15px;
 }
 
-.builds-container span,
-.categories-container span {
+.builds-container h2,
+.categories-container h2 {
   font-weight: 500;
   font-size: 1.15rem;
   position: relative;
