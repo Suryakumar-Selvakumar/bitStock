@@ -1,33 +1,29 @@
 <div class="product-detail">
-  <span>Color</span>
-  <div class="product-colors">
+  <dt>Color</dt>
+  <dd class="product-colors">
     <% product.details.color.split("/").forEach((productColor) => { %>
     <div
       class="product-color"
-      style="
-        background-color: <%= productColor.toLowerCase() %>;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.144);
-      "
+      style="--bg: <%= productColor.toLowerCase() %>"
+      role="img"
+      aria-label="<%= productColor %>"
     ></div>
     <% }) %>
-  </div>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Type</span>
-  <span><%= product.details.type %></span>
+  <dt>Type</dt>
+  <dd><%= product.details.type %></dd>
 </div>
 <div class="product-detail">
-  <span>Efficiency Rating</span>
-  <span><%= product.details.efficiencyRating %></span>
+  <dt>Efficiency Rating</dt>
+  <dd><%= product.details.efficiencyRating %></dd>
 </div>
 <div class="product-detail">
-  <span>Wattage</span>
-  <span> <%= product.details.wattage %> </span>
+  <dt>Wattage</dt>
+  <dd><%= product.details.wattage %></dd>
 </div>
 <div class="product-detail">
-  <span>Modular</span>
-  <span> <%= product.details.modular %> </span>
+  <dt>Modular</dt>
+  <dd><%= product.details.modular %></dd>
 </div>

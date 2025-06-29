@@ -1,39 +1,33 @@
 <div class="product-detail">
-  <span>Color</span>
-  <div class="product-colors">
+  <dt>Color</dt>
+  <dd class="product-colors">
     <% product.details.color.split("/").forEach((productColor) => { %>
     <div
       class="product-color"
-      style="
-        background-color: <%= productColor.toLowerCase() %>;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.144);
-      "
+      style="--bg: <%= productColor.toLowerCase() %>"
+      role="img"
+      aria-label="<%= productColor %>"
     ></div>
     <% }) %>
-  </div>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Style</span>
-  <span><%= product.details.style %></span>
+  <dt>Style</dt>
+  <dd><%= product.details.style %></dd>
 </div>
 <div class="product-detail">
-  <span>Switch Type</span>
-  <span
-    ><%= product.details.switchType ? product.details.switchType : "–" %></span
-  >
+  <dt>Switch Type</dt>
+  <dd><%= product.details.switchType ? product.details.switchType : "–" %></dd>
 </div>
 <div class="product-detail">
-  <span>Backlit</span>
-  <span><%= product.details.backlit %></span>
+  <dt>Backlit</dt>
+  <dd><%= product.details.backlit %></dd>
 </div>
 <div class="product-detail">
-  <span>Tenkeyless</span>
-  <span><%= product.details.tenkeyless %></span>
+  <dt>Tenkeyless</dt>
+  <dd><%= product.details.tenkeyless %></dd>
 </div>
 <div class="product-detail">
-  <span>Tenkeyless</span>
-  <span><%= product.details.connectionType %></span>
+  <dt>Tenkeyless</dt>
+  <dd><%= product.details.connectionType %></dd>
 </div>

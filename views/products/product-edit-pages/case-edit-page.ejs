@@ -1,18 +1,25 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Type</span>
-  <input type="text" name="type" value="<%= product.details.type %>" required />
+  <label for="type">Type</label>
+  <input
+    type="text"
+    id="type"
+    name="type"
+    value="<%= product.details.type %>"
+    required
+  />
 </div>
 <div class="product-detail">
-  <span>Internal HD Bays</span>
+  <label for="hd-bays">Internal HD Bays</label>
   <input
     type="number"
     min="0"
@@ -23,16 +30,17 @@
   />
 </div>
 <div class="product-detail">
-  <span>Side Panel</span>
+  <label for="side-panel">Side Panel</label>
   <input
     type="text"
+    id="side-panel"
     name="sidePanel"
     value="<%= product.details.sidePanel %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>External Volume</span>
+  <label for="external-volume">External Volume</label>
   <input
     type="number"
     step=".1"

@@ -1,29 +1,25 @@
 <div class="product-detail">
-  <span>Color</span>
-  <div class="product-colors">
+  <dt>Color</dt>
+  <dd class="product-colors">
     <% product.details.color.split("/").forEach((productColor) => { %>
     <div
       class="product-color"
-      style="
-        background-color: <%= productColor.toLowerCase() %>;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.144);
-      "
+      style="--bg: <%= productColor.toLowerCase() %>"
+      role="img"
+      aria-label="<%= productColor %>"
     ></div>
     <% }) %>
-  </div>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Connection Type</span>
-  <span><%= product.details.connectionType %></span>
+  <dt>Connection Type</dt>
+  <dd><%= product.details.connectionType %></dd>
 </div>
 <div class="product-detail">
-  <span>Maximum DPI</span>
-  <span><%= product.details.maximumDPI %></span>
+  <dt>Maximum DPI</dt>
+  <dd><%= product.details.maximumDPI %></dd>
 </div>
 <div class="product-detail">
-  <span>Hand Orientation</span>
-  <span> <%= product.details.handOrientation %> </span>
+  <dt>Hand Orientation</dt>
+  <dd><%= product.details.handOrientation %></dd>
 </div>

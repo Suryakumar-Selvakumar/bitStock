@@ -1,14 +1,15 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
-<div class="product-detail">
-  <span>Connection Type</span>
+<fieldset class="product-detail">
+  <legend>Connection Type</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="checkbox" id="wired" name="connectionType" value="Wired" <%=
@@ -29,9 +30,9 @@
       <label for="bluetooth-wireless">Bluetooth Wireless</label>
     </div>
   </div>
-</div>
+</fieldset>
 <div class="product-detail">
-  <span>Maximum DPI</span>
+  <label for="maximum-dpi">Maximum DPI</label>
   <input
     type="number"
     step="100"
@@ -41,8 +42,8 @@
     required
   />
 </div>
-<div class="product-detail">
-  <span>Hand Orientation</span>
+<fieldset class="product-detail">
+  <legend>Hand Orientation</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="right" name="handOrientation" <%=
@@ -57,4 +58,4 @@
       <label for="both">Both</label>
     </div>
   </div>
-</div>
+</fieldset>

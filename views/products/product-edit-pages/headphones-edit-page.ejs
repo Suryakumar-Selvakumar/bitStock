@@ -1,28 +1,30 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Frequency Response</span>
+  <label for="frequency-response">Frequency Response</label>
   <input
     type="text"
     name="frequencyResponse"
+    id="frequency-response"
     value="<%= product.details.frequencyResponse %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Wireless</span>
+  <label for="wireless">Wireless</label>
   <input type="checkbox" id="wireless" <%= product.details.wireless === 'Yes' ?
   'checked' : '' %> name="wireless" />
 </div>
 <div class="product-detail">
-  <span>Microphone</span>
-  <input type="checkbox" name="microphone" <%= product.details.microphone ===
-  'Yes' ? 'checked' : '' %> required />
+  <label for="microphone">Microphone</label>
+  <input type="checkbox" id="microphone" name="microphone" <%=
+  product.details.microphone === 'Yes' ? 'checked' : '' %> required />
 </div>

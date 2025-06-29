@@ -1,5 +1,5 @@
 <div class="product-detail">
-  <span>Capacity</span>
+  <label for="capacity">Capacity</label>
   <input
     type="number"
     min="0"
@@ -10,11 +10,17 @@
   />
 </div>
 <div class="product-detail">
-  <span>Type</span>
-  <input type="text" name="type" value="<%= product.details.type %>" required />
+  <label for="type">Type</label>
+  <input
+    type="text"
+    id="type"
+    name="type"
+    value="<%= product.details.type %>"
+    required
+  />
 </div>
 <div class="product-detail">
-  <span>Cache</span>
+  <label for="cache">Cache</label>
   <input
     type="number"
     min="0"
@@ -23,32 +29,38 @@
     name="cache"
   />
 </div>
-<div class="product-detail">
-  <span>Form Factor</span>
+<fieldset class="product-detail">
+  <legend>Form Factor</legend>
   <div class="product-specific-input-radio">
     <div>
-      <input type="radio" id="M.2-2280" name="formFactor" <%= product.details.formFactor === 'M.2-2280' ? 'checked' : '' %> value="M.2-2280" required />
+      <input type="radio" id="M.2-2280" name="formFactor" <%=
+      product.details.formFactor === 'M.2-2280' ? 'checked' : '' %>
+      value="M.2-2280" required />
       <label for="M.2-2280">M.2-2280</label>
     </div>
     <div>
-      <input type="radio" id='3.5"' name="formFactor" <%= product.details.formFactor === '3.5"' ? 'checked' : '' %> value='3.5"' />
-      <label for="3.5"">3.5"</label>
+      <input type="radio" id='3.5"' name="formFactor" <%=
+      product.details.formFactor === '3.5"' ? 'checked' : '' %> value='3.5"' />
+      <label for='3.5"'>3.5"</label>
     </div>
     <div>
-      <input type="radio" id='2.5"' name="formFactor" <%= product.details.formFactor === '2.5"' ? 'checked' : '' %> value='2.5"' />
+      <input type="radio" id='2.5"' name="formFactor" <%=
+      product.details.formFactor === '2.5"' ? 'checked' : '' %> value='2.5"' />
       <label for='2.5"'>2.5"</label>
     </div>
     <div>
-      <input type="radio" id="PCIe" name="formFactor" <%= product.details.formFactor === 'PCIe' ? 'checked' : '' %> value="PCIe" />
-      <label for="PCIe" >PCIe</label>
+      <input type="radio" id="PCIe" name="formFactor" <%=
+      product.details.formFactor === 'PCIe' ? 'checked' : '' %> value="PCIe" />
+      <label for="PCIe">PCIe</label>
     </div>
   </div>
-</div>
+</fieldset>
 <div class="product-detail">
-  <span>Interface</span>
+  <label for="interface">Interface</label>
   <input
     type="text"
     name="interface"
+    id="interface"
     value="<%= product.details.interface %>"
     required
   />

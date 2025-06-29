@@ -1,5 +1,5 @@
 <div class="product-detail">
-  <span>Core Count</span>
+  <label for="core-count">Core Count</label>
   <input
     type="number"
     min="0"
@@ -10,7 +10,7 @@
   />
 </div>
 <div class="product-detail">
-  <span>Performance Core Clock</span>
+  <label for="core-clock">Performance Core Clock</label>
   <input
     type="number"
     min="0"
@@ -22,28 +22,29 @@
   />
 </div>
 <div class="product-detail">
-  <span>Performance Core Boost Clock</span
+  <label for="boost-clock">Performance Core Boost Clock</label
   ><input
     type="number"
     min="0"
     step=".01"
-    id="boost-count"
+    id="boost-clock"
     name="boostClock"
     value="<%= parseFloat(product.details.boostClock) %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Microarchitecture</span>
+  <label for="microarchitecture">Microarchitecture</label>
   <input
     type="text"
+    id="microarchitecture"
     name="microArchitecture"
     value="<%= product.details.microArchitecture %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>TDP</span>
+  <label for="tdp">TDP</label>
   <input
     type="number"
     min="0"
@@ -54,9 +55,10 @@
   />
 </div>
 <div class="product-detail">
-  <span>Integrated Graphics</span>
+  <label for="integrated-graphics">Integrated Graphics</label>
   <input
     type="text"
+    id="integrated-graphics"
     name="integratedGPU"
     value="<%= product.details.integratedGPU %>"
     required

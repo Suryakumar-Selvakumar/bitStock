@@ -1,39 +1,35 @@
 <div class="product-detail">
-  <span>Color</span>
-  <div class="product-colors">
+  <dt>Color</dt>
+  <dd class="product-colors">
     <% product.details.color.split("/").forEach((productColor) => { %>
     <div
       class="product-color"
-      style="
-        background-color: <%= productColor.toLowerCase() %>;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        border: 1px solid rgba(0, 0, 0, 0.144);
-      "
+      style="--bg: <%= productColor.toLowerCase() %>"
+      role="img"
+      aria-label="<%= productColor %>"
     ></div>
     <% }) %>
-  </div>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Fan RPM</span>
-  <span
-    ><%= product.details.fanRPMMin.charAt(0) === "0" ? product.details.fanRPMMax
-    : product.details.fanRPMMin + " - " + product.details.fanRPMMax %></span
-  >
+  <dt>Fan RPM</dt>
+  <dd>
+    <%= product.details.fanRPMMin.charAt(0) === "0" ? product.details.fanRPMMax
+    : product.details.fanRPMMin + " - " + product.details.fanRPMMax %>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Radiator Size</span>
-  <span
-    ><%= product.details.radiatorSize === "None" ? "–" :
-    product.details.radiatorSize %></span
-  >
+  <dt>Radiator Size</dt>
+  <dd>
+    <%= product.details.radiatorSize === "None" ? "–" :
+    product.details.radiatorSize %>
+  </dd>
 </div>
 <div class="product-detail">
-  <span>Noise Level</span>
-  <span
-    ><%= product.details.noiseLevelMin.charAt(0) === "0" ?
+  <dt>Noise Level</dt>
+  <dd>
+    <%= product.details.noiseLevelMin.charAt(0) === "0" ?
     product.details.noiseLevelMax : product.details.noiseLevelMin + " - " +
-    product.details.noiseLevelMax %></span
-  >
+    product.details.noiseLevelMax %>
+  </dd>
 </div>

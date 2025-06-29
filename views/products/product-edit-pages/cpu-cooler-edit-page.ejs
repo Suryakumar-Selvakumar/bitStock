@@ -1,19 +1,20 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Fan RPM (min, max)</span>
+  <label for="fan-rpm-min">Fan RPM (min, max)</label>
   <span class="product-specific-input">
     <input
       type="number"
       min="0"
-      id="fan-rpm"
+      id="fan-rpm-min"
       name="fanRPMMin"
       value="<%= parseInt(product.details.fanRPMMin) %>"
       required
@@ -21,15 +22,15 @@
     <input
       type="number"
       min="0"
-      id="fan-rpm"
+      id="fan-rpm-max"
       name="fanRPMMax"
       value="<%= parseInt(product.details.fanRPMMax) %>"
       required
     />
   </span>
 </div>
-<div class="product-detail">
-  <span>Radiator Size</span>
+<fieldset class="product-detail">
+  <legend>Radiator Size</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="240" name="radiatorSize" <%=
@@ -54,9 +55,9 @@
       <label for="none">None</label>
     </div>
   </div>
-</div>
+</fieldset>
 <div class="product-detail">
-  <span>Noise Level dB (min, max)</span>
+  <label for="noise-level-min">Noise Level dB (min, max)</label>
   <span class="product-specific-input">
     <input
       type="number"

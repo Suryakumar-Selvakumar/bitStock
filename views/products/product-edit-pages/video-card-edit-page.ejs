@@ -1,23 +1,25 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Chipset</span>
+  <label for="chipset">Chipset</label>
   <input
     type="text"
+    id="chipset"
     name="chipset"
     value="<%= product.details.chipset %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Memory</span>
+  <label for="memory">Memory</label>
   <input
     type="number"
     min="0"
@@ -28,7 +30,7 @@
   />
 </div>
 <div class="product-detail">
-  <span>Core Clock</span>
+  <label for="core-clock">Core Clock</label>
   <input
     type="number"
     min="0"
@@ -39,17 +41,17 @@
   />
 </div>
 <div class="product-detail">
-  <span>Boost Clock</span>
+  <label for="boost-clock">Boost Clock</label>
   <input
     type="number"
     min="0"
-    id="boost-count"
+    id="boost-clock"
     name="boostClock"
     value="<%= parseInt(product.details.boostClock) %>"
   />
 </div>
 <div class="product-detail">
-  <span>Length</span>
+  <label for="length">Length</label>
   <input
     type="number"
     min="0"

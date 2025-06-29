@@ -1,14 +1,15 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
-<div class="product-detail">
-  <span>Style</span>
+<fieldset class="product-detail">
+  <legend>Style</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="gaming" name="style" <%= product.details.style ===
@@ -31,32 +32,34 @@
       <label for="slim">Slim</label>
     </div>
   </div>
-</div>
+</fieldset>
 <div class="product-detail">
-  <span>Switch Type</span>
+  <label for="switch-type">Switch Type</label>
   <input
     type="text"
+    id="switch-type"
     name="switchType"
     value="<%= product.details.switchType %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Backlit</span>
+  <label for="backlit">Backlit</label>
   <input
     type="text"
+    id="backlit"
     name="backlit"
     value="<%= product.details.backlit %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Tenkeyless</span>
+  <label for="tenkeyless">Tenkeyless</label>
   <input type="checkbox" id="tenkeyless" <%= product.details.tenkeyless ===
   "Yes" ? 'checked' : 'No' %> name="tenkeyless" />
 </div>
-<div class="product-detail">
-  <span>Connection Type</span>
+<fieldset class="product-detail">
+  <legend>Connection Type</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="checkbox" id="wired" name="connectionType" value="Wired" <%=
@@ -77,4 +80,4 @@
       <label for="bluetooth-wireless">Bluetooth Wireless</label>
     </div>
   </div>
-</div>
+</fieldset>

@@ -1,14 +1,15 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
-<div class="product-detail">
-  <span>Socket / CPU</span>
+<fieldset class="product-detail">
+  <legend>Socket / CPU</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="AM5" name="socket" value="AM5" <%=
@@ -26,9 +27,9 @@
       <label for="LGA1700">LGA1700</label>
     </div>
   </div>
-</div>
-<div class="product-detail">
-  <span>Form Factor</span>
+</fieldset>
+<fieldset class="product-detail">
+  <legend>Form Factor</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="ATX" name="formFactor" <%=
@@ -54,43 +55,53 @@
       <label for="EATX">EATX</label>
     </div>
   </div>
-</div>
-<div class="product-detail">
-  <span>Memory Max</span>
+</fieldset>
+<fieldset class="product-detail">
+  <legend>Memory Max</legend>
   <div class="product-specific-input-radio">
     <div>
-      <input type="radio" id="64" name="memoryMax" <%= parseInt(product.details.memoryMax) === 64 ? 'checked' : '' %> value="64" required />
+      <input type="radio" id="64" name="memoryMax" <%=
+      parseInt(product.details.memoryMax) === 64 ? 'checked' : '' %> value="64"
+      required />
       <label for="64">64</label>
     </div>
     <div>
-      <input type="radio" id="128" name="memoryMax" <%= parseInt(product.details.memoryMax) === 128 ? 'checked' : '' %> value="128" />
+      <input type="radio" id="128" name="memoryMax" <%=
+      parseInt(product.details.memoryMax) === 128 ? 'checked' : '' %>
+      value="128" />
       <label for="128">128</label>
     </div>
     <div>
-      <input type="radio" id="192" name="memoryMax" <%= parseInt(product.details.memoryMax) === 192 ? 'checked' : '' %> value="192" />
+      <input type="radio" id="192" name="memoryMax" <%=
+      parseInt(product.details.memoryMax) === 192 ? 'checked' : '' %>
+      value="192" />
       <label for="192">192</label>
     </div>
     <div>
-      <input type="radio" id="256" name="memoryMax" <%= parseInt(product.details.memoryMax) === 256 ? 'checked' : '' %> value="256" />
+      <input type="radio" id="256" name="memoryMax" <%=
+      parseInt(product.details.memoryMax) === 256 ? 'checked' : '' %>
+      value="256" />
       <label for="256">256</label>
     </div>
   </div>
-  </div>
-  <div class="product-detail">
-    <span>Memory Slots</span>
-    <div class="product-specific-input-radio">
-      <div>
-        <input type="radio" id="2" name="memorySlots" value="2" <%= product.details.memorySlots === "2" ? 'checked' : '' %> required />
-        <label for="2">2</label>
-      </div>
-      <div>
-        <input type="radio" id="4" name="memorySlots" <%= product.details.memorySlots === "4" ? 'checked' : '' %> value="4" />
-        <label for="4">4</label>
-      </div>
-      <div>
-        <input type="radio" id="8" name="memorySlots" <%= product.details.memorySlots === "8" ? 'checked' : '' %> value="8" />
-        <label for="8">8</label>
-      </div>
+</fieldset>
+<fieldset class="product-detail">
+  <span>Memory Slots</span>
+  <div class="product-specific-input-radio">
+    <div>
+      <input type="radio" id="2" name="memorySlots" value="2" <%=
+      product.details.memorySlots === "2" ? 'checked' : '' %> required />
+      <label for="2">2</label>
+    </div>
+    <div>
+      <input type="radio" id="4" name="memorySlots" <%=
+      product.details.memorySlots === "4" ? 'checked' : '' %> value="4" />
+      <label for="4">4</label>
+    </div>
+    <div>
+      <input type="radio" id="8" name="memorySlots" <%=
+      product.details.memorySlots === "8" ? 'checked' : '' %> value="8" />
+      <label for="8">8</label>
     </div>
   </div>
-</div>
+</fieldset>

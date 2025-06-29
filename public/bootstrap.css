@@ -138,15 +138,6 @@ ul ol {
   margin-bottom: 0;
 }
 
-dt {
-  font-weight: 700;
-}
-
-dd {
-  margin-bottom: 0.5rem;
-  margin-left: 0;
-}
-
 blockquote {
   margin: 0 0 1rem;
 }
@@ -181,14 +172,12 @@ sup {
 }
 
 a {
-  color: #007bff;
   text-decoration: none !important;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -251,11 +240,6 @@ th {
   text-align: inherit;
 }
 
-label {
-  display: inline-block;
-  margin-bottom: 0.25rem;
-}
-
 button {
   border-radius: 0;
 }
@@ -264,7 +248,7 @@ button:focus {
   /* outline: 1px dotted; */
   /* outline: 5px auto -webkit-focus-ring-color; */
   outline-style: inset;
-  outline: 1px solid #eda920;
+  outline: 2px solid #eda920;
 }
 
 input,
@@ -329,13 +313,7 @@ fieldset {
 }
 
 legend {
-  display: block;
-  padding: 0;
   margin-bottom: 0.5rem;
-  font-size: 1rem;
-  line-height: inherit;
-  color: inherit;
-  white-space: normal;
 }
 
 progress {

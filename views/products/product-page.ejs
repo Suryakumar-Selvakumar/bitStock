@@ -27,44 +27,60 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="product-page">
+    <main aria-labelledby="product-heading" class="product-page">
       <div class="first-row-product">
         <% if(pageState) { %>
-        <button class="product-submit add" onclick="goBack()">
-          <% } %> <% if(pageState === "build") { %> << Return to <%=
+        <button
+          type="button"
+          class="product-submit add"
+          onclick="goBack()"
+          aria-label="<%= pageState === 'build' 
+                            ? `Return to ${product.buildName}`
+                            : pageState === 'choose-builder'
+                                ? 'Return to Builder'
+                                : 'Return to products' %>"
+        >
+          <% } %> <% if(pageState === "build") { %> &laquo; Return to <%=
           product.buildName %> <% } else if(pageState === "choose-builder") { %>
-          << Return to Builder <% } else if(pageState === "choose") { %> <<
-          Return to products
+          &laquo; Return to Builder <% } else if(pageState === "choose") { %>
+          &laquo; Return to products
         </button>
         <% } else { %>
-        <a href="/products">
-          <button class="product-submit add"><< Return to products</button>
+        <a href="/products" class="product-submit add"
+          >&laquo; Return to products
         </a>
         <% } %>
       </div>
-      <div class="product-container">
-        <div class="category-brand">
-          <div><%= product.category %></div>
+      <section
+        role="region"
+        aria-labelledby="product-heading"
+        class="product-container"
+      >
+        <header class="category-brand">
+          <p><%= product.category %></p>
           <% if(brandImage.brandImageExists(product.brand)) { %>
           <img
             src="<%= brandImage.getBrandImage(product.brand) %>"
-            alt="<%= product.brand %>"
+            alt=""
+            aria-hidden="true"
           />
           <% } %>
-        </div>
-        <div class="product-page-image">
-          <img src="<%= product.image %>" alt="<%= product.name %>" />
-        </div>
+          <p class="sr-only">Brand: <%= product.brand %></p>
+        </header>
+        <figure class="product-page-image">
+          <img src="<%= product.image %>" alt="" aria-hidden="true" />
+          <figcaption class="sr-only"><%= product.name %></figcaption>
+        </figure>
         <div class="product-page-details">
-          <h1><%= product.name %></h1>
-          <div class="specific-details">
+          <h1 id="product-heading"><%= product.name %></h1>
+          <dl class="specific-details">
             <div class="product-detail">
-              <span>Price</span>
-              <span>$<%= product.price %></span>
+              <dt>Price</dt>
+              <dd>$<%= product.price %></dd>
             </div>
             <div class="product-detail">
-              <span>Quantity</span>
-              <span>x<%= product.quantity %></span>
+              <dt>Quantity</dt>
+              <dd>x<%= product.quantity %></dd>
             </div>
             <% if(category === "cpu") { %> <%- include("product-pages/cpu-page")
             %> <% } else if(category === "cpu-cooler") { %> <%-
@@ -84,25 +100,40 @@
             <% } else if(category === "keyboard") { %> <%-
             include("product-pages/keyboard-page") %> <% } else if(category ===
             "mouse") { %> <%- include("product-pages/mouse-page") %> <% } %>
-          </div>
+          </dl>
         </div>
         <div class="product-page-btns">
           <% if(pageState === "choose-builder" || pageState === "build") { %> <%
           } else if(pageState === "choose") { %>
           <form method="post" action="/builds/builder/<%= product.category %>">
             <input type="hidden" name="productId" value="<%= product.id %>" />
-            <button type="submit" class="product-submit add">Select</button>
+            <button
+              type="submit"
+              class="product-submit add"
+              aria-label="Select <%= product.name %>"
+            >
+              Select
+            </button>
           </form>
           <% } else { %>
           <form method="get" action="/products/edit/<%= product.id %>">
-            <button class="product-submit add">Edit</button>
+            <button
+              type="submit"
+              class="product-submit add"
+              aria-label="Edit <%= product.name %>"
+            >
+              Edit
+            </button>
           </form>
-          <a href="/products/delete/<%= product.id %>">
-            <button class="product-submit delete">Delete</button>
+          <a
+            href="/products/delete/<%= product.id %>"
+            class="product-submit delete"
+            aria-label="Delete <%= product.name %>"
+            >Delete
           </a>
           <% } %>
         </div>
-      </div>
+      </section>
     </main>
     <script>
       function goBack() {

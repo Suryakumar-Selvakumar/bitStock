@@ -27,18 +27,25 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="products-page">
+    <main aria-labelledby="products-heading" class="products-page">
       <div class="first-row-products">
-        <h1>Products</h1>
-        <a href="/products/new">
-          <button class="product-submit add">Add a Product</button>
+        <h1 id="products-heading">Products</h1>
+        <a
+          aria-label="Add a product"
+          class="product-submit add"
+          href="/products/new"
+        >
+          Add a Product
         </a>
       </div>
-      <div class="items-container">
-        <div class="sidebar">
+      <section class="items-container">
+        <section role="region" aria-label="Sidebar menu" class="sidebar">
           <form class="filter-form" action="/products" method="get">
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Name:</label>
+            <span id="sort-instructions" class="sr-only"
+              >Use arrow keys to move through sort options</span
+            >
+            <fieldset aria-describedby="sort-instructions" class="filter-group">
+              <legend class="filter-legend">Sort By Name:</legend>
               <div class="filter-input">
                 <input type="radio" name="sort" id="nameAsc" value="nameAsc" <%=
                 sort === "nameAsc" ? 'checked' : '' %> />
@@ -49,9 +56,9 @@
                 <%= sort === "nameDesc" ? 'checked' : '' %> />
                 <label for="nameDesc">Descending</label>
               </div>
-            </div>
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Price:</label>
+            </fieldset>
+            <fieldset aria-describedby="sort-instructions" class="filter-group">
+              <legend class="filter-legend">Sort By Price:</legend>
               <div class="filter-input">
                 <input type="radio" name="sort" id="priceAsc" value="priceAsc"
                 <%= sort === "priceAsc" ? 'checked' : '' %> />
@@ -62,9 +69,9 @@
                 <%= sort === "priceDesc" ? 'checked' : '' %> />
                 <label for="priceDesc">Descending</label>
               </div>
-            </div>
-            <div class="filter-input-container">
-              <label class="filter-label">Sort By Quantity:</label>
+            </fieldset>
+            <fieldset aria-describedby="sort-instructions" class="filter-group">
+              <legend class="filter-legend">Sort By Quantity:</legend>
               <div class="filter-input">
                 <input type="radio" name="sort" id="quantityAsc"
                 value="quantityAsc" <%= sort === "quantityAsc" ? 'checked' : ''
@@ -77,11 +84,9 @@
                 '' %> />
                 <label for="quantityDesc">Descending</label>
               </div>
-            </div>
-            <div class="filter-input-container">
-              <label for="filter" class="filter-label"
-                >Filter By Category:</label
-              >
+            </fieldset>
+            <fieldset class="filter-group">
+              <legend class="filter-legend">Filter By Category:</legend>
               <% categories.forEach(category => { %>
               <div class="filter-input">
                 <input type="checkbox" name="category" id="<%= category.name %>"
@@ -90,15 +95,21 @@
                 <label for="<%= category.name %>"><%= category.name %></label>
               </div>
               <% }) %>
-            </div>
-            <button class="apply-btn" type="submit">Apply Filters</button>
+            </fieldset>
+            <button
+              aria-label="Apply selected filters"
+              class="apply-btn"
+              type="submit"
+            >
+              Apply Filters
+            </button>
           </form>
-        </div>
-        <div class="products">
+        </section>
+        <section role="region" aria-label="Product results" class="products">
           <% products.forEach(product => { %> <%- include("product", {product:
           product, brandImage: brandImage, pageState: false}) %> <% }) %>
-        </div>
-      </div>
+        </section>
+      </section>
     </main>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

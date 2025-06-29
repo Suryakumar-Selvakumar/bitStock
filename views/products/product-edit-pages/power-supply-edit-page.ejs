@@ -1,14 +1,15 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
-<div class="product-detail">
-  <span>Type</span>
+<fieldset class="product-detail">
+  <legend>Type</legend>
   <div class="product-specific-input-radio">
     <div>
       <input type="radio" id="ATX" name="type" <%= product.details.type ===
@@ -21,52 +22,64 @@
       <label for="SFX">SFX</label>
     </div>
   </div>
-</div>
-<div class="product-detail">
-  <span>Efficiency Rating</span>
+</fieldset>
+<fieldset class="product-detail">
+  <legend>Efficiency Rating</legend>
   <div class="product-specific-input-radio">
     <div>
-      <input 
-      type="radio" 
-      id="Gold" 
-      name="efficiencyRating" 
-      <%= product.details.efficiencyRating.includes("Gold") ? 'checked' : '' %> 
-      value="Gold" 
-      required /> 
-      <label for=Gold">Gold</label>
+      <input type="radio" id="Gold" name="efficiencyRating" <%=
+      product.details.efficiencyRating.includes("Gold") ? 'checked' : '' %>
+      value="Gold" required />
+      <label for="Gold">Gold</label>
     </div>
     <div>
-      <input type="radio" id="Bronze" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Bronze") ? 'checked' : '' %> value="Bronze" />
+      <input type="radio" id="Bronze" name="efficiencyRating" <%=
+      product.details.efficiencyRating.includes("Bronze") ? 'checked' : '' %>
+      value="Bronze" />
       <label for="Bronze">Bronze</label>
     </div>
     <div>
-      <input type="radio" id="Platinum" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Platinum") ? 'checked' : '' %> value="Platinum" />
+      <input type="radio" id="Platinum" name="efficiencyRating" <%=
+      product.details.efficiencyRating.includes("Platinum") ? 'checked' : '' %>
+      value="Platinum" />
       <label for="Platinum">Platinum</label>
     </div>
     <div>
-      <input type="radio" id="Titanium" name="efficiencyRating" <%= product.details.efficiencyRating.includes("Titanium") ? 'checked' : '' %> value="Titanium" />
+      <input type="radio" id="Titanium" name="efficiencyRating" <%=
+      product.details.efficiencyRating.includes("Titanium") ? 'checked' : '' %>
+      value="Titanium" />
       <label for="Titanium">Titanium</label>
     </div>
   </div>
-</div>
+</fieldset>
 <div class="product-detail">
-  <span>Wattage</span>
-  <input type="number" min="0" id="wattage" name="wattage" value="<%= parseInt(product.details.wattage) %>" required />
+  <label for="wattage">Wattage</label>
+  <input
+    type="number"
+    min="0"
+    id="wattage"
+    name="wattage"
+    value="<%= parseInt(product.details.wattage) %>"
+    required
+  />
 </div>
-<div class="product-detail">
-  <span>Modular</span>
+<fieldset class="product-detail">
+  <legend>Modular</legend>
   <div class="product-specific-input-radio">
     <div>
-      <input type="radio" id="Full" name="modular" <%= product.details.modular === 'Full' ? 'checked' : '' %> value="Full" required />
-      <label for=Full">Full</label>
+      <input type="radio" id="Full" name="modular" <%= product.details.modular
+      === 'Full' ? 'checked' : '' %> value="Full" required />
+      <label for="Full">Full</label>
     </div>
     <div>
-      <input type="radio" id="No" name="modular" <%= product.details.modular === 'No' ? 'checked' : '' %> value="No" />
+      <input type="radio" id="No" name="modular" <%= product.details.modular ===
+      'No' ? 'checked' : '' %> value="No" />
       <label for="No">No</label>
     </div>
     <div>
-      <input type="radio" id="Semi" name="modular" <%= product.details.modular === 'Semi' ? 'checked' : '' %> value="Semi" />
+      <input type="radio" id="Semi" name="modular" <%= product.details.modular
+      === 'Semi' ? 'checked' : '' %> value="Semi" />
       <label for="Semi">Semi</label>
     </div>
-</div>
-</div>
+  </div>
+</fieldset>

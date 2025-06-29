@@ -27,12 +27,13 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="product-page">
+    <main aria-labelledby="product-heading" class="product-page">
       <div class="first-row-product">
-        <a href="/products/<%= product.id %>">
-          <button class="product-submit add product-delete">
-            << Return to <%= product.name %>
-          </button>
+        <a
+          href="/products/<%= product.id %>"
+          class="product-submit add product-delete"
+        >
+          &laquo; Return to <%= product.name %>
         </a>
       </div>
       <form
@@ -40,47 +41,75 @@
         action="/products/delete/<%= product.id %>"
         class="product-container"
       >
-      <div class="category-brand">
-        <div><%= product.category %></div>
-        <% if(brandImage.brandImageExists(product.brand)) { %>
-        <img
-          src="<%= brandImage.getBrandImage(product.brand) %>"
-          alt="<%= product.brand %>"
-        />
-        <% } %>
-      </div>
-        </div>
-        <div class="product-page-image">
-            <img src="<%= product.image %>" alt="<%= product.name %>" />
-          </div>
-          <div class="product-page-details">
-            <h1><%= product.name %></h1>
-              <div class="product-detail delete">
-                <label for="admin-password"><b>Admin Password:</b></label>
-                <div class="password-field product-delete-page">
-                <div class="password-input">
-                  <input type="password" id="admin-password" name="adminPassword" required />
-                  <img src="../../static/eye-closed.svg" alt="Eye icon" id="show-hide-password" />
-                </div>
-                <% if(retry) { %>
-                  <div class="password-error">
-                      Password incorrect
-                  </div>
-                <% } %>  
-                </div>
+        <header class="category-brand">
+          <p><%= product.category %></p>
+          <% if(brandImage.brandImageExists(product.brand)) { %>
+          <img
+            src="<%= brandImage.getBrandImage(product.brand) %>"
+            alt=""
+            aria-hidden="true"
+          />
+          <% } %>
+        </header>
+        <figure class="product-page-image">
+          <img aria-hidden="true" src="<%= product.image %>" alt="" />
+          <figcaption class="sr-only"><%= product.name %></figcaption>
+        </figure>
+        <div class="product-page-details">
+          <h1 id="product-heading"><%= product.name %></h1>
+          <div class="product-detail delete">
+            <label for="admin-password">Admin Password:</label>
+            <div class="password-field product-delete-page">
+              <div class="password-input">
+                <input
+                  tabindex="-1"
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  value=""
+                  class="sr-only"
+                />
+                <input
+                  autocomplete="current-password"
+                  type="password"
+                  id="admin-password"
+                  name="adminPassword"
+                  required
+                />
+                <img
+                  tabindex="0"
+                  role="button"
+                  aria-label="Show or Hide password"
+                  src="../../static/eye-closed.svg"
+                  alt=""
+                  id="show-hide-password"
+                />
+              </div>
+              <% if(retry) { %>
+              <div role="alert" class="password-error">Password incorrect</div>
+              <% } %>
             </div>
           </div>
+        </div>
         <div class="product-page-btns delete">
           <p><i>Note: Admin Password is required for product deletion</i></p>
-          <button type="submit" class="product-submit add">Submit</button>
+          <button type="submit" class="product-submit add">Delete</button>
         </div>
       </form>
     </main>
     <script>
       const passwordInput = document.getElementById("admin-password");
-      const togglePasswordButton = document.getElementById("show-hide-password");
+      const togglePasswordButton =
+        document.getElementById("show-hide-password");
 
-      togglePasswordButton.addEventListener("click", function() {
+      togglePasswordButton.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          togglePasswordButton.click();
+        }
+      });
+
+      togglePasswordButton.addEventListener("click", function () {
         if (passwordInput.type === "password") {
           passwordInput.type = "text";
           togglePasswordButton.src = "../../static/eye-open.svg";
@@ -88,22 +117,22 @@
           passwordInput.type = "password";
           togglePasswordButton.src = "../../static/eye-closed.svg";
         }
-      })
+      });
     </script>
     <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
     ></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
     ></script>
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
     ></script>
   </body>
 </html>

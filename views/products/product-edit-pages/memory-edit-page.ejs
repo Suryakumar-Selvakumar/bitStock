@@ -1,32 +1,35 @@
 <div class="product-detail">
-  <span>Color</span>
+  <label for="color">Color</label>
   <input
     type="text"
+    id="color"
     name="color"
     value="<%= product.details.color %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Speed</span>
+  <label for="speed">Speed</label>
   <input
     type="text"
+    id="speed"
     name="speed"
     value="<%= product.details.speed %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>Modules</span>
+  <label for="modules">Modules</label>
   <input
     type="text"
+    id="modules"
     name="modules"
     value="<%= product.details.modules %>"
     required
   />
 </div>
 <div class="product-detail">
-  <span>First Word Latency</span>
+  <label for="first-word-latency">First Word Latency</label>
   <input
     type="number"
     step=".001"
@@ -38,7 +41,7 @@
   />
 </div>
 <div class="product-detail">
-  <span>CAS Latency</span>
+  <label for="cas-latency">CAS Latency</label>
   <input
     type="number"
     min="0"

@@ -27,20 +27,24 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="products-page search">
+    <main aria-labelledby="search-heading" class="products-page search">
       <div class="first-row-products">
-        <h1>Search results for "<%= search %>"</h1>
-        <a href="/products">
-          <button class="product-submit add"><< Return to Products</button>
+        <h1 id="search-heading">Search results for "<%= search %>"</h1>
+        <a href="/products" class="product-submit add"
+          >&laquo; Return to Products
         </a>
       </div>
       <% if(products.length) { %>
-      <div class="search-items-container">
+      <section
+        role="region"
+        aria-label="Matching products"
+        class="search-items-container"
+      >
         <% products.forEach(product => { %> <%- include("product", {product:
         product, brandImage: brandImage, pageState: false}) %> <% }) %>
-      </div>
+      </section>
       <% } else { %>
-      <h2 style="align-self: start">No results found.</h2>
+      <p role="status" aria-live="polite" id="no-results">No results found.</p>
       <% } %>
     </main>
     <script

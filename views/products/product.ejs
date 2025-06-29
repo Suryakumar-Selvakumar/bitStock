@@ -1,46 +1,57 @@
-<% if(pageState === "build") { %>
 <a
-  href="/products/<%= product.id %>?build=<%= buildName %>"
+  href="<%= pageState === 'build' 
+          ? `/products/${product.id}?build=${buildName}` 
+          : pageState === 'choose' 
+              ? `/products/${product.id}?choose=true`  
+              : `/products/${product.id}`%>"
+  aria-label="<%= pageState === 'choose' 
+                ? `Choose ${product.name}` 
+                : `View details for ${product.name}` %>"
   class="product-link"
 >
-  <% } else if(pageState === "choose") { %>
-  <a href="/products/<%= product.id %>?choose=true" class="product-link">
-    <% } else { %>
-    <a href="/products/<%= product.id %>" class="product-link">
-      <% } %>
-      <div class="product">
-        <% if(brandImage.brandImageExists(product.brand)) { %>
-        <img
-          class="product-brand"
-          src="<%= brandImage.getBrandImage(product.brand) %>"
-          alt="<%= product.brand %>"
-        />
+  <article aria-labelledby="product-name-<%= product.id %>" class="product">
+    <% if(brandImage.brandImageExists(product.brand)) { %>
+    <img
+      aria-hidden="true"
+      class="product-brand"
+      src="<%= brandImage.getBrandImage(product.brand) %>"
+      alt=""
+    />
+    <% } %>
+    <p class="product-category"><%= product.category %></p>
+    <div class="product-image">
+      <img
+        src="<%= product.image ?? 'placeholder-image.jpg' %>"
+        alt="Photo of <%= product.name %>"
+      />
+    </div>
+    <div class="product-details">
+      <p id="product-name-<%= product.id %>" class="product-name">
+        <%= product.name %>
+      </p>
+      <div
+        class="<%= pageState === 'build' ? 'feature-row right' : 'feature-row' %>"
+      >
+        <p
+          class="<%= pageState === 'build' ? 'product-feature right' : 'product-feature' %>"
+        >
+          $<%= product.price %>
+        </p>
+        <% if(pageState === "choose") { %>
+        <form method="post" action="/builds/builder/<%= product.category %>">
+          <input type="hidden" name="productId" value="<%= product.id %>" />
+          <button
+            aria-label="Select <%= product.name %>"
+            type="submit"
+            class="product-submit add select"
+          >
+            Select
+          </button>
+        </form>
+        <% } else if(pageState !== "build") { %>
+        <div class="product-feature right">x<%= product.quantity %></div>
         <% } %>
-        <div class="product-category"><%= product.category %></div>
-        <div class="product-image">
-          <img
-            src="<%= product.image ?? placeholder-image.jpg %>"
-            alt="<%= product.name %>"
-          />
-        </div>
-        <div class="product-details">
-          <p class="product-name"><%= product.name %></p>
-          <div class="<%= pageState === "build" ? "feature-row right" : "feature-row" %>">
-            <div class="<%= pageState === "build" ? "product-feature right" : "product-feature" %>">$<%= product.price %></div>
-            <% if(pageState === "choose") { %>
-            <form
-              method="post"
-              action="/builds/builder/<%= product.category %>"
-            >
-              <input type="hidden" name="productId" value="<%= product.id %>" />
-              <button type="submit" class="product-submit add select">Select</button>
-            </form>
-            <% } else if(pageState === "build") { %> <% } else { %>
-            <div class="product-feature right">x<%= product.quantity %></div>
-            <% } %>
-          </div>
-        </div>
       </div>
-    </a>
-  </a>
+    </div>
+  </article>
 </a>

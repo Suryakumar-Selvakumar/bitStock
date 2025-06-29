@@ -27,13 +27,17 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <div class="choose-category-container">
-      <h1>Choose a Category</h1>
-      <div class="categories">
+    <main
+      aria-labelledby="category-heading"
+      class="choose-category-container"
+    >
+      <h1 id="category-heading">Choose a Category</h1>
+      <section aria-label="Product categories" class="categories">
         <a href="/products/cpu/new" class="category">
           <img
             src="../static/cpu-1.png"
-            alt="An image of a cpu"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>CPUs</p>
@@ -41,7 +45,8 @@
         <a href="/products/cpu-cooler/new" class="category">
           <img
             src="../static/cpu-cooler-3.png"
-            alt="An image of a cpu cooler"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>CPU Coolers</p>
@@ -49,7 +54,8 @@
         <a href="/products/motherboard/new" class="category">
           <img
             src="../static/mb-3.png"
-            alt="An image of a motherboard"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Motherboards</p>
@@ -57,7 +63,8 @@
         <a href="/products/memory/new" class="category">
           <img
             src="../static/memory-1.png"
-            alt="An image of a ram"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Memory</p>
@@ -65,7 +72,8 @@
         <a href="/products/storage/new" class="category">
           <img
             src="../static/storage-2.png"
-            alt="An image of a ssd"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Storage</p>
@@ -73,7 +81,8 @@
         <a href="/products/video-card/new" class="category">
           <img
             src="../static/video-card-3.png"
-            alt="An image of a GPU"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Video Card</p>
@@ -81,7 +90,8 @@
         <a href="/products/power-supply/new" class="category">
           <img
             src="../static/psu-2.png"
-            alt="An image of a power supply"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Power Supplies</p>
@@ -89,7 +99,8 @@
         <a href="/products/case/new" class="category">
           <img
             src="../static/case-1.png"
-            alt="An image of cases"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Cases</p>
@@ -97,7 +108,8 @@
         <a href="/products/monitor/new" class="category">
           <img
             src="../static/monitor-1.png"
-            alt="An image of a monitor"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Monitors</p>
@@ -105,7 +117,8 @@
         <a href="/products/headphones/new" class="category">
           <img
             src="../static/headphones-1.png"
-            alt="An image of a headphone"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Headphones</p>
@@ -113,7 +126,8 @@
         <a href="/products/keyboard/new" class="category">
           <img
             src="../static/kb-2.png"
-            alt="An image of a keyboard"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Keyboards</p>
@@ -121,13 +135,14 @@
         <a href="/products/mouse/new" class="category">
           <img
             src="../static/mouse-1.png"
-            alt="An image of a mouse"
+            aria-hidden="true"
+            alt=""
             class="category-image"
           />
           <p>Mice</p>
         </a>
-      </div>
-    </div>
+      </section>
+    </main>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
