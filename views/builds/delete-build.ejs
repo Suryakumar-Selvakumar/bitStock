@@ -27,63 +27,73 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="products-page build">
+    <main aria-labelledby="build-heading" class="products-page build">
       <div class="first-row-products">
-        <h1><%= build.build_name %></h1>
+        <h1 id="build-heading"><%= build.build_name %></h1>
         <button class="product-submit add" onclick="goBack()">
-          << Return to <%= build.build_name %>
+          &laquo; Return to <%= build.build_name %>
         </button>
       </div>
-      <div class="items-container delete">
-        <div class="sidebar build">
+      <section class="items-container delete">
+        <section role="region" aria-label="Build details" class="sidebar build">
           <img src="<%= build.image %>" alt="<%= build.build_name %>" />
-          <div class="build-page-details mobile">
+          <dl class="build-page-details mobile">
             <div class="product-detail">
-              <span>Build for</span>
-              <span><%= build.build_for %></span>
+              <dt>Build for</dt>
+              <dd><%= build.build_for %></dd>
             </div>
             <div class="product-detail">
-              <span>Price</span>
-              <span>$<%= build.price %></span>
+              <dt>Price</dt>
+              <dd>$<%= build.price %></dd>
             </div>
-          </div>
-        </div>
+          </dl>
+        </section>
         <form
           method="post"
           action="/builds/delete/<%= build.id %>"
-          class="delete-container"
+          class="build-page-details delete"
         >
-          <div class="build-page-details delete">
-            <div class="product-detail delete build">
-              <label for="admin-password"><b>Admin Password:</b></label>
-              <div class="password-field build-delete-page">
-                <div class="password-input">
-                  <input
-                    type="password"
-                    id="admin-password"
-                    name="adminPassword"
-                    required
-                  />
-                  <img
-                    src="../../static/eye-closed.svg"
-                    alt="Eye icon"
-                    id="show-hide-password"
-                  />
-                </div>
-                <% if(retry) { %>
-                <div class="password-error">Password incorrect</div>
-                <% } %>
+          <div class="product-detail delete build">
+            <label for="admin-password">Admin Password:</label>
+            <div class="password-field build-delete-page">
+              <div class="password-input">
+                <input
+                  tabindex="-1"
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  value=""
+                  class="sr-only"
+                />
+                <input
+                  autocomplete="current-password"
+                  type="password"
+                  id="admin-password"
+                  name="adminPassword"
+                  required
+                />
+                <img
+                  tabindex="0"
+                  role="button"
+                  aria-label="Show or Hide password"
+                  src="../../static/eye-closed.svg"
+                  alt=""
+                  id="show-hide-password"
+                />
               </div>
-            </div>
-            <div class="product-page-btns delete">
-              <p>
-                <i>Note: Admin Password is required for build deletion</i>
-              </p>
-              <button type="submit" class="product-submit add">Submit</button>
+              <% if(retry) { %>
+              <div role="alert" class="password-error">Password incorrect</div>
+              <% } %>
             </div>
           </div>
+          <div class="product-page-btns delete">
+            <p>
+              <i>Note: Admin Password is required for build deletion</i>
+            </p>
+            <button type="submit" class="product-submit delete">Delete</button>
+          </div>
         </form>
-      </div>
+      </section>
     </main>
     <script>
       function goBack() {

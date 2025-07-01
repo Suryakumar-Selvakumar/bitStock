@@ -43,7 +43,7 @@
           <% } %> <% if(pageState === "build") { %> &laquo; Return to <%=
           product.buildName %> <% } else if(pageState === "choose-builder") { %>
           &laquo; Return to Builder <% } else if(pageState === "choose") { %>
-          &laquo; Return to products
+          &laquo; Return to parts
         </button>
         <% } else { %>
         <a href="/products" class="product-submit add"
@@ -68,7 +68,7 @@
           <p class="sr-only">Brand: <%= product.brand %></p>
         </header>
         <figure class="product-page-image">
-          <img src="<%= product.image %>" alt="" aria-hidden="true" />
+          <img src="<%= product.image %>" alt="Image of <%= product.name %>" />
           <figcaption class="sr-only"><%= product.name %></figcaption>
         </figure>
         <div class="product-page-details">

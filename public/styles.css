@@ -2279,6 +2279,7 @@ main {
   justify-content: space-between;
   align-items: end;
   text-align: start;
+  font-weight: 400;
 }
 
 .form-error {
@@ -2338,16 +2339,6 @@ main {
   grid-template-columns: max-content 4fr 1fr 1fr 1fr;
 }
 
-.build-component-selected a {
-  text-decoration: none;
-  color: black;
-  transition: all 0.3s ease;
-}
-
-.build-component-selected a:hover {
-  color: var(--app-color-2);
-}
-
 .part-image {
   grid-area: 1 / 1 / 2 / 2;
 }
@@ -2357,6 +2348,13 @@ main {
   padding-left: 2rem;
   grid-area: 1 / 2 / 2 / 3;
   font-weight: 500;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.part-name:hover {
+  color: var(--app-color-2);
 }
 
 .part-quantity {
@@ -2434,7 +2432,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
 
   .build-component {
@@ -2775,6 +2772,7 @@ main {
 .product-submit.build {
   height: min-content;
   min-width: 75px;
+  text-align: center;
 }
 
 /* BUILD PAGE MOBILE STYLES */

@@ -27,18 +27,22 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="products-page">
+    <main aria-labelledby="choose-heading" class="products-page">
       <div class="first-row-products">
-        <h1>Choose a <%= getCategory(buildPart) %></h1>
+        <h1 id="choose-heading">Choose a <%= getCategory(buildPart) %></h1>
         <button class="product-submit add" onclick="goBack()">
-          << Return to Builder
+          &laquo; Return to Builder
         </button>
       </div>
-      <div class="search-items-container choose">
+      <section
+        role="region"
+        aria-label="Choose parts"
+        class="search-items-container choose"
+      >
         <% products.forEach(product => { %> <%- include("../products/product",
         {product: product, brandImage: brandImage, pageState: "choose"}) %> <%
         }) %>
-      </div>
+      </section>
     </main>
     <script>
       function goBack() {

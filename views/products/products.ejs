@@ -30,20 +30,14 @@
     <main aria-labelledby="products-heading" class="products-page">
       <div class="first-row-products">
         <h1 id="products-heading">Products</h1>
-        <a
-          aria-label="Add a product"
-          class="product-submit add"
-          href="/products/new"
-        >
-          Add a Product
-        </a>
+        <a class="product-submit add" href="/products/new"> Add a Product </a>
       </div>
       <section class="items-container">
         <section role="region" aria-label="Sidebar menu" class="sidebar">
           <form class="filter-form" action="/products" method="get">
-            <span id="sort-instructions" class="sr-only"
-              >Use arrow keys to move through sort options</span
-            >
+            <span id="sort-instructions" class="sr-only">
+              Use arrow keys to move through sort options
+            </span>
             <fieldset aria-describedby="sort-instructions" class="filter-group">
               <legend class="filter-legend">Sort By Name:</legend>
               <div class="filter-input">

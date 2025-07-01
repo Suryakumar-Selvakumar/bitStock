@@ -27,20 +27,20 @@
   </head>
   <body>
     <%- include("../components/header") %>
-    <main class="builder-page">
-      <div class="first-row-products">
-        <h1>Builder</h1>
+    <main aria-labelledby="builder-heading" class="builder-page">
+      <header class="first-row-products">
+        <h1 id="builder-heading">Builder</h1>
         <h2>Total: $<%= buildDetails.buildPrice %></h2>
-      </div>
+      </header>
       <form
         method="post"
         class="builder-container"
         enctype="multipart/form-data"
       >
-        <div class="build-components-container">
+        <section class="build-components-container">
           <p class="area-title">
             Components <% if(error) { %>
-            <span class="form-error">
+            <span role="alert" class="form-error">
               Please select all required components to save build*
             </span>
             <% } %>
@@ -57,28 +57,31 @@
                 <a
                   href="/products/<%= category.item.id %>?choose=true&builder=true"
                   class="part-image"
+                  aria-label="View <%= category.item.name %>"
                 >
                   <img
                     src="<%= category.item.image %>"
-                    alt="<%= category.item.name %>"
+                    alt=""
+                    aria-hidden="true"
                   />
                 </a>
                 <a
                   href="/products/<%= category.item.id %>?choose=true&builder=true"
                   class="part-name"
+                  aria-label="View <%= category.item.name %>"
                 >
-                  <p><%= category.item.name %></p>
+                  <%= category.item.name %>
                 </a>
                 <p class="part-quantity">
                   <%= category.item.quantity %> IN STOCK
                 </p>
                 <p class="part-price">$<%= category.item.price %></p>
                 <div class="part-buttons">
-                  <a href="/builds/builder/<%= category.name %>">
-                    <span class="product-submit add">Change</span>
+                  <a href="/builds/builder/<%= category.name %>" class="product-submit add">
+                    Change
                   </a>
-                  <a href="/builds/builder/delete/<%= category.name %>">
-                    <span class="product-submit delete">Remove</span>
+                  <a href="/builds/builder/delete/<%= category.name %>" class="product-submit delete">
+                    Remove
                   </a>
                 </div>
               </div>
@@ -93,9 +96,9 @@
             </div>
             <% }) %>
           </div>
-        </div>
-        <div class="build-details-container">
-          <p class="area-title">Details</p>
+        </section>
+        <section role="region" aria-labelledby="details-heading"" class="build-details-container">
+          <h2 id="details-heading" class="area-title">Details</h2>
           <div class="build-details">
             <div class="label-input-container">
               <label for="builder-name">Build For:</label>
@@ -122,7 +125,8 @@
                 >Build Image: <% if(buildDetails.image) { %>
                 <img
                   src="<%= buildDetails.image %>"
-                  alt="<% buildDetails.buildName %>"
+                  alt=""
+                  aria-hidden="true"
                   class="build-image-edit"
                 />
                 <% } %></label
@@ -135,10 +139,10 @@
               />
             </div>
           </div>
-        </div>
+        </section>
         <div class="build-btns-container">
-          <a href="/builds/builder/cancel">
-            <div class="product-submit delete">Cancel</div>
+          <a href="/builds/builder/cancel" class="product-submit delete">
+            Cancel
           </a>
           <button type="submit" class="product-submit add">Save</button>
         </div>

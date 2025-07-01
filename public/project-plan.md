@@ -482,3 +482,27 @@ Inventory Application for a PC building store that the store owner can use to ke
             • builder – DONE
 
 12. Deploy on Render
+
+13. Keyboard/Screen Reader/ARIA accessibility
+
+    13.1. Homepage – DONE
+
+    13.2. Products
+
+        • products – DONE
+        • product – DONE
+        • add-product – DONE
+        • choose-category – DONE
+        • search-products – DONE
+        • product-page – DONE
+        • edit-product – DONE
+        • delete-product – DONE
+
+    13.3. Builds
+    
+        • builds – DONE
+        • build – DONE
+        • build-page – DONE
+        • delete-build – DONE
+        • choose-part – DONE
+        • builder – DONE
