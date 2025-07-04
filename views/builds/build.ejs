@@ -10,7 +10,7 @@
     <div class="product-details build">
       <p class="build-name"><%= build.build_name %></p>
       <div class="feature-row">
-        <p class="product-feature build"><%= build.cpu %></p>
+        <p id="build-cpu" class="product-feature build"><%= build.cpu %></p>
         <p class="product-feature right build"><%= build.gpu %></p>
       </div>
       <div class="feature-row build">
@@ -33,7 +33,7 @@
               ></path>
             </g>
           </svg>
-          <p><%= build.build_for %></p>
+          <p id="build-for-page"><%= build.build_for %></p>
         </div>
         <p class="product-feature right build">$<%= build.price %></p>
       </div>

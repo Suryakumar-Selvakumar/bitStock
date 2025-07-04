@@ -29,7 +29,10 @@
     <%- include("../components/header") %>
     <main aria-label="Edit <%= product.name %>" class="product-page">
       <div class="first-row-product">
-        <a href="/products/<%= product.id %>" class="product-submit add">
+        <a
+          href="/products/<%= product.id %>"
+          class="product-submit add product-edit"
+        >
           &laquo; Return to <%= product.name %>
         </a>
       </div>

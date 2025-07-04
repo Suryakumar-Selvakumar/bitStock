@@ -30,13 +30,20 @@
     <main aria-labelledby="build-heading" class="products-page build">
       <div class="first-row-products">
         <h1 id="build-heading"><%= build.build_name %></h1>
-        <a href="/builds" class="product-submit add"
+        <a href="/builds" class="product-submit add build-delete"
           >&laquo; Return to builds</a
         >
       </div>
       <section class="items-container build">
-        <section role="region" aria-label="Build details and options" class="sidebar build">
-          <img src="<%= build.image %>" alt="Image of <%= build.build_name %>" />
+        <section
+          role="region"
+          aria-label="Build details and options"
+          class="sidebar build"
+        >
+          <img
+            src="<%= build.image %>"
+            alt="Image of <%= build.build_name %>"
+          />
           <dl class="build-page-details">
             <div class="product-detail">
               <dt>Build for</dt>

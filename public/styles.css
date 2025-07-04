@@ -94,7 +94,6 @@ header {
 .header {
   width: 100%;
   background-color: #8a2be2;
-  box-shadow: 0 0 1rem #a8a8a8;
   z-index: 5;
 }
 
@@ -399,7 +398,6 @@ main {
   height: 100%;
   gap: 2rem;
   margin-top: 10rem;
-  margin-bottom: 2rem;
   place-content: start center;
   width: 1500px;
 }
@@ -570,7 +568,7 @@ main {
       "builds";
     gap: 1rem;
     padding: 0 1rem 1rem 1rem;
-    margin: 7.5rem 0rem 0rem 0rem;
+    margin: 6rem 0rem 0rem 0rem;
     width: 100%;
   }
 
@@ -938,6 +936,7 @@ main {
 .product-submit {
   cursor: pointer;
   width: 100%;
+  text-align: center;
   border-radius: 5px;
   border: 1px solid transparent;
   background-color: rgba(138, 43, 226, 0.55);
@@ -1022,6 +1021,17 @@ main {
 
   .product-submit.add.product-delete {
     width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-word;
+  }
+
+  .product-submit.add.product-edit {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     word-break: break-word;
   }
 
@@ -1371,7 +1381,7 @@ main {
     padding: 0 1rem;
     gap: 1rem;
     margin-bottom: 1rem;
-    margin-top: 7.5rem;
+    margin-top: 6rem;
     width: 100%;
   }
 
@@ -1744,7 +1754,7 @@ main {
     padding: 0 1rem;
     gap: 1.3rem;
     margin-bottom: 1rem;
-    margin-top: 7.5rem;
+    margin-top: 6rem;
     width: 100%;
   }
 
@@ -2415,12 +2425,12 @@ main {
     padding: 0 1rem;
     gap: 1rem;
     margin-bottom: 1rem;
-    margin-top: 7.5rem;
+    margin-top: 6rem;
     width: 100%;
   }
 
   .builder-container {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .builder-container input:focus {
@@ -2432,6 +2442,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .form-error {
+    text-align: center;
   }
 
   .build-component {
@@ -2649,19 +2663,21 @@ main {
     overflow: visible;
   }
 
-  .product-details.build .feature-row:first-of-type > div:first-of-type {
+  #build-cpu {
     height: 45px;
     overflow: hidden;
     align-items: start;
   }
 
   .product-details.build .feature-row:last-of-type > div:first-of-type {
-    height: 25px;
-    overflow: hidden;
+    width: 135px;
     align-items: center;
   }
 
-  .product-details.build .feature-row:last-of-type > div:first-of-type span {
+  #build-for-page {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     align-self: flex-start;
     width: min-content;
   }
@@ -2816,6 +2832,13 @@ main {
 
 /* BUILD DELETE PAGE MOBILE STYLES */
 @media (max-width: 767px) {
+  .product-submit.add.build-delete {
+    width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .items-container.delete {
     grid-template-columns: 100% !important;
     width: 100% !important;
