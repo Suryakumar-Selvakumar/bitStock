@@ -116,7 +116,7 @@ header {
   width: max-content;
 }
 
-.logo:focus {
+.logo:focus-visible {
   box-shadow: inset 0 0 0 1.5px black, 0 0 0 1.5px white;
   outline: none;
   border: none;
@@ -1294,7 +1294,7 @@ main {
   text-decoration: none !important;
 }
 
-.product-submit:focus {
+.product-submit:focus-visible {
   outline: 2px solid var(--app-color-2);
 }
 
